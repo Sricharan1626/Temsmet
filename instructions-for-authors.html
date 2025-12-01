@@ -61,13 +61,6 @@
             border-radius: 0.25rem;
         }
 
-        #main-nav-bar a.active-nav {
-        color: white; 
-        border-bottom: 4px solid var(--ieee-blue-dark);
-        padding-bottom: 0.75rem;
-        margin-bottom: -4px; 
-        }
-
         /* Highlight box for key info - Professional blue left border */
         .info-box {
             border-left: 5px solid var(--ieee-blue-medium); /* Changed to medium blue for professionalism */
@@ -91,6 +84,18 @@
             box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
         }
 
+        /* Download Button Styles */
+        .download-btn {
+            background-color: white;
+            border: 2px solid #0070b8;
+            color: var(--ieee-blue-dark);
+            transition: all 0.2s ease;
+            font-weight: 600;
+        }
+        .download-btn:hover {
+            background-color: var(--ieee-blue-medium);
+        }
+        
         /* Mobile Menu Transitions */
         #mobile-menu-drawer {
             transition: transform 0.3s ease-in-out;
@@ -152,8 +157,8 @@
             <!-- Logo/Title Block -->
             <div class="flex-grow md:flex-grow-0">
                 <a href="index.html" class="flex flex-col items-start text-white leading-none">
-                    <h1 class="text-xl md:text-2xl font-bold uppercase tracking-tight">The 5th IEEE TEMSMET 2026 Conference</h1>
-                    <span class="text-xs md:text-sm font-light">(Technology, Engineering, Management for Societal Impact)</span>
+                    <h1 class="text-xl md:text-2xl font-bold uppercase tracking-tight">International Conference on AI and Security</h1>
+                    <span class="text-xs md:text-sm font-light">(Industrial IoT Systems)</span>
                 </a>
             </div>
 
@@ -200,17 +205,17 @@
                 <li><a href="index.html" class="block py-3 text-white font-semibold hover:text-gray-200 transition duration-150">HOME</a></li>
                 <li><a href="committee.html" class="block py-3 text-white font-semibold hover:text-gray-200 transition duration-150">COMMITTEE</a></li>
                 <li class="group relative">
-                    <a href="#" class="block py-3 text-white font-semibold hover:text-gray-200 transition duration-150 active-nav">FOR AUTHORS <i class="fas fa-caret-down text-xs"></i></a>
+                    <a href="#" class="block py-3 text-white font-semibold hover:text-gray-200 transition duration-150">FOR AUTHORS <i class="fas fa-caret-down text-xs"></i></a>
                     <ul class="absolute hidden group-hover:block bg-white shadow-xl rounded-b-lg min-w-[200px] z-20">
                         <li><a href="call-for-papers.html" class="block px-4 py-2 text-ieee-grey-text hover:bg-gray-100">Call for Papers</a></li>
                         <li><a href="important-dates.html" class="block px-4 py-2 text-ieee-grey-text hover:bg-gray-100">Important Dates</a></li>
-                        <li><a href="instructions-for-authors.html" class="block px-4 py-2 text-ieee-grey-text hover:bg-gray-100 active-dropdown-link">Instructions for Authors</a></li>
-                        <li><a href="instructions-of-review-manuscripts.html" class="block px-4 py-2 text-ieee-grey-text hover:bg-gray-100">Review Manuscripts</a></li>
-                         <!-- Active link within the dropdown -->
-                        <li><a href="#" class="block px-4 py-2 text-ieee-grey-text hover:bg-gray-100 ">Camera Ready</a></li>
+                        <!-- Active link within the dropdown -->
+                        <li><a href="instructions-for-authors.html" class="block px-4 py-2 text-ieee-grey-text hover:bg-gray-100 active-dropdown-link">Instructions</a></li>
+                        <li><a href="instructions-of-review-manuscripts.html" class="block px-4 py-2 text-ieee-grey-text hover:bg-gray-100 active-dropdown-link">Review Manuscripts</a></li>
+                    <li><a href="instructions-for-camera-ready-papers.html" class="block px-4 py-2 text-ieee-grey-text hover:bg-gray-100">Camera Ready</a></li>
                     </ul>
                 </li>
-                <li><a href="registration.html" class="block py-3 text-white font-semibold hover:text-gray-200 transition duration-150">REGISTRATION</a></li>
+                <li><a href="#" class="block py-3 text-white font-semibold hover:text-gray-200 transition duration-150">REGISTRATION</a></li>
                 <li><a href="#" class="block py-3 text-white font-semibold hover:text-gray-200 transition duration-150">SPONSORSHIPS</a></li>
                 <li><a href="#" class="block py-3 text-white font-semibold hover:text-gray-200 transition duration-150">CONTACT US</a></li>
             </ul>
@@ -237,7 +242,7 @@
                     <li><a href="#" class="block py-1 px-3 rounded hover:bg-ieee-blue-light text-sm active-dropdown-link">Instructions</a></li>
                 </ul>
             </li>
-            <li><a href="registration.html" class="block py-2 px-3 rounded hover:bg-ieee-blue-medium">REGISTRATION</a></li>
+            <li><a href="#" class="block py-2 px-3 rounded hover:bg-ieee-blue-medium">REGISTRATION</a></li>
             <li><a href="#" class="block py-2 px-3 rounded hover:bg-ieee-blue-medium">SPONSORSHIPS</a></li>
             <li><a href="#" class="block py-2 px-3 rounded hover:bg-ieee-blue-medium">CONTACT US</a></li>
         </ul>
@@ -249,6 +254,7 @@
                 <a href="#" target="_blank" class="hover:text-ieee-blue-light"><i class="fab fa-facebook-f"></i></a>
                 <a href="#" target="_blank" class="hover:text-ieee-blue-light"><i class="fab fa-linkedin-in"></i></a>
                 <a href="#" target="_blank" class="hover:text-ieee-blue-light"><i class="fab fa-youtube"></i></a>
+                <a href="#" target="_blank" class="hover:text-ieee-blue-light"><i class="fas fa-share-alt"></i></a>
             </div>
         </div>
     </div>
@@ -257,80 +263,83 @@
     <!-- 4. Main Content Area -->
     <main class="max-w-5xl mx-auto p-4 sm:p-6 lg:p-8">
 
-        <h1 class="text-4xl font-extrabold text-ieee-blue-dark text-center mb-10">Instructions for Authors</h1>
+        <h1 class="text-4xl font-extrabold text-ieee-blue-dark text-center mb-10">Submission Guidelines for Authors</h1>
         
-        <!-- General Information -->
+        <!-- Submission Guidelines Section -->
         <section class="bg-white p-8 rounded-lg shadow-xl mb-10">
-            <h2 class="text-2xl font-bold text-ieee-red mb-4 border-b border-gray-200 pb-2 flex items-center">
-                <i class="fas fa-file-alt mr-3 text-ieee-blue-dark"></i> Paper Submission Guidelines
+            <h2 class="text-2xl font-bold text-ieee-dark mb-4 border-b border-gray-200 pb-2 flex items-center">
+                <i class="fas fa-file-upload mr-3 text-ieee-blue-dark"></i> General Submission Information
             </h2>
-
-            <!-- Format and Length Box -->
+            <p class="mb-4 text-gray-700">
+                Prospective authors are invited to submit original technical papers for publication in the TEMSMET 2025. All presented papers will be submitted to the IEEE for possible inclusion in IEEE Xplore. All papers should adhere to the following guidelines:
+            </p>
+            
             <div class="info-box p-4 rounded-lg shadow-inner mb-6">
-                <p class="mb-2 text-lg font-semibold text-ieee-blue-medium">Format and Length Requirements:</p>
+                <p class="mb-2 text-lg font-semibold text-ieee-blue-medium">Key Requirements:</p>
                 <ul class="list-disc list-inside space-y-2 text-gray-700 ml-4">
-                    <li>Papers must be submitted in <strong>PDF format</strong>.</li>
-                    <li>Maximum length is <strong>5 pages</strong> (double-column format), including all figures, tables, and references.</li>
-                    <li>You must use the standard IEEE template: 
-                        <a href="http://www.ieee.org/conferences_events/conferences/publishing/templates.html" target="_blank" class="text-ieee-red hover:underline font-medium">[Official IEEE Templates Link]</a>
-                    </li>
-                    <li class="font-bold text-ieee-red">Papers not compliant with the template or exceeding the page limit will be returned without review.</li>
+                    <li>All conference submissions should be written in <strong>English</strong>.</li>
+                    <li>Maximum paper length is <strong>six (6) printed pages</strong> (10-point font), including figures and tables.</li>
+                    <li>Review is <strong>single blind</strong>. Papers having poor quality and/or high similarity index will be <strong>desk rejected</strong> (without review).</li>
+                    <li>All the co-authors must be listed with affiliation details in the <strong>initial submission</strong>. No further authors can be added for selected papers.</li>
+                    <li>All the registered papers <strong>must be presented</strong> at the conference.</li>
+                    <li>All presented papers will be submitted to IEEE for possible publication in <strong>IEEE Xplore</strong>.</li>
                 </ul>
             </div>
-
-            <!-- Submission Commitments -->
-            <h3 class="text-xl font-bold text-ieee-blue-medium mb-3">Commitment and Publication</h3>
+            
+            <h3 class="text-xl font-bold text-ieee-blue-medium mb-3">Template and Format</h3>
             <ul class="list-disc list-inside space-y-3 text-gray-700 ml-4">
-                <li>Only <strong>original papers</strong> that have not been published or submitted elsewhere will be considered.</li>
-                <li>Submission of a paper implies a commitment that, upon acceptance, the authors will submit their <strong>camera-ready version</strong> and <strong>present the paper</strong> at the conference.</li>
-                <li><strong>Registration Requirement:</strong> Each accepted contribution must have at least one paid registration by the camera-ready deadline.</li>
-                <li><strong>Publication:</strong> All Accepted and Presented papers will be submitted for publication to <strong>IEEE Xplore</strong>, which is indexed with leading Abstracting & Indexing (A&I) databases (e.g., SCOPUS).</li>
+                <li><strong>LaTeX</strong> is the preferred method to prepare your manuscript. Please use the standard LaTeX IEEE conference template.</li>
+                <li>For <strong>Microsoft Word</strong>, please use the most current version of the IEEE conference template, which will help reduce word-to-pdf conversion issues.</li>
+            </ul>
+
+            <h3 class="text-xl font-bold text-ieee-blue-medium mt-6 mb-3">Camera-Ready Instructions</h3>
+            <ul class="list-disc list-inside space-y-3 text-gray-700 ml-4">
+                <li>Authors who receive final acceptance after paper revision can only register for the conference. The authors will also be expected to submit a final version of the manuscript that will be added to IEEE proceedings as per the conference template.</li>
+                <li>Please upload camera-ready paper and an eCopy transfer file in **Microsoft CMT**.</li>
+                <li>Please make sure that the camera-ready paper has been generated by the template provided to you (Contains <strong>IEEE copyright notice</strong> on the first page bottom left, and the conference name as the footer on the rest of the pages) and <strong>verified with the PDF Express website</strong>.</li>
+                <li>The completed <strong>IEEE electronic copyright form (ECF)</strong> needs to be transferred (as and when it is made available) as per IEEE requirements.</li>
             </ul>
 
             <div class="mt-8 text-center">
-                <h3 class="text-xl font-bold text-ieee-red mb-3">Submission Deadline: 15 February 2026</h3>
-                <a href="https://cmt3.research.microsoft.com/AISIIS2026" target="_blank" class="submit-btn inline-flex items-center px-10 py-4 text-xl rounded-full shadow-lg hover:shadow-xl transition duration-300 transform hover:scale-105">
-                    <i class="fas fa-upload mr-3"></i> Submit Your Paper via CMT
+                <h3 class="text-xl font-bold text-ieee-red mb-3">Submission Link</h3>
+                <a href="[CMT Submission Link Placeholder]" target="_blank" class="submit-btn inline-flex items-center px-10 py-4 text-xl rounded-full shadow-lg hover:shadow-xl transition duration-300 transform hover:scale-105">
+                    <i class="fas fa-paper-plane mr-3"></i> Paper Submission Link
                 </a>
-                <p class="text-sm text-gray-500 mt-3">Microsoft CMT service is used for managing the peer-review process.</p>
             </div>
         </section>
 
-        <!-- Review Process and Policies -->
+
+        <!-- Download Templates Section -->
         <section class="bg-white p-8 rounded-lg shadow-xl mb-10">
-            <h2 class="text-2xl font-bold text-ieee-red mb-4 border-b border-gray-200 pb-2 flex items-center">
-                <i class="fas fa-clipboard-check mr-3 text-ieee-blue-dark"></i> Review Process and Integrity
+            <h2 class="text-2xl font-bold text-ieee-dark mb-6 border-b border-gray-200 pb-2 flex items-center">
+                <i class="fas fa-download mr-3 text-ieee-blue-dark"></i> Download Formats and Templates
             </h2>
             
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                <!-- Column 1: Review Process -->
-                <div>
-                    <h3 class="text-xl font-bold text-ieee-blue-medium mb-3">Review Details</h3>
-                    <ul class="list-disc list-inside space-y-3 text-gray-700 ml-4">
-                        <li>All papers undergo a rigorous, <strong>single-blind reviewing process</strong>.</li>
-                        <li>Accepted papers will be assigned to a regular technical session.</li>
-                        <li><strong>E-Copyright Form:</strong> Must be submitted by the author or presenter at the time of registration.</li>
-                        <li>Papers must satisfy the requirements given in the publication policy.</li>
-                    </ul>
-                </div>
-
-                <!-- Column 2: IEEE Integrity Policies -->
-                <div>
-                    <h3 class="text-xl font-bold text-ieee-red mb-3">IEEE Policies on Integrity</h3>
-                    <div class="info-box p-4 rounded-lg shadow-inner">
-                        <ul class="list-disc list-inside space-y-3 text-gray-700 ml-4">
-                            <li><strong>Plagiarism / Double Submission:</strong> Papers are reviewed on the basis that they do not contain <strong>plagiarized material</strong> and have not been submitted to <strong>any other conference</strong> at the same time (double submission). These matters are taken very seriously.</li>
-                            <li><strong>No-Show Policy:</strong> IEEE reserves the right to exclude a paper from distribution (e.g., by not including it in IEEE Xplore) if the paper is <strong>not presented</strong> at the conference.</li>
-                        </ul>
-                    </div>
-                </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <a href="https://www.ieee.org/content/dam/ieee-org/ieee/web/org/conferences/conference-template-letter.docx" class="download-btn text-center px-6 py-3 rounded-lg flex items-center justify-center space-x-2">
+                    <i class="fas fa-file-word"></i> <span>Word Template</span>
+                </a>
+                <a href="assests/conference-template-letter.pdf" class="download-btn text-center px-6 py-3 rounded-lg flex items-center justify-center space-x-2">
+                    <i class="fas fa-file-pdf"></i> <span>PDF Template</span>
+                </a>
+                <a href="https://www.ieee.org/content/dam/ieee-org/ieee/web/org/conferences/conference-latex-template.zip" class="download-btn text-center px-6 py-3 rounded-lg flex items-center justify-center space-x-2">
+                    <i class="fas fa-file-code"></i> <span>LaTeX Template</span>
+                </a>
+                <a href="#" class="download-btn text-center px-6 py-3 rounded-lg flex items-center justify-center space-x-2">
+                    <i class="fas fa-file-powerpoint"></i> <span>Paper Presentation (PDF)</span>
+                </a>
+                <a href="#" class="download-btn text-center px-6 py-3 rounded-lg flex items-center justify-center space-x-2">
+                    <i class="fas fa-table"></i> <span>Poster Presentation (PPT)</span>
+                </a>
+                <!-- Empty div for layout symmetry -->
+                <div></div>
             </div>
         </section>
 
         <!-- Contact for Clarification -->
         <div class="text-center text-lg mt-10 p-6 bg-ieee-blue-light/10 rounded-lg border border-ieee-blue-light shadow-md">
             <p class="font-semibold text-ieee-blue-dark">For any clarifications regarding the paper submission guidelines, please email:</p>
-            <p class="mt-2 text-2xl font-extrabold text-ieee-red">aisiis2026@gmail.com</p>
+            <p class="mt-2 text-2xl font-extrabold text-ieee-red">temsmet2026@gmail.com</p>
         </div>
         
     </main>
