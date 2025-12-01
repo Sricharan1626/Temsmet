@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Instructions for Authors - International Conference on AI and Security (AISIIS)</title>
+    <title>Registration - International Conference on AI and Security (AISIIS)</title>
     <!-- Load Tailwind CSS --><script src="https://cdn.tailwindcss.com"></script>
     <!-- Load Font Awesome for icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
@@ -36,6 +36,12 @@
             transition: opacity 0.2s;
             text-decoration: none;
         }
+        #main-nav-bar a.active-nav {
+            color: white; 
+            border-bottom: 4px solid var(--ieee-blue-dark);
+            padding-bottom: 0.75rem;
+            margin-bottom: -4px; 
+        }
 
         .meta-nav a:hover {
             opacity: 1;
@@ -44,7 +50,7 @@
         /* Main Header Background (mimicking the tiled pattern) */
         #main-header {
             background-color: var(--ieee-blue-medium);
-            background-image: url('https://placehold.co/100x100/0073B7/0073B7?text='); /* Placeholder for the blue pattern */
+            background-image: url('assests/header-bkg-blue.png'); /* Placeholder for the blue pattern */
             background-repeat: repeat-x;
         }
 
@@ -61,34 +67,95 @@
             border-radius: 0.25rem;
         }
 
-        #main-nav-bar a.active-nav {
-        color: white; 
-        border-bottom: 4px solid var(--ieee-blue-dark);
-        padding-bottom: 0.75rem;
-        margin-bottom: -4px; 
+        /* Pricing Card Styles */
+        .pricing-card {
+            background-color: white;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid #E5E7EB;
+            display: flex;
+            flex-direction: column;
+            position: relative;
         }
 
-        /* Highlight box for key info - Professional blue left border */
-        .info-box {
-            border-left: 5px solid var(--ieee-blue-medium); /* Changed to medium blue for professionalism */
-            background-color: #F4F8FC; /* Very light blue background */
+        .pricing-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-header {
+            padding: 1.5rem;
+            text-align: center;
+            border-bottom: 2px solid var(--ieee-blue-light);
+        }
+
+        .card-body {
+            padding: 1.5rem;
+            flex-grow: 1;
+        }
+        
+        /* Highlighted Card (Most Popular) */
+        .pricing-card.highlight {
+            border: 3px solid var(--ieee-blue-dark);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+        .pricing-card.highlight .card-header {
+            background-color: var(--ieee-blue-dark);
+            color: white;
+            border-bottom-color: white;
+        }
+        /* FIX: Ensure price labels and titles are white on the highlighted card background */
+        .pricing-card.highlight .price-label, 
+        .pricing-card.highlight .card-header h3 {
+            color: white !important;
+        }
+        /* Ensure primary prices are slightly contrasting, but we keep them white too in the highlight state */
+        .pricing-card.highlight .card-header p {
+             color: white;
+        }
+
+        .price-label {
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: #6B7280; /* Default color for visibility on white background */
+        }
+        
+        .feature-list li {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 0.75rem;
+            font-size: 0.95rem;
+        }
+        .feature-list i {
+            color: var(--ieee-blue-medium);
+            margin-right: 0.75rem;
+            margin-top: 0.2rem;
+        }
+
+        /* Info Section Styles */
+        .info-card {
+            background-color: white;
             padding: 1.5rem;
             border-radius: 0.5rem;
-            box-shadow: inset 0 0 5px rgba(0, 115, 183, 0.1);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            border-left: 4px solid var(--ieee-blue-light);
         }
-
-        /* Submission Button - Retaining Red for primary CTA */
-        .submit-btn {
+        .info-card strong {
+            color: var(--ieee-blue-dark);
+        }
+        
+        /* Register Now Button */
+        .register-btn {
             background-color: var(--ieee-red);
             color: white;
             font-weight: 700;
-            transition: all 0.2s ease;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.2s, transform 0.2s;
         }
-
-        .submit-btn:hover {
+        .register-btn:hover {
             background-color: #A30000;
-            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+            transform: scale(1.02);
         }
 
         /* Mobile Menu Transitions */
@@ -116,7 +183,7 @@
             right: 0;
             width: 100%;
             height: 100%;
-            background-image: url('https://placehold.co/800x400/0073B7/005A9C?text=Technical+Circuit+Pattern');
+            background-image: url('assests/header-bkg-blue.png');
             background-size: cover;
             background-position: right center;
             opacity: 0.2;
@@ -151,7 +218,7 @@
 
             <!-- Logo/Title Block -->
             <div class="flex-grow md:flex-grow-0">
-                <a href="index.html" class="flex flex-col items-start text-white leading-none">
+                <a href="index.html" class="flex flex-col items-start text-ieee-blue-medium leading-none">
                     <h1 class="text-xl md:text-2xl font-bold uppercase tracking-tight">The 5th IEEE TEMSMET 2026 Conference</h1>
                     <span class="text-xs md:text-sm font-light">(Technology, Engineering, Management for Societal Impact)</span>
                 </a>
@@ -159,12 +226,10 @@
 
             <!-- Search and IEEE Logo (Right Side - Desktop) -->
             <div class="hidden md:flex items-center space-x-4">
-                <!-- Desktop Search Form - STYLING ADJUSTED -->
-                <form id="desktop-search-form" onsubmit="event.preventDefault(); console.log('Searching...');" class="flex items-center">
+                <form onsubmit="event.preventDefault(); console.log('Searching...');" class="flex items-center">
                     <input type="search" placeholder="Search Conference" class="p-2 text-sm text-ieee-grey-text rounded-l-lg focus:ring-2 focus:ring-ieee-blue-light border border-gray-300">
-                    <!-- Updated button style -->
                     <button type="submit" class="bg-white p-2 text-ieee-blue-dark rounded-r-lg border border-gray-300 border-l-0">
-                        <i class="fa fa-search" aria-hidden="true" title="search"></i>
+                        <i class="fa fa-search"></i>
                     </button>
                 </form>
                 <a href="https://www.ieee.org/" target="_blank" class="w-16">
@@ -200,17 +265,15 @@
                 <li><a href="index.html" class="block py-3 text-white font-semibold hover:text-gray-200 transition duration-150">HOME</a></li>
                 <li><a href="committee.html" class="block py-3 text-white font-semibold hover:text-gray-200 transition duration-150">COMMITTEE</a></li>
                 <li class="group relative">
-                    <a href="#" class="block py-3 text-white font-semibold hover:text-gray-200 transition duration-150 active-nav">FOR AUTHORS <i class="fas fa-caret-down text-xs"></i></a>
+                    <a href="#" class="block py-3 text-white font-semibold hover:text-gray-200 transition duration-150">FOR AUTHORS <i class="fas fa-caret-down text-xs"></i></a>
                     <ul class="absolute hidden group-hover:block bg-white shadow-xl rounded-b-lg min-w-[200px] z-20">
                         <li><a href="call-for-papers.html" class="block px-4 py-2 text-ieee-grey-text hover:bg-gray-100">Call for Papers</a></li>
                         <li><a href="important-dates.html" class="block px-4 py-2 text-ieee-grey-text hover:bg-gray-100">Important Dates</a></li>
-                        <li><a href="instructions-for-authors.html" class="block px-4 py-2 text-ieee-grey-text hover:bg-gray-100 active-dropdown-link">Instructions for Authors</a></li>
-                        <li><a href="instructions-of-review-manuscripts.html" class="block px-4 py-2 text-ieee-grey-text hover:bg-gray-100">Review Manuscripts</a></li>
-                         <!-- Active link within the dropdown -->
-                        <li><a href="#" class="block px-4 py-2 text-ieee-grey-text hover:bg-gray-100 ">Camera Ready</a></li>
+                        <li><a href="instructions-for-authors.html" class="block px-4 py-2 text-ieee-grey-text hover:bg-gray-100">Instructions for Authors</a></li>
                     </ul>
                 </li>
-                <li><a href="registration.html" class="block py-3 text-white font-semibold hover:text-gray-200 transition duration-150">REGISTRATION</a></li>
+                <!-- Active Link -->
+                <li><a href="#" class="block py-3 text-white font-semibold hover:text-gray-200 transition duration-150 active-nav">REGISTRATION</a></li>
                 <li><a href="#" class="block py-3 text-white font-semibold hover:text-gray-200 transition duration-150">SPONSORSHIPS</a></li>
                 <li><a href="#" class="block py-3 text-white font-semibold hover:text-gray-200 transition duration-150">CONTACT US</a></li>
             </ul>
@@ -232,12 +295,15 @@
                     FOR AUTHORS <i class="fas fa-caret-down text-xs ml-2"></i>
                 </button>
                 <ul id="mobile-author-menu" class="ml-4 mt-1 space-y-1 bg-ieee-blue-medium rounded-lg">
-                    <li><a href="call-for-papers.html" class="block py-1 px-3 rounded hover:bg-ieee-blue-light text-sm">Call for Papers</a></li>
-                    <li><a href="important-dates.html" class="block py-1 px-3 rounded hover:bg-ieee-blue-light text-sm">Important Dates</a></li>
-                    <li><a href="#" class="block py-1 px-3 rounded hover:bg-ieee-blue-light text-sm active-dropdown-link">Instructions</a></li>
+                    <li><a href="call-for-papers.html" class="block px-4 py-2 text-ieee-grey-text hover:bg-gray-100">Call for Papers</a></li>
+                        <li><a href="important-dates.html" class="block px-4 py-2 text-ieee-grey-text hover:bg-gray-100">Important Dates</a></li>
+                        <!-- Active link within the dropdown -->
+                        <li><a href="instructions-for-authors.html" class="block px-4 py-2 text-ieee-grey-text hover:bg-gray-100 ">Instructions</a></li>
+                        <li><a href="instructions-of-review-manuscripts.html" class="block px-4 py-2 text-ieee-grey-text hover:bg-gray-100 active-dropdown-link">Review Manuscripts</a></li>
+                    <li><a href="instructions-for-camera-ready-papers.html" class="block px-4 py-2 text-ieee-grey-text hover:bg-gray-100">Camera Ready</a></li>
                 </ul>
             </li>
-            <li><a href="registration.html" class="block py-2 px-3 rounded hover:bg-ieee-blue-medium">REGISTRATION</a></li>
+            <li><a href="#" class="block py-2 px-3 rounded hover:bg-ieee-blue-medium active-nav">REGISTRATION</a></li>
             <li><a href="#" class="block py-2 px-3 rounded hover:bg-ieee-blue-medium">SPONSORSHIPS</a></li>
             <li><a href="#" class="block py-2 px-3 rounded hover:bg-ieee-blue-medium">CONTACT US</a></li>
         </ul>
@@ -249,88 +315,206 @@
                 <a href="#" target="_blank" class="hover:text-ieee-blue-light"><i class="fab fa-facebook-f"></i></a>
                 <a href="#" target="_blank" class="hover:text-ieee-blue-light"><i class="fab fa-linkedin-in"></i></a>
                 <a href="#" target="_blank" class="hover:text-ieee-blue-light"><i class="fab fa-youtube"></i></a>
+                <a href="#" target="_blank" class="hover:text-ieee-blue-light"><i class="fas fa-share-alt"></i></a>
             </div>
         </div>
     </div>
     <div id="mobile-menu-backdrop" class="fixed inset-0 bg-black/50 hidden z-40 md:hidden"></div>
 
     <!-- 4. Main Content Area -->
-    <main class="max-w-5xl mx-auto p-4 sm:p-6 lg:p-8">
+    <main class="max-w-7xl mx-auto p-4 sm:p-6 lg:p-8">
 
-        <h1 class="text-4xl font-extrabold text-ieee-blue-dark text-center mb-10">Instructions for Authors</h1>
-        
-        <!-- General Information -->
-        <section class="bg-white p-8 rounded-lg shadow-xl mb-10">
-            <h2 class="text-2xl font-bold text-ieee-red mb-4 border-b border-gray-200 pb-2 flex items-center">
-                <i class="fas fa-file-alt mr-3 text-ieee-blue-dark"></i> Paper Submission Guidelines
-            </h2>
+        <h1 class="text-4xl font-extrabold text-ieee-blue-dark text-center mb-4">Conference Registration</h1>
+        <p class="text-center text-lg text-gray-700 mb-10 max-w-3xl mx-auto">
+            Join us for three days of cutting-edge research presentations, networking opportunities, and professional development in technology and management.
+        </p>
 
-            <!-- Format and Length Box -->
-            <div class="info-box p-4 rounded-lg shadow-inner mb-6">
-                <p class="mb-2 text-lg font-semibold text-ieee-blue-medium">Format and Length Requirements:</p>
-                <ul class="list-disc list-inside space-y-2 text-gray-700 ml-4">
-                    <li>Papers must be submitted in <strong>PDF format</strong>.</li>
-                    <li>Maximum length is <strong>5 pages</strong> (double-column format), including all figures, tables, and references.</li>
-                    <li>You must use the standard IEEE template: 
-                        <a href="http://www.ieee.org/conferences_events/conferences/publishing/templates.html" target="_blank" class="text-ieee-red hover:underline font-medium">[Official IEEE Templates Link]</a>
-                    </li>
-                    <li class="font-bold text-ieee-red">Papers not compliant with the template or exceeding the page limit will be returned without review.</li>
-                </ul>
+        <!-- Early Bird Deadline Callout -->
+        <!-- FIX: Ensured text is white against the dark blue background -->
+        <div class="bg-blue-800 text-white p-6 rounded-lg shadow-xl mb-10 text-center relative overflow-hidden">
+            <h2 class="text-2xl font-bold mb-1 text-white">Early Bird Registration</h2>
+            <p class="text-lg font-light mb-3 text-white">Save up to $100 by registering before <strong>August 1, 2026</strong></p>
+            <span class="absolute top-0 right-0 bg-ieee-red text-xs font-semibold uppercase px-3 py-1 rounded-bl-lg text-white">Limited Time Offer</span>
+        </div>
+
+        <!-- Pricing Cards Section -->
+        <section class="mb-10">
+            <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+                
+                <!-- CARD 1: IEEE Member -->
+                <div class="pricing-card">
+                    <div class="card-header">
+                        <h3 class="text-2xl font-black text-ieee-blue-dark">IEEE Member</h3>
+                        <div class="mt-4">
+                            <p class="price-label">Early Bird</p>
+                            <p class="text-4xl font-extrabold text-ieee-blue-medium">$450</p>
+                        </div>
+                        <div class="mt-2">
+                            <p class="price-label">Regular</p>
+                            <p class="text-2xl font-bold text-gray-500">$550</p>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <ul class="feature-list">
+                            <li><i class="fas fa-check-circle"></i> All technical sessions</li>
+                            <li><i class="fas fa-check-circle"></i> Welcome reception</li>
+                            <li><i class="fas fa-check-circle"></i> Conference proceedings</li>
+                            <li><i class="fas fa-check-circle"></i> Certificate of participation</li>
+                            <li><i class="fas fa-check-circle"></i> Networking breaks</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- CARD 2: Non-IEEE Member -->
+                <div class="pricing-card">
+                    <div class="card-header">
+                        <h3 class="text-2xl font-black text-ieee-blue-dark">Non-IEEE Member</h3>
+                        <div class="mt-4">
+                            <p class="price-label">Early Bird</p>
+                            <p class="text-4xl font-extrabold text-ieee-blue-medium">$650</p>
+                        </div>
+                        <div class="mt-2">
+                            <p class="price-label">Regular</p>
+                            <p class="text-2xl font-bold text-gray-500">$750</p>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                         <ul class="feature-list">
+                            <li><i class="fas fa-check-circle"></i> All technical sessions</li>
+                            <li><i class="fas fa-check-circle"></i> Welcome reception</li>
+                            <li><i class="fas fa-check-circle"></i> Conference proceedings</li>
+                            <li><i class="fas fa-check-circle"></i> Certificate of participation</li>
+                            <li><i class="fas fa-check-circle"></i> Networking breaks</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- CARD 3: Student (MOST POPULAR) -->
+                <div class="pricing-card highlight transform ">
+                    
+                    <div class="card-header">
+                        <h3 class="text-2xl font-black">Student</h3>
+                        <div class="mt-4">
+                            <p class="price-label">Early Bird</p>
+                            <p class="text-4xl font-extrabold">$250</p>
+                        </div>
+                        <div class="mt-2">
+                            <p class="price-label">Regular</p>
+                            <p class="text-2xl font-bold">$350</p>
+                        </div>
+                    </div>
+                    <div class="card-body bg-gray-50 flex flex-col justify-between">
+                         <ul class="feature-list">
+                            <li><i class="fas fa-check-circle"></i> All technical sessions</li>
+                            <li><i class="fas fa-check-circle"></i> Welcome reception</li>
+                            <li><i class="fas fa-check-circle"></i> Conference proceedings</li>
+                            <li><i class="fas fa-check-circle"></i> Certificate of participation</li>
+                            <li class="font-semibold text-ieee-blue-dark"><i class="fas fa-user-group"></i> Student networking event</li>
+                        </ul>
+                        <!-- Padding added to make content align visually -->
+                        <div>&nbsp;</div>
+                    </div>
+                </div>
+
+                <!-- CARD 4: Industry -->
+                <div class="pricing-card">
+                    <div class="card-header">
+                        <h3 class="text-2xl font-black text-ieee-blue-dark">Industry</h3>
+                        <div class="mt-4">
+                            <p class="price-label">Early Bird</p>
+                            <p class="text-4xl font-extrabold text-ieee-blue-medium">$850</p>
+                        </div>
+                        <div class="mt-2">
+                            <p class="price-label">Regular</p>
+                            <p class="text-2xl font-bold text-gray-500">$950</p>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                         <ul class="feature-list">
+                            <li><i class="fas fa-check-circle"></i> All technical sessions</li>
+                            <li><i class="fas fa-check-circle"></i> Welcome reception</li>
+                            <li><i class="fas fa-check-circle"></i> Conference proceedings</li>
+                            <li><i class="fas fa-check-circle"></i> Certificate of participation</li>
+                            <li class="font-semibold text-ieee-blue-dark"><i class="fas fa-building-user"></i> Industry networking dinner</li>
+                            <li class="font-semibold text-ieee-blue-dark"><i class="fas fa-tv"></i> Exhibition access</li>
+                        </ul>
+                    </div>
+                </div>
+
             </div>
-
-            <!-- Submission Commitments -->
-            <h3 class="text-xl font-bold text-ieee-blue-medium mb-3">Commitment and Publication</h3>
-            <ul class="list-disc list-inside space-y-3 text-gray-700 ml-4">
-                <li>Only <strong>original papers</strong> that have not been published or submitted elsewhere will be considered.</li>
-                <li>Submission of a paper implies a commitment that, upon acceptance, the authors will submit their <strong>camera-ready version</strong> and <strong>present the paper</strong> at the conference.</li>
-                <li><strong>Registration Requirement:</strong> Each accepted contribution must have at least one paid registration by the camera-ready deadline.</li>
-                <li><strong>Publication:</strong> All Accepted and Presented papers will be submitted for publication to <strong>IEEE Xplore</strong>, which is indexed with leading Abstracting & Indexing (A&I) databases (e.g., SCOPUS).</li>
-            </ul>
-
-            <div class="mt-8 text-center">
-                <h3 class="text-xl font-bold text-ieee-red mb-3">Submission Deadline: 15 February 2026</h3>
-                <a href="https://cmt3.research.microsoft.com/AISIIS2026" target="_blank" class="submit-btn inline-flex items-center px-10 py-4 text-xl rounded-full shadow-lg hover:shadow-xl transition duration-300 transform hover:scale-105">
-                    <i class="fas fa-upload mr-3"></i> Submit Your Paper via CMT
-                </a>
-                <p class="text-sm text-gray-500 mt-3">Microsoft CMT service is used for managing the peer-review process.</p>
+        </section>
+        
+        <!-- What's Included Section -->
+        <section class="bg-white p-6 rounded-lg shadow-lg mb-10">
+            <h2 class="text-2xl font-bold text-ieee-blue-dark mb-4 border-b-2 pb-2 flex items-center">
+                <i class="fas fa-gift mr-3 text-ieee-blue-medium"></i> What's Included
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-3">
+                <div class="flex items-center text-gray-700">
+                    <i class="fas fa-check mr-3 text-ieee-blue-dark"></i> Access to all keynote sessions
+                </div>
+                 <div class="flex items-center text-gray-700">
+                    <i class="fas fa-check mr-3 text-ieee-blue-dark"></i> Technical paper presentations
+                </div>
+                 <div class="flex items-center text-gray-700">
+                    <i class="fas fa-check mr-3 text-ieee-blue-dark"></i> Workshop and tutorial sessions
+                </div>
+                 <div class="flex items-center text-gray-700">
+                    <i class="fas fa-check mr-3 text-ieee-blue-dark"></i> Conference proceedings (digital)
+                </div>
+                 <div class="flex items-center text-gray-700">
+                    <i class="fas fa-check mr-3 text-ieee-blue-dark"></i> Welcome reception and networking
+                </div>
+                 <div class="flex items-center text-gray-700">
+                    <i class="fas fa-check mr-3 text-ieee-blue-dark"></i> Coffee breaks and refreshments
+                </div>
             </div>
         </section>
 
-        <!-- Review Process and Policies -->
-        <section class="bg-white p-8 rounded-lg shadow-xl mb-10">
-            <h2 class="text-2xl font-bold text-ieee-red mb-4 border-b border-gray-200 pb-2 flex items-center">
-                <i class="fas fa-clipboard-check mr-3 text-ieee-blue-dark"></i> Review Process and Integrity
-            </h2>
-            
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                <!-- Column 1: Review Process -->
-                <div>
-                    <h3 class="text-xl font-bold text-ieee-blue-medium mb-3">Review Details</h3>
-                    <ul class="list-disc list-inside space-y-3 text-gray-700 ml-4">
-                        <li>All papers undergo a rigorous, <strong>single-blind reviewing process</strong>.</li>
-                        <li>Accepted papers will be assigned to a regular technical session.</li>
-                        <li><strong>E-Copyright Form:</strong> Must be submitted by the author or presenter at the time of registration.</li>
-                        <li>Papers must satisfy the requirements given in the publication policy.</li>
-                    </ul>
+        <!-- Registration Info Section -->
+        <section class="mb-10">
+            <h2 class="text-2xl font-bold text-ieee-blue-dark mb-6 text-center">Registration Information & Policies</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Info Column 1 -->
+                <div class="space-y-4">
+                    <div class="info-card">
+                        <h3 class="font-bold text-lg text-ieee-blue-dark flex items-center">
+                            <i class="fas fa-money-bill-transfer mr-3 text-ieee-blue-medium"></i> Payment Methods
+                        </h3>
+                        <p class="text-gray-700 mt-2">Credit card, bank transfer, or IEEE voucher.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3 class="font-bold text-lg text-ieee-blue-dark flex items-center">
+                            <i class="fas fa-plane-departure mr-3 text-ieee-blue-medium"></i> Visa Support
+                        </h3>
+                        <p class="text-gray-700 mt-2">Invitation letters available upon registration to assist with your visa application.</p>
+                    </div>
                 </div>
-
-                <!-- Column 2: IEEE Integrity Policies -->
-                <div>
-                    <h3 class="text-xl font-bold text-ieee-red mb-3">IEEE Policies on Integrity</h3>
-                    <div class="info-box p-4 rounded-lg shadow-inner">
-                        <ul class="list-disc list-inside space-y-3 text-gray-700 ml-4">
-                            <li><strong>Plagiarism / Double Submission:</strong> Papers are reviewed on the basis that they do not contain <strong>plagiarized material</strong> and have not been submitted to <strong>any other conference</strong> at the same time (double submission). These matters are taken very seriously.</li>
-                            <li><strong>No-Show Policy:</strong> IEEE reserves the right to exclude a paper from distribution (e.g., by not including it in IEEE Xplore) if the paper is <strong>not presented</strong> at the conference.</li>
-                        </ul>
+                <!-- Info Column 2 -->
+                <div class="space-y-4">
+                    <div class="info-card">
+                        <h3 class="font-bold text-lg text-ieee-blue-dark flex items-center">
+                            <i class="fas fa-calendar-times mr-3 text-ieee-blue-medium"></i> Cancellation Policy
+                        </h3>
+                        <p class="text-gray-700 mt-2">Full refund until <strong>September 1, 2026</strong>. Please check the full policy for details on partial refunds thereafter.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3 class="font-bold text-lg text-ieee-blue-dark flex items-center">
+                            <i class="fas fa-users-viewfinder mr-3 text-ieee-blue-medium"></i> Group Discounts
+                        </h3>
+                        <p class="text-gray-700 mt-2"><strong>10% off</strong> for groups of 5+ registering from the same institution.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Contact for Clarification -->
-        <div class="text-center text-lg mt-10 p-6 bg-ieee-blue-light/10 rounded-lg border border-ieee-blue-light shadow-md">
-            <p class="font-semibold text-ieee-blue-dark">For any clarifications regarding the paper submission guidelines, please email:</p>
-            <p class="mt-2 text-2xl font-extrabold text-ieee-red">aisiis2026@gmail.com</p>
+
+        <!-- Register Now Call to Action (Bottom) -->
+        <div class="text-center mt-12 mb-6">
+            <a href="#" class="register-btn inline-block px-12 py-5 text-2xl rounded-full shadow-lg hover:shadow-xl transition duration-300">
+                <i class="fas fa-arrow-up-right-from-square mr-3"></i> Register Now
+            </a>
+            <p class="text-sm text-ieee-red mt-3 font-semibold">Registration opens March 1, 2026</p>
         </div>
         
     </main>
