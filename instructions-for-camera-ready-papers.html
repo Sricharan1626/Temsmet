@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instructions for Camera Ready Papers - International Conference on AI and Security (AISIIS)</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Custom styles to mimic the dark blue and light blue IEEE branding */
+        :root {
+            --ieee-blue-dark: #005A9C;
+            --ieee-blue-medium: #0073B7;
+            --ieee-blue-light: #0099D8;
+            --ieee-red: #CC0000;
+            --ieee-bg: #F8F8F8;
+            --ieee-grey-text: #333333;
+        }
+
+        /* Set the primary font to Inter for a modern look */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--ieee-bg);
+        }
+
+        /* Top meta bar style */
+        .meta-nav {
+            background-color: var(--ieee-blue-dark);
+            height: 30px;
+        }
+
+        .meta-nav a {
+            color: white;
+            font-size: 0.75rem;
+            opacity: 0.9;
+            transition: opacity 0.2s;
+            text-decoration: none;
+        }
+
+        .meta-nav a:hover {
+            opacity: 1;
+        }
+
+        /* Main Header Background (mimicking the tiled pattern) */
+        #main-header {
+            background-color: var(--ieee-blue-medium);
+            background-image: url('https://placehold.co/100x100/0073B7/0073B7?text='); /* Placeholder for the blue pattern */
+            background-repeat: repeat-x;
+        }
+
+        #main-nav-bar a.active-nav {
+        color: white; 
+        border-bottom: 4px solid var(--ieee-blue-dark);
+        padding-bottom: 0.75rem;
+        margin-bottom: -4px; 
+        }
+
+        /* Main Navigation Bar */
+        #main-nav-bar {
+            background-color: var(--ieee-blue-light);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Active Navigation Dropdown Style */
+        .active-dropdown-link {
+            color: var(--ieee-red) !important;
+            background-color: var(--ieee-bg);
+            border-radius: 0.25rem;
+        }
+
+        /* Section Containers */
+        .instruction-section {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2.5rem;
+        }
+        
+        /* Steps/Checklist Styling */
+        .step {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            background-color: #F9F9F9;
+        }
+
+        .step-icon {
+            width: 32px;
+            height: 32px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--ieee-blue-dark);
+            color: white;
+            border-radius: 50%;
+            font-weight: bold;
+            font-size: 1rem;
+            margin-right: 1rem;
+            flex-shrink: 0;
+        }
+
+        /* Countdown Timer Styling */
+        #countdown-timer {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
+            font-family: monospace;
+        }
+
+        .timer-segment {
+            background-color: var(--ieee-blue-dark);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            text-align: center;
+            min-width: 60px;
+        }
+
+        .timer-value {
+            font-size: 1.5rem;
+            font-weight: bold;
+            line-height: 1;
+        }
+
+        .timer-label {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            opacity: 0.8;
+            margin-top: 2px;
+        }
+
+
+        /* Footer Styles */
+        #site-footer {
+            background-color: var(--ieee-blue-dark);
+            position: relative;
+            overflow: hidden; 
+        }
+
+        #site-footer::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://placehold.co/800x400/0073B7/005A9C?text=Technical+Circuit+Pattern');
+            background-size: cover;
+            background-position: right center;
+            opacity: 0.2;
+            z-index: 0;
+        }
+
+        /* Mobile Menu Transitions */
+        #mobile-menu-drawer {
+            transition: transform 0.3s ease-in-out;
+            transform: translateX(-100%);
+            z-index: 50;
+        }
+
+        #mobile-menu-drawer.open {
+            transform: translateX(0);
+        }
+    </style>
+</head>
+<body class="bg-ieee-bg text-ieee-grey-text">
+
+    <!-- 1. Top Meta Navigation Bar (Dark Blue) -->
+    <nav class="meta-nav hidden md:block">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <ul class="flex justify-end space-x-4 py-1">
+                <li><a href="#" target="_blank">IEEE.org</a></li>
+                <li><a href="#" target="_blank">IEEE Xplore</a></li>
+                <li><a href="#" target="_blank">IEEE Standards</a></li>
+                <li class="hidden lg:block"><a href="#" target="_blank">IEEE Spectrum</a></li>
+                <li><a href="#" target="_blank">More Sites</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- 2. Main Header (Medium Blue with Logo/Title/Search) -->
+    <header id="main-header" class="shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex justify-between items-center">
+            
+            <!-- Mobile Menu Toggle (Left Side) -->
+            <button id="menu-toggle" class="md:hidden text-white text-xl p-2 rounded-lg hover:bg-ieee-blue-dark transition duration-150">
+                <i class="fas fa-bars"></i>
+                <span class="ml-2 text-sm font-semibold">MENU</span>
+            </button>
+
+            <!-- Logo/Title Block -->
+            <div class="flex-grow md:flex-grow-0">
+                <a href="index.html" class="flex flex-col items-start text-white leading-none">
+                    <h1 class="text-xl md:text-2xl font-bold uppercase tracking-tight">The 5th IEEE TEMSMET 2026 Conference</h1>
+                    <span class="text-xs md:text-sm font-light">(Technology, Engineering, Management for Societal Impact)</span>
+                </a>
+            </div>
+
+            <!-- Search and IEEE Logo (Right Side - Desktop) -->
+            <div class="hidden md:flex items-center space-x-4">
+                <form onsubmit="event.preventDefault(); console.log('Searching...');" class="flex items-center">
+                    <input type="search" placeholder="Search Conference" class="p-2 text-sm text-ieee-grey-text rounded-l-lg focus:ring-2 focus:ring-ieee-blue-light border border-gray-300">
+                    <button type="submit" class="bg-white p-2 text-ieee-blue-dark rounded-r-lg border border-gray-300 border-l-0">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </form>
+                <a href="https://www.ieee.org/" target="_blank" class="w-16">
+                    <!-- Placeholder for IEEE Logo SVG -->
+                    <svg viewBox="0 0 100 20" xmlns="http://www.w3.org/2000/svg" class="fill-white">
+                        <rect width="100" height="20" fill="white"/>
+                        <text x="50%" y="70%" font-family="Arial" font-size="12" fill="var(--ieee-blue-dark)" text-anchor="middle">IEEE Logo</text>
+                    </svg>
+                </a>
+            </div>
+            
+            <!-- Mobile Search Toggle (Right Side) -->
+            <button id="search-toggle-mobile" class="md:hidden text-white text-xl p-2 rounded-lg hover:bg-ieee-blue-dark transition duration-150">
+                <i class="fas fa-search"></i>
+            </button>
+        </div>
+        
+        <!-- Mobile Search Input (Hidden by default) -->
+        <div id="mobile-search-bar" class="hidden md:hidden px-4 pb-3">
+            <form onsubmit="event.preventDefault(); console.log('Searching Mobile...');" class="flex items-center">
+                <input type="search" placeholder="Search Conference" class="w-full p-2 text-sm text-ieee-grey-text rounded-l-lg focus:ring-2 focus:ring-ieee-blue-light border border-gray-300">
+                <button type="submit" class="bg-white p-2 text-ieee-blue-dark rounded-r-lg border border-gray-300 border-l-0">
+                    <i class="fa fa-search"></i>
+                </button>
+            </form>
+        </div>
+    </header>
+
+    <!-- 3. Main Navigation Bar (Light Blue) -->
+    <nav id="main-nav-bar" class="hidden md:block">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <ul class="flex justify-center space-x-6 lg:space-x-10">
+                <li><a href="index.html" class="block py-3 text-white font-semibold hover:text-gray-200 transition duration-150">HOME</a></li>
+                <li><a href="committee.html" class="block py-3 text-white font-semibold hover:text-gray-200 transition duration-150">COMMITTEE</a></li>
+                <li class="group relative">
+                    <a href="#" class="block py-3 text-white font-semibold hover:text-gray-200 transition duration-150 active-nav">FOR AUTHORS <i class="fas fa-caret-down text-xs"></i></a>
+                    <ul class="absolute hidden group-hover:block bg-white shadow-xl rounded-b-lg min-w-[200px] z-20">
+                        <li><a href="call-for-papers.html" class="block px-4 py-2 text-ieee-grey-text hover:bg-gray-100">Call for Papers</a></li>
+                        <li><a href="important-dates.html" class="block px-4 py-2 text-ieee-grey-text hover:bg-gray-100">Important Dates</a></li>
+                        <li><a href="instructions-for-authors.html" class="block px-4 py-2 text-ieee-grey-text hover:bg-gray-100">Instructions for Authors</a></li>
+                        <li><a href="instructions-of-review-manuscripts.html" class="block px-4 py-2 text-ieee-grey-text hover:bg-gray-100">Review Manuscripts</a></li>
+                         <!-- Active link within the dropdown -->
+                        <li><a href="#" class="block px-4 py-2 text-ieee-grey-text hover:bg-gray-100 active-dropdown-link">Camera Ready</a></li>
+                    </ul>
+                </li>
+                <li><a href="#" class="block py-3 text-white font-semibold hover:text-gray-200 transition duration-150">REGISTRATION</a></li>
+                <li><a href="#" class="block py-3 text-white font-semibold hover:text-gray-200 transition duration-150">SPONSORSHIPS</a></li>
+                <li><a href="#" class="block py-3 text-white font-semibold hover:text-gray-200 transition duration-150">CONTACT US</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Drawer -->
+    <div id="mobile-menu-drawer" class="fixed top-0 left-0 h-full w-64 bg-ieee-blue-dark text-white shadow-xl p-4 md:hidden">
+        <div class="flex justify-between items-center border-b border-white/20 pb-4 mb-4">
+            <span class="text-lg font-bold">MENU</span>
+            <button id="close-menu" class="text-2xl hover:text-ieee-blue-light"><i class="fas fa-times"></i></button>
+        </div>
+        <ul class="space-y-2">
+            <li><a href="index.html" class="block py-2 px-3 rounded hover:bg-ieee-blue-medium">HOME</a></li>
+            <li><a href="committee.html" class="block py-2 px-3 rounded hover:bg-ieee-blue-medium">COMMITTEE</a></li>
+            <!-- Dropdown placeholder for Authors -->
+            <li class="relative">
+                <button id="mobile-author-toggle" class="flex justify-between items-center w-full py-2 px-3 rounded hover:bg-ieee-blue-medium text-left active-nav">
+                    FOR AUTHORS <i class="fas fa-caret-down text-xs ml-2"></i>
+                </button>
+                <ul id="mobile-author-menu" class="ml-4 mt-1 space-y-1 bg-ieee-blue-medium rounded-lg">
+                    <li><a href="call-for-papers.html" class="block px-4 py-2 text-ieee-grey-text hover:bg-gray-100">Call for Papers</a></li>
+                    <li><a href="important-dates.html" class="block py-1 px-3 rounded hover:bg-ieee-blue-light text-sm">Important Dates</a></li>
+                    <li><a href="instructions-for-authors.html" class="block py-1 px-3 rounded hover:bg-ieee-blue-light text-sm">Instructions for Authors</a></li>
+                    <li><a href="instructions-of-review-manuscripts.html" class="block py-1 px-3 rounded hover:bg-ieee-blue-light text-sm ">Review Manuscripts</a></li>
+                    <li><a href="#" class="block py-1 px-3 rounded hover:bg-ieee-blue-light text-sm active-dropdown-link">Camera Ready</a></li>
+                </ul>
+            </li>
+            <li><a href="#" class="block py-2 px-3 rounded hover:bg-ieee-blue-medium">REGISTRATION</a></li>
+            <li><a href="#" class="block py-2 px-3 rounded hover:bg-ieee-blue-medium">SPONSORSHIPS</a></li>
+            <li><a href="#" class="block py-2 px-3 rounded hover:bg-ieee-blue-medium">CONTACT US</a></li>
+        </ul>
+        <!-- Mobile Social Links -->
+        <div class="mt-8 pt-4 border-t border-white/20">
+            <div class="flex justify-around text-xl">
+                <a href="#" target="_blank" class="hover:text-ieee-blue-light"><i class="fab fa-instagram"></i></a>
+                <a href="#" target="_blank" class="hover:text-ieee-blue-light"><i class="fab fa-twitter"></i></a>
+                <a href="#" target="_blank" class="hover:text-ieee-blue-light"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" target="_blank" class="hover:text-ieee-blue-light transition duration-150"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" target="_blank" class="hover:text-ieee-blue-light transition duration-150"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </div>
+    <div id="mobile-menu-backdrop" class="fixed inset-0 bg-black/50 hidden z-40 md:hidden"></div>
+
+    <!-- 4. Main Content Area -->
+    <main class="max-w-5xl mx-auto p-4 sm:p-6 lg:p-8">
+
+        <h1 class="text-4xl font-extrabold text-ieee-blue-dark text-center mb-10">Instructions for Camera Ready Papers</h1>
+        
+        <!-- Deadline and Status -->
+        <div class="instruction-section p-6 mb-10 text-center">
+            <h2 class="text-2xl font-extrabold text-ieee-red mb-4">FINAL SUBMISSION DEADLINE</h2>
+            <div class="p-4 rounded-lg bg-ieee-red/10 border-4 border-ieee-red inline-block">
+                <p class="text-2xl font-black text-ieee-red tracking-wider">February 28, 2026 23:59 (AOE)</p>
+            </div>
+            
+            <!-- Countdown Timer -->
+            <div id="countdown-timer" class="mt-4">
+                <div class="timer-segment">
+                    <div id="countdown-days" class="timer-value">00</div>
+                    <div class="timer-label">Days</div>
+                </div>
+                <div class="timer-segment">
+                    <div id="countdown-hours" class="timer-value">00</div>
+                    <div class="timer-label">Hours</div>
+                </div>
+                <div class="timer-segment">
+                    <div id="countdown-minutes" class="timer-value">00</div>
+                    <div class="timer-label">Minutes</div>
+                </div>
+                <div class="timer-segment">
+                    <div id="countdown-seconds" class="timer-value">00</div>
+                    <div class="timer-label">Seconds</div>
+                </div>
+            </div>
+            
+            <p class="text-sm text-gray-500 mt-4 font-semibold">Due to publication deadlines, no time extensions will be granted.</p>
+            
+            <div class="mt-6 p-4 bg-ieee-blue-light/10 rounded-lg">
+                <p class="text-lg font-semibold text-ieee-blue-dark">
+                    Your paper is accepted after careful study of the reviewers’ comments and the corresponding rebuttal. <strong>No further reviewers' comments will be sent.</strong>
+                </p>
+            </div>
+        </div>
+
+        <!-- Section 1: Final Submission Requirements -->
+        <section class="instruction-section">
+            <h2 class="text-2xl font-black text-ieee-blue-dark mb-6 flex items-center border-b pb-2">
+                <i class="fas fa-edit mr-3 text-ieee-red"></i> Camera Ready Submission Checklist
+            </h2>
+
+            <div class="space-y-4">
+                <div class="step">
+                    <span class="step-icon">1</span>
+                    <p class="text-lg text-gray-700">
+                        <strong>Paper Length:</strong> Paper length format <strong>MUST be strictly adhered to</strong>. Your content <strong>MUST fit on 5 pages</strong>. <strong>DO NOT</strong> let any content bleed onto the 5th page.
+                    </p>
+                </div>
+                <div class="step">
+                    <span class="step-icon">2</span>
+                    <p class="text-lg text-gray-700">
+                        <strong>Final PDF:</strong> Your full paper in <strong>PDF format</strong> must be submitted no later than the deadline at the submission website: 
+                        <a href="#" class="text-ieee-red hover:underline font-bold">[CMT Submission Link Placeholder]</a>
+                    </p>
+                </div>
+                <div class="step">
+                    <span class="step-icon">3</span>
+                    <p class="text-lg text-gray-700">
+                        <strong>CMT Login:</strong> Use your <strong>author account username</strong> to log in. (If you need your password, click the “Forgot your Password?” link on the log-in box.)
+                    </p>
+                </div>
+                <div class="step">
+                    <span class="step-icon">4</span>
+                    <p class="text-lg text-gray-700 font-semibold">
+                        <strong>MANDATORY:</strong> Final Submission is required. Make sure your final submission is <strong>Xplore compliant BEFORE uploading</strong> (see the next section, “XPLORE COMPLIANCE PROCEDURE”).
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: IEEE Xplore Compliance -->
+        <section class="instruction-section">
+            <h2 class="text-2xl font-black text-ieee-blue-dark mb-6 flex items-center border-b pb-2">
+                <i class="fas fa-check-circle mr-3 text-ieee-red"></i> Xplore Compliance Procedure
+            </h2>
+            
+            <p class="text-lg text-gray-700 mb-4 font-semibold">
+                It is required that all PDF submissions be IEEE Xplore compliant. If your file does not meet Xplore compliance, it will be excluded from the conference proceedings and IEEE Xplore.
+            </p>
+            
+            <div class="space-y-4">
+                <div class="step bg-ieee-red/10 border-l-4 border-ieee-red">
+                    <span class="step-icon bg-ieee-red">A</span>
+                    <p class="text-lg text-gray-700">
+                        <strong>Use PDF eXpress:</strong> Go to the IEEE PDF eXpress website: <a href="https://ieee-pdf-express.org/" target="_blank" class="text-ieee-blue-dark hover:underline font-bold">https://ieee-pdf-express.org/</a>
+                    </p>
+                </div>
+                <div class="step bg-ieee-red/10 border-l-4 border-ieee-red">
+                    <span class="step-icon bg-ieee-red">B</span>
+                    <p class="text-lg text-gray-700">
+                        <strong>Conference ID:</strong> Use this conference ID: <span class="font-extrabold text-ieee-red">69801X</span>
+                    </p>
+                </div>
+                <div class="step bg-ieee-red/10 border-l-4 border-ieee-red">
+                    <span class="step-icon bg-ieee-red">C</span>
+                    <p class="text-lg text-gray-700">
+                        <strong>Account Creation:</strong> Click on “Don’t have an account? Create account”. PDF eXpress will generate a log file with errors, if any. You will need to <strong>correct all the errors</strong>.
+                    </p>
+                </div>
+                <div class="step bg-ieee-red/10 border-l-4 border-ieee-red">
+                    <span class="step-icon bg-ieee-red">D</span>
+                    <p class="text-lg text-gray-700">
+                        <strong>Download Compliant PDF:</strong> Once your compliant log is error free, you will receive an IEEE Xplore compliant PDF file from PDF eXpress (e.g., PIDxxxxxxx.pdf).
+                    </p>
+                </div>
+                <div class="step bg-ieee-red/10 border-l-4 border-ieee-red">
+                    <span class="step-icon bg-ieee-red">E</span>
+                    <p class="text-lg text-gray-700 font-bold">
+                        <strong>Final Upload:</strong> Return to the IEEE AISIIS2026 final submission website and <strong>upload the GOOD PDF file</strong> received from PDF eXpress as your final submission.
+                    </p>
+                </div>
+            </div>
+            
+            <p class="text-sm text-ieee-red mt-4 font-semibold p-2 border border-dashed border-ieee-red rounded-lg">
+                NOTE: Checking your PDF file for compliance and submitting your final paper for publication are <strong>two separate procedures</strong>. Ensure you complete both steps.
+            </p>
+        </section>
+
+        <!-- Section 3: Copyright and Policies -->
+        <section class="instruction-section">
+            <h2 class="text-2xl font-black text-ieee-blue-dark mb-6 flex items-center border-b pb-2">
+                <i class="fas fa-copyright mr-3 text-ieee-red"></i> Copyright & Policy Compliance
+            </h2>
+            
+            <div class="space-y-4">
+                <div class="step">
+                    <span class="step-icon"><i class="fas fa-signature"></i></span>
+                    <div class="text-gray-700">
+                        <p class="text-lg">
+                            <strong>Copyright Release:</strong> Your completed IEEE copyright release <strong>must be filed by February 28, 2026 23:59 (AOE)</strong>.
+                        </p>
+                        <p class="text-sm mt-1">
+                            After logging into your author account, click on the **© copyright symbol** in the row of ‘Copyright’ (just below ‘Status’) and follow the instructions to begin the digital filing process.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- No Show Policy -->
+                <div class="p-4 bg-gray-100 rounded-lg">
+                    <h3 class="text-xl font-black text-ieee-red mb-2 flex items-center">
+                        <i class="fas fa-eye-slash mr-2"></i> Non-Presented Paper (No Show) Policy
+                    </h3>
+                    <p class="text-base text-gray-700">
+                        Any accepted paper is expected to have at least one author or qualified registered proxy attend and present the paper at the conference. "No show" papers will <strong>not be published</strong> by IEEE on IEEE Xplore® or other public access forums.
+                    </p>
+                </div>
+                
+                <!-- Refund Policy -->
+                <div class="p-4 bg-gray-100 rounded-lg">
+                    <h3 class="text-xl font-black text-ieee-red mb-2 flex items-center">
+                        <i class="fas fa-times-circle mr-2"></i> Refund Policy
+                    </h3>
+                    <p class="text-base text-gray-700">
+                        All registration fees are non-refundable. Each attendee must register separately. An existing registration record <strong>cannot be transferred</strong> to any other person.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- 5. Footer (Dark Blue with Pattern) -->
+    <footer id="site-footer" class="bg-ieee-blue-dark text-white pt-8 pb-10 mt-10 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <!-- 1. Footer Links (Centered and Above) -->
+            <ul class="flex flex-wrap justify-center space-x-4 text-sm font-semibold border-b border-white/30 pb-4 mb-6">
+                <li><a href="index.html" class="hover:text-ieee-blue-light transition duration-150 p-2">HOME</a></li>
+                <li><a href="#" target="_blank" class="hover:text-ieee-blue-light transition duration-150 p-2">SITEMAP</a></li>
+                <li><a href="#" target="_blank" class="hover:text-ieee-blue-light transition duration-150 p-2">ACCESSIBILITY</a></li>
+                <li><a href="#" target="_blank" class="hover:text-ieee-blue-light transition duration-150 p-2">NONDISCRIMINATION POLICY</a></li>
+                <li><a href="#" target="_blank" class="hover:text-ieee-blue-light transition duration-150 p-2">IEEE ETHICS REPORTING</a></li>
+                <li><a href="#" target="_blank" class="hover:text-ieee-blue-light transition duration-150 p-2">IEEE PRIVACY POLICY</a></li>
+                <li><a href="#" target="_blank" class="hover:text-ieee-blue-light transition duration-150 p-2">TERMS</a></li>
+            </ul>
+
+            <!-- 2. Copyright & Social Section (Split layout) -->
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center">
+                <!-- Copyright & Disclaimer (Left) -->
+                <div class="text-xs font-light max-w-xl space-y-1 mb-4 md:mb-0 md:pr-8">
+                    <p>&copy; Copyright 2025 IEEE – All rights reserved. Use of this website signifies your agreement to the IEEE Terms and Conditions.</p>
+                    <p class="mt-1">A public charity, IEEE is the world’s largest technical professional organization dedicated to advancing technology for the benefit of humanity.</p>
+                    <p class="mt-1 font-semibold text-ieee-blue-light">Contact: <a href="mailto:aisiis2026@gmail.com" class="hover:underline">aisiis2026@gmail.com</a></p>
+                </div>
+
+                <!-- Social Links (Right) -->
+                <div class="flex space-x-4 text-xl self-end md:self-auto mb-4 md:mb-0">
+                    <a href="#" target="_blank" class="hover:text-ieee-blue-light transition duration-150"><i class="fab fa-instagram"></i></a>
+                    <a href="#" target="_blank" class="hover:text-ieee-blue-light transition duration-150"><i class="fab fa-twitter"></i></a>
+                    <a href="#" target="_blank" class="hover:text-ieee-blue-light transition duration-150"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" target="_blank" class="hover:text-ieee-blue-light transition duration-150"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" target="_blank" class="hover:text-ieee-blue-light transition duration-150"><i class="fab fa-youtube"></i></a>
+                    <a href="#" target="_blank" class="hover:text-ieee-blue-light transition duration-150"><i class="fas fa-share-alt"></i></a>
+                </div>
+            </div>
+        </div>
+        <!-- Note: The "Back to Top" button is kept outside the footer to remain fixed -->
+    </footer>
+
+    <!-- Back to Top Button (Hidden by default) -->
+    <button id="back-to-top" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })" class="fixed bottom-4 right-4 bg-ieee-blue-light text-white p-3 rounded-full shadow-lg hover:bg-ieee-blue-dark transition duration-300 hidden">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script>
+        // Placeholder for the AOE timezone offset calculation
+        function getAOETimezoneOffset() {
+            // AOE (Anywhere on Earth) is UTC-12. JavaScript Date uses local time and then UTC.
+            // We need to find the difference between local time and UTC-12.
+            const localOffset = new Date().getTimezoneOffset() * 60000; // in milliseconds
+            const aoeOffset = 12 * 60 * 60000; // UTC-12 in milliseconds
+            
+            // Difference from local time to AOE time
+            return localOffset - aoeOffset;
+        }
+
+        function startCountdown() {
+            // Set the date we're counting down to: February 28, 2026, 23:59:00 AOE (UTC-12)
+            // Note: Since JS handles dates in UTC and local time, we define the target date
+            // in a standard timezone and adjust the current time to match AOE's definition (UTC-12).
+            const targetDateString = "February 28, 2026 23:59:00 UTC";
+            const targetTime = new Date(targetDateString).getTime();
+            
+            const timer = setInterval(function() {
+                // Get current date and time in UTC
+                const now = new Date().getTime();
+                
+                // Calculate the AOE adjustment (local time to UTC-12 offset)
+                const aoeAdjustment = getAOETimezoneOffset();
+                
+                // Calculate the actual current time relative to the AOE definition
+                const nowAOE = now - aoeAdjustment;
+
+                // Find the distance between now (AOE adjusted) and the count down date
+                const distance = targetTime - nowAOE;
+
+                // Time calculations for days, hours, minutes and seconds
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                // Display the result in the elements
+                document.getElementById("countdown-days").innerHTML = String(days).padStart(2, '0');
+                document.getElementById("countdown-hours").innerHTML = String(hours).padStart(2, '0');
+                document.getElementById("countdown-minutes").innerHTML = String(minutes).padStart(2, '0');
+                document.getElementById("countdown-seconds").innerHTML = String(seconds).padStart(2, '0');
+
+                // If the countdown is finished, write some text 
+                if (distance < 0) {
+                    clearInterval(timer);
+                    document.getElementById("countdown-timer").innerHTML = `
+                        <div class="timer-segment bg-ieee-red text-xl py-3 px-6">
+                            DEADLINE PASSED
+                        </div>
+                    `;
+                }
+            }, 1000);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuToggle = document.getElementById('menu-toggle');
+            const closeMenu = document.getElementById('close-menu');
+            const mobileMenuDrawer = document.getElementById('mobile-menu-drawer');
+            const mobileMenuBackdrop = document.getElementById('mobile-menu-backdrop');
+            const mobileSearchToggle = document.getElementById('search-toggle-mobile');
+            const mobileSearchBar = document.getElementById('mobile-search-bar');
+            const backToTop = document.getElementById('back-to-top');
+            const mobileAuthorToggle = document.getElementById('mobile-author-toggle');
+            const mobileAuthorMenu = document.getElementById('mobile-author-menu');
+            
+            // --- Mobile Menu Logic ---
+            const toggleMenu = () => {
+                mobileMenuDrawer.classList.toggle('open');
+                mobileMenuBackdrop.classList.toggle('hidden');
+            };
+
+            menuToggle.addEventListener('click', toggleMenu);
+            closeMenu.addEventListener('click', toggleMenu);
+            mobileMenuBackdrop.addEventListener('click', toggleMenu);
+
+            // --- Mobile Search Logic ---
+            mobileSearchToggle.addEventListener('click', () => {
+                mobileSearchBar.classList.toggle('hidden');
+            });
+
+            // --- Mobile Author Dropdown Logic ---
+            const authorToggleState = localStorage.getItem('mobileAuthorMenuOpen') === 'true';
+            if (authorToggleState) {
+                mobileAuthorMenu.classList.remove('hidden');
+            }
+
+            mobileAuthorToggle.addEventListener('click', () => {
+                const isHidden = mobileAuthorMenu.classList.toggle('hidden');
+                localStorage.setItem('mobileAuthorMenuOpen', !isHidden);
+            });
+
+
+            // --- Back to Top Logic ---
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) {
+                    backToTop.classList.remove('hidden');
+                } else {
+                    backToTop.classList.add('hidden');
+                }
+            });
+
+            // Start the countdown when the DOM is loaded
+            startCountdown();
+        });
+    </script>
+</body>
+</html>

@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Committee - International Conference on AI and Security (AISIIS)</title>
+    <title>Call for Papers - International Conference on AI and Security (AISIIS)</title>
     <!-- Load Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Load Font Awesome for icons (like the menu and social media) -->
+    <!-- Load Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         /* Custom styles to mimic the dark blue and light blue IEEE branding */
@@ -56,33 +56,40 @@
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
         }
 
-        /* Custom Styles for Committee Cards */
-        .committee-card {
-            display: flex;
-            flex-direction: column;
-            padding: 1rem;
-            border-radius: 0.5rem;
-            background-color: white;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            transition: transform 0.2s, box-shadow 0.2s;
-            text-align: center;
+        #main-nav-bar a.active-nav {
+        color: white; 
+        border-bottom: 4px solid var(--ieee-blue-dark);
+        padding-bottom: 0.75rem;
+        margin-bottom: -4px; 
         }
 
-        .committee-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+        /* Active Navigation Dropdown Style */
+        .active-dropdown-link {
+            color: var(--ieee-red) !important;
+            background-color: var(--ieee-bg);
+            border-radius: 0.25rem;
+        }
+
+        /* Button styling to match the visual reference (Yellow/Red tone) */
+        .yellow-btn {
+            background-color: #FFC000; /* Yellow */
+            color: var(--ieee-blue-dark);
+            font-weight: 700;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .yellow-btn:hover {
+            background-color: #FFD700; /* Darker Yellow */
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
         }
         
-        /* Custom Styles for Section Headers */
-        .committee-section-header {
-            background-color: var(--ieee-blue-medium);
-            color: white;
-            padding: 0.75rem 1.5rem;
-            border-radius: 0.5rem;
-            margin-bottom: 1.5rem;
-            font-size: 1.5rem;
-            font-weight: 700;
-            text-align: center;
+        /* Tab Styles */
+        .tab-button.active {
+            background-color: white;
+            color: var(--ieee-blue-dark);
+            border-bottom: 3px solid var(--ieee-red);
+            font-weight: 600;
         }
 
         /* Mobile Menu Transitions */
@@ -146,8 +153,8 @@
             <!-- Logo/Title Block -->
             <div class="flex-grow md:flex-grow-0">
                 <a href="index.html" class="flex flex-col items-start text-white leading-none">
-                    <h1 class="text-xl md:text-2xl font-bold uppercase tracking-tight">International Conference on AI and Security</h1>
-                    <span class="text-xs md:text-sm font-light">(Industrial IoT Systems)</span>
+                    <h1 class="text-xl md:text-2xl font-bold uppercase tracking-tight">The 5th IEEE TEMSMET 2026 Conference</h1>
+                    <span class="text-xs md:text-sm font-light">(Technology, Engineering, Management for Societal Impact)</span>
                 </a>
             </div>
 
@@ -190,14 +197,17 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <ul class="flex justify-center space-x-6 lg:space-x-10">
                 <li><a href="index.html" class="block py-3 text-white font-semibold hover:text-gray-200 transition duration-150">HOME</a></li>
-                <!-- COMMITTEE link is now a regular link -->
-                <li><a href="#" class="block py-3 text-white font-semibold hover:text-gray-200 transition duration-150">COMMITTEE</a></li>
+                <li><a href="commite.html" class="block py-3 text-white font-semibold hover:text-gray-200 transition duration-150">COMMITTEE</a></li>
                 <li class="group relative">
-                    <a href="#" class="block py-3 text-white font-semibold hover:text-gray-200 transition duration-150">FOR AUTHORS <i class="fas fa-caret-down text-xs"></i></a>
-                    <ul class="absolute hidden group-hover:block bg-white shadow-xl rounded-b-lg min-w-[200px] z-20">
-                        <li><a href="#" class="block px-4 py-2 text-ieee-grey-text hover:bg-gray-100">Call for Papers</a></li>
-                        <li><a href="#" class="block px-4 py-2 text-ieee-grey-text hover:bg-gray-100">Important Dates</a></li>
-                        <li><a href="#" class="block px-4 py-2 text-ieee-grey-text hover:bg-gray-100">Instructions</a></li>
+                    <a href="#" class="block py-3 text-white font-semibold hover:text-gray-200 transition duration-150 active-nav">FOR AUTHORS <i class="fas fa-caret-down text-xs"></i></a>
+                    <ul class="absolute hidden group-hover:block bg-white shadow-xl rounded-b-lg min-w-[200px] z-30">
+                        <!-- Active link within the dropdown -->
+                       <li><a href="#" class="block px-4 py-2 text-ieee-grey-text hover:bg-gray-100 active-dropdown-link">Call for Papers</a></li>
+                        <li><a href="important-dates.html" class="block px-4 py-2 text-ieee-grey-text hover:bg-gray-100">Important Dates</a></li>
+                        <!-- Active link within the dropdown -->
+                        <li><a href="instructions-for-authors.html" class="block px-4 py-2 text-ieee-grey-text hover:bg-gray-100 ">Instructions</a></li>
+                        <li><a href="instructions-of-review-manuscripts.html" class="block px-4 py-2 text-ieee-grey-text hover:bg-gray-100">Review Manuscripts</a></li>
+                    <li><a href="instructions-for-camera-ready-papers.html" class="block px-4 py-2 text-ieee-grey-text hover:bg-gray-100">Camera Ready</a></li>
                     </ul>
                 </li>
                 <li><a href="#" class="block py-3 text-white font-semibold hover:text-gray-200 transition duration-150">REGISTRATION</a></li>
@@ -215,16 +225,19 @@
         </div>
         <ul class="space-y-2">
             <li><a href="index.html" class="block py-2 px-3 rounded hover:bg-ieee-blue-medium">HOME</a></li>
-            <li><a href="#" class="block py-2 px-3 rounded hover:bg-ieee-blue-medium">COMMITTEE</a></li>
+            <li><a href="committee.html" class="block py-2 px-3 rounded hover:bg-ieee-blue-medium">COMMITTEE</a></li>
             <!-- Dropdown placeholder for Authors -->
             <li class="relative">
                 <button id="mobile-author-toggle" class="flex justify-between items-center w-full py-2 px-3 rounded hover:bg-ieee-blue-medium text-left">
                     FOR AUTHORS <i class="fas fa-caret-down text-xs ml-2"></i>
                 </button>
-                <ul id="mobile-author-menu" class="ml-4 mt-1 space-y-1 bg-ieee-blue-medium rounded-lg hidden">
-                    <li><a href="#" class="block py-1 px-3 rounded hover:bg-ieee-blue-light text-sm">Call for Papers</a></li>
-                    <li><a href="#" class="block py-1 px-3 rounded hover:bg-ieee-blue-light text-sm">Important Dates</a></li>
-                    <li><a href="#" class="block py-1 px-3 rounded hover:bg-ieee-blue-light text-sm">Instructions</a></li>
+                <ul id="mobile-author-menu" class="ml-4 mt-1 space-y-1 bg-ieee-blue-medium rounded-lg">
+                    
+                    <li><a href="#" class="block py-1 px-3 rounded hover:bg-ieee-blue-light text-sm active-dropdown-link">Call for Papers</a></li>
+                    <li><a href="important-dates.html" class="block py-1 px-3 rounded hover:bg-ieee-blue-light text-sm ">Important Dates</a></li>
+                    <li><a href="instructions-for-authors.html" class="block py-1 px-3 rounded hover:bg-ieee-blue-light text-sm">Instructions for Authors</a></li>
+                    <li><a href="instructions-of-review-manuscripts.html" class="block py-1 px-3 rounded hover:bg-ieee-blue-light text-sm ">Review Manuscripts</a></li>
+                    <li><a href="instructions-for-camera-ready-papers.html" class="block py-1 px-3 rounded hover:bg-ieee-blue-light text-sm ">Camera Ready</a></li>
                 </ul>
             </li>
             <li><a href="#" class="block py-2 px-3 rounded hover:bg-ieee-blue-medium">REGISTRATION</a></li>
@@ -247,88 +260,128 @@
     <!-- 4. Main Content Area -->
     <main class="max-w-7xl mx-auto p-4 sm:p-6 lg:p-8">
 
-        <h1 class="text-4xl font-extrabold text-ieee-blue-dark text-center mb-10">Organizing Committee (AI-SIIS 2026)</h1>
+        <h1 class="text-4xl font-extrabold text-ieee-blue-dark text-center mb-6">Call for Papers (TEMSMET 2026)</h1>
         
-        <!-- ============================================== -->
-        <!-- COMMITTEE SECTION - Start -->
-        <!-- ============================================== -->
+        <!-- Submission Links Section -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
+            <a href="https://cmt3.research.microsoft.com/AISIIS2026" target="_blank" class="yellow-btn block text-center px-8 py-4 rounded-lg text-lg hover:underline transition">
+                <i class="fas fa-upload mr-2"></i> PAPER SUBMISSION LINK
+            </a>
+            <a href="#" target="_blank" class="yellow-btn block text-center px-8 py-4 rounded-lg text-lg hover:underline transition">
+                <i class="fas fa-file-pdf mr-2"></i> CALL FOR PAPER BROCHURE
+            </a>
+        </div>
 
-        <!-- Section 1: General Chairs -->
+        <!-- Introductory Text -->
+        <section class="bg-white p-6 rounded-lg shadow-lg mb-10">
+            <h2 class="text-2xl font-bold text-ieee-blue-dark mb-4 border-b border-gray-200 pb-2">Conference Scope</h2>
+            <p class="text-base leading-relaxed mb-4">
+                TEMSMET 2026 focuses on industrial and upcoming frontier technologies, applications of electronics, controls, communications, instrumentation and computational intelligence. The objectives of the conference are to provide high quality research and professional interactions for the advancement of science, technology, and fellowship. Papers with new research results are encouraged for submission.
+            </p>
+            <p class="text-base leading-relaxed">
+                The conference is technically sponsored by IEEE IES (Industrial Electronics Society) and utilizes the Microsoft CMT service for peer-reviewing.
+            </p>
+        </section>
+
+        <!-- Technical Tracks Section (Tabs Interface) -->
         <section class="mb-12">
-            <h2 class="committee-section-header">General Chairs</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Member Placeholder Card -->
-                <div class="committee-card">
-                    <p class="font-bold text-lg">Dr. Jane Smith</p>
-                    <p class="text-sm text-gray-600">Massachusetts Institute of Technology (MIT), USA</p>
+            <h2 class="text-3xl font-extrabold text-ieee-red text-center mb-6">Technical Topics (but not limited to)</h2>
+
+            <div class="bg-white rounded-lg shadow-xl overflow-hidden">
+                <!-- Tab Headers -->
+                <div id="track-tabs" class="flex flex-wrap border-b border-gray-200 text-sm font-medium text-center text-gray-500 bg-gray-50">
+                    <button data-track="1" class="tab-button active flex-1 p-3 md:p-4 text-ieee-blue-dark hover:text-ieee-red transition duration-150">
+                        Track 1: AI-Based Security & Intelligence for IIoT
+                    </button>
+                    <button data-track="2" class="tab-button flex-1 p-3 md:p-4 text-ieee-blue-dark hover:text-ieee-red transition duration-150">
+                        Track 2: AI for Smart Healthcare & Medical IoT
+                    </button>
+                    <button data-track="3" class="tab-button flex-1 p-3 md:p-4 text-ieee-blue-dark hover:text-ieee-red transition duration-150">
+                        Track 3: Secure & Ethical AI Systems
+                    </button>
+                    <button data-track="4" class="tab-button flex-1 p-3 md:p-4 text-ieee-blue-dark hover:text-ieee-red transition duration-150">
+                        Track 4: Human–Machine Collaboration
+                    </button>
+                    <button data-track="5" class="tab-button flex-1 p-3 md:p-4 text-ieee-blue-dark hover:text-ieee-red transition duration-150">
+                        Track 5: Smart & Intelligent Sensor Applications
+                    </button>
                 </div>
-                <div class="committee-card">
-                    <p class="font-bold text-lg">Prof. Adam Johnson</p>
-                    <p class="text-sm text-gray-600">Technical University of Munich (TUM), Germany</p>
-                </div>
-                <div class="committee-card">
-                    <p class="font-bold text-lg">Prof. Kenji Tanaka</p>
-                    <p class="text-sm text-gray-600">University of Tokyo, Japan</p>
+
+                <!-- Tab Content -->
+                <div id="track-content" class="p-6 md:p-8">
+                    
+                    <!-- Track 1 Content -->
+                    <div data-track="1" class="track-pane">
+                        <h3 class="text-xl font-bold text-ieee-blue-medium mb-4">Track 1: AI-Based Security and Intelligence for Industrial IoT</h3>
+                        <ul class="list-disc list-inside space-y-2 text-gray-700 ml-4">
+                            <li>AI-based threat detection and mitigation for Industrial IoT (IIoT)</li>
+                            <li>Machine learning for anomaly detection in industrial networks</li>
+                            <li>Federated and distributed learning for industrial cybersecurity</li>
+                            <li>Fault-tolerant AI architectures for industrial automation</li>
+                            <li>Intrusion detection and prevention in smart factories</li>
+                            <li>Deep learning for malware classification in IIoT environments</li>
+                            <li>Blockchain for secure IIoT data sharing and identity management</li>
+                        </ul>
+                    </div>
+
+                    <!-- Track 2 Content -->
+                    <div data-track="2" class="track-pane hidden">
+                        <h3 class="text-xl font-bold text-ieee-blue-medium mb-4">Track 2: AI for Smart Healthcare and Medical IoT</h3>
+                        <ul class="list-disc list-inside space-y-2 text-gray-700 ml-4">
+                            <li>Deep learning for disease diagnosis and early detection</li>
+                            <li>AI-enabled predictive healthcare analytics and patient monitoring</li>
+                            <li>Federated learning for clinical data sharing and privacy preservation</li>
+                            <li>Explainable AI (XAI) for medical decision-making</li>
+                            <li>Reinforcement learning in personalized treatment planning</li>
+                            <li>AI-driven biomedical signal and image analysis</li>
+                            <li>Digital twins and AI modeling for healthcare systems</li>
+                            <li>AI for remote monitoring and telemedicine applications</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Track 3 Content -->
+                    <div data-track="3" class="track-pane hidden">
+                        <h3 class="text-xl font-bold text-ieee-blue-medium mb-4">Track 3: Secure and Ethical AI Systems for Industry and Society</h3>
+                        <ul class="list-disc list-inside space-y-2 text-gray-700 ml-4">
+                            <li>Ethics-by-design frameworks for AI in industrial automation</li>
+                            <li>AI control mechanisms and failsafe architectures</li>
+                            <li>Explainability and interpretability for critical decision systems</li>
+                            <li>AI accountability and auditability models</li>
+                            <li>Managing algorithmic bias in industrial and social contexts</li>
+                            <li>Standards and benchmarks for ethical and safe AI</li>
+                        </ul>
+                    </div>
+
+                    <!-- Track 4 Content -->
+                    <div data-track="4" class="track-pane hidden">
+                        <h3 class="text-xl font-bold text-ieee-blue-medium mb-4">Track 4: Human–Machine Collaboration and Cognitive AI Systems</h3>
+                        <ul class="list-disc list-inside space-y-2 text-gray-700 ml-4">
+                            <li>AI-driven human-machine collaboration in industrial environments</li>
+                            <li>Cognitive AI systems for decision support and control</li>
+                            <li>Adaptive interfaces for human-in-the-loop systems</li>
+                            <li>Trust, transparency, and human factors in AI-enabled operations</li>
+                        </ul>
+                    </div>
+
+                    <!-- Track 5 Content -->
+                    <div data-track="5" class="track-pane hidden">
+                        <h3 class="text-xl font-bold text-ieee-blue-medium mb-4">Track 5: Smart and Intelligent Sensor Applications</h3>
+                        <ul class="list-disc list-inside space-y-2 text-gray-700 ml-4">
+                            <li>AI and machine learning for sensor data processing</li>
+                            <li>Sensor fusion and signal conditioning</li>
+                            <li>Self-calibrating and self-healing sensors</li>
+                            <li>Smart camera systems</li>
+                            <li>Industrial IoT and predictive maintenance sensors</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Section 2: Technical Program Chairs -->
-        <section class="mb-12">
-            <h2 class="committee-section-header">Technical Program Chairs (TPC)</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <!-- Member Placeholder Card -->
-                <div class="committee-card">
-                    <p class="font-bold text-lg">Dr. Elias Petrov</p>
-                    <p class="text-sm text-gray-600">St. Petersburg State University, Russia</p>
-                </div>
-                <div class="committee-card">
-                    <p class="font-bold text-lg">Dr. Maria Garcia</p>
-                    <p class="text-sm text-gray-600">University of Barcelona, Spain</p>
-                </div>
-                <div class="committee-card">
-                    <p class="font-bold text-lg">Dr. Li Wei</p>
-                    <p class="text-sm text-gray-600">Tsinghua University, China</p>
-                </div>
-                <div class="committee-card">
-                    <p class="font-bold text-lg">Dr. John Doe</p>
-                    <p class="text-sm text-gray-600">Placeholder Affiliation</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Section 3: Steering Committee -->
-        <section class="mb-12">
-            <h2 class="committee-section-header">Steering Committee</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4">
-                <!-- Member Placeholder Card (Simpler style for larger lists) -->
-                <div class="committee-card p-3">
-                    <p class="font-bold text-base leading-snug">Prof. David Lee</p>
-                    <p class="text-xs text-gray-500">Affiliation Placeholder</p>
-                </div>
-                <div class="committee-card p-3">
-                    <p class="font-bold text-base leading-snug">Dr. Susan Chen</p>
-                    <p class="text-xs text-gray-500">Affiliation Placeholder</p>
-                </div>
-                <div class="committee-card p-3">
-                    <p class="font-bold text-base leading-snug">Mr. Ahmed Khan</p>
-                    <p class="text-xs text-gray-500">Affiliation Placeholder</p>
-                </div>
-                <div class="committee-card p-3">
-                    <p class="font-bold text-base leading-snug">Dr. Elena Popova</p>
-                    <p class="text-xs text-gray-500">Affiliation Placeholder</p>
-                </div>
-                <div class="committee-card p-3">
-                    <p class="font-bold text-base leading-snug">Dr. Michael Brown</p>
-                    <p class="text-xs text-gray-500">Affiliation Placeholder</p>
-                </div>
-                <!-- You can add many more of these -->
-            </div>
-        </section>
-
-        <!-- ============================================== -->
-        <!-- COMMITTEE SECTION - End -->
-        <!-- ============================================== -->
+        <!-- CMT Acknowledgment -->
+        <div class="text-center text-sm text-gray-500 mt-10 p-4 bg-gray-100 rounded-lg shadow-inner">
+            <p>CMT Acknowledgment: The Microsoft CMT service was used for managing the peer-reviewing process for this conference. This service was provided for free by Microsoft and they bore all expenses, including costs for Azure cloud services as well as for software development and support.</p>
+        </div>
         
     </main>
 
@@ -337,7 +390,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <!-- 1. Footer Links (Centered and Above) -->
             <ul class="flex flex-wrap justify-center space-x-4 text-sm font-semibold border-b border-white/30 pb-4 mb-6">
-                <li><a href="#" class="hover:text-ieee-blue-light transition duration-150 p-2">HOME</a></li>
+                <li><a href="index.html" class="hover:text-ieee-blue-light transition duration-150 p-2">HOME</a></li>
                 <li><a href="#" target="_blank" class="hover:text-ieee-blue-light transition duration-150 p-2">SITEMAP</a></li>
                 <li><a href="#" target="_blank" class="hover:text-ieee-blue-light transition duration-150 p-2">ACCESSIBILITY</a></li>
                 <li><a href="#" target="_blank" class="hover:text-ieee-blue-light transition duration-150 p-2">NONDISCRIMINATION POLICY</a></li>
@@ -385,6 +438,8 @@
             const backToTop = document.getElementById('back-to-top');
             const mobileAuthorToggle = document.getElementById('mobile-author-toggle');
             const mobileAuthorMenu = document.getElementById('mobile-author-menu');
+            const tabButtons = document.querySelectorAll('.tab-button');
+            const trackPanes = document.querySelectorAll('.track-pane');
 
             // --- Mobile Menu Logic ---
             const toggleMenu = () => {
@@ -414,6 +469,33 @@
                 } else {
                     backToTop.classList.add('hidden');
                 }
+            });
+
+            // --- Tab Switching Logic ---
+            const switchTab = (trackId) => {
+                // Deactivate all buttons and hide all content panes
+                tabButtons.forEach(btn => btn.classList.remove('active'));
+                trackPanes.forEach(pane => pane.classList.add('hidden'));
+
+                // Activate the selected button
+                const activeBtn = document.querySelector(`.tab-button[data-track="${trackId}"]`);
+                if (activeBtn) {
+                    activeBtn.classList.add('active');
+                }
+
+                // Show the corresponding content pane
+                const activePane = document.querySelector(`.track-pane[data-track="${trackId}"]`);
+                if (activePane) {
+                    activePane.classList.remove('hidden');
+                }
+            };
+
+            // Attach event listeners to all tab buttons
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const trackId = button.getAttribute('data-track');
+                    switchTab(trackId);
+                });
             });
 
         });
