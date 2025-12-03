@@ -51,10 +51,12 @@
         .meta-nav {
             background-color: var(--ieee-blue-dark);
             height: 30px;
+            background-color: rgba(0, 102, 153, .1);
+            box-shadow: inset 0 -1px 0 0 #069;
         }
 
         .meta-nav a {
-            color: white;
+            color: var(--ieee-blue-dark);;
             font-size: 0.75rem;
             opacity: 0.9;
             transition: opacity 0.2s;
@@ -70,6 +72,8 @@
             background-color: var(--ieee-blue-medium);
             background-image: url('https://placehold.co/100x100/0073B7/0073B7?text='); /* Placeholder for the blue pattern */
             background-repeat: repeat-x;
+            background: linear-gradient(360deg, rgba(219, 240, 252, 1) 35%, rgba(247, 250, 254, 1) 100%);
+            color: #337ab7;
         }
 
         #main-nav-bar a.active-nav {
@@ -198,11 +202,11 @@
     <nav class="meta-nav hidden md:block">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <ul class="flex justify-end space-x-4 py-1">
-                <li><a href="#" target="_blank">IEEE.org</a></li>
-                <li><a href="#" target="_blank">IEEE Xplore</a></li>
-                <li><a href="#" target="_blank">IEEE Standards</a></li>
-                <li class="hidden lg:block"><a href="#" target="_blank">IEEE Spectrum</a></li>
-                <li><a href="#" target="_blank">More Sites</a></li>
+                <li><a href="https://www.ieee.org/" target="_blank"><strong>IEEE.org</strong></a></li>
+                <li><a href="https://ieeexplore.ieee.org/Xplore/home.jsp" target="_blank"><strong>IEEE Xplore</strong></a></li>
+                <li><a href="https://standards.ieee.org/?_gl=1*11sucg7*_gcl_au*NDM5MDk1NjMxLjE3NjQ1ODc5OTk." target="_blank"><strong>IEEE Standards</strong></a></li>
+                <li class="hidden lg:block"><a href="http://spectrum.ieee.org/" target="_blank"><strong>IEEE Spectrum</strong></a></li>
+                <li><a href="https://www.ieee.org/sitemap.html" target="_blank"><strong>More Sites</strong></a></li>
             </ul>
         </div>
     </nav>
@@ -315,7 +319,7 @@
         <div class="instruction-section p-6 mb-10 text-center">
             <h2 class="text-2xl font-extrabold text-ieee-red mb-4">FINAL SUBMISSION DEADLINE</h2>
             <div class="p-4 rounded-lg bg-ieee-red/10 border-4 border-ieee-red inline-block">
-                <p class="text-2xl font-black text-ieee-red tracking-wider">February 28, 2026 23:59 (AOE)</p>
+                <p class="text-2xl font-black text-ieee-red tracking-wider">September 30, 2026 23:59 (AOE)</p>
             </div>
             
             <!-- Countdown Timer -->
@@ -531,7 +535,7 @@
             // Set the date we're counting down to: February 28, 2026, 23:59:00 AOE (UTC-12)
             // Note: Since JS handles dates in UTC and local time, we define the target date
             // in a standard timezone and adjust the current time to match AOE's definition (UTC-12).
-            const targetDateString = "February 28, 2026 23:59:00 UTC";
+            const targetDateString = "September 30, 2026 23:59:00 UTC";
             const targetTime = new Date(targetDateString).getTime();
             
             const timer = setInterval(function() {
@@ -621,6 +625,42 @@
             // Start the countdown when the DOM is loaded
             startCountdown();
         });
+
     </script>
+    <script>
+// =========================
+// Countdown Timer Script
+// =========================
+
+// Set the FINAL DEADLINE
+const deadline = new Date("September 30, 2026 23:59:00").getTime();
+
+function updateCountdown() {
+    const now = new Date().getTime();
+    const timeLeft = deadline - now;
+
+    if (timeLeft <= 0) {
+        document.getElementById("countdown-days").textContent = "00";
+        document.getElementById("countdown-hours").textContent = "00";
+        document.getElementById("countdown-minutes").textContent = "00";
+        document.getElementById("countdown-seconds").textContent = "00";
+        return;
+    }
+
+    const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+    document.getElementById("countdown-days").textContent = days.toString().padStart(2, "0");
+    document.getElementById("countdown-hours").textContent = hours.toString().padStart(2, "0");
+    document.getElementById("countdown-minutes").textContent = minutes.toString().padStart(2, "0");
+    document.getElementById("countdown-seconds").textContent = seconds.toString().padStart(2, "0");
+}
+
+setInterval(updateCountdown, 1000);
+updateCountdown();
+</script>
+
 </body>
 </html>
