@@ -5,6 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>5th IEEE TEMSMET 2026</title>
     <!-- Load Tailwind CSS --><script src="https://cdn.tailwindcss.com"></script>
+     <script>
+        // Custom Tailwind Configuration for the conference theme
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        // The strong primary blue matching the conference header
+                        'ieee-primary': '#0073B7', 
+                        'ieee-hover-blue': '#1E3A8A', // Darker shade for hover effect (Tailwind blue-900)
+                        
+                        // Colors referenced in your original code
+                        'ieee-red': '#DC2626',
+                        'ieee-blue-dark': '#005A9C', 
+                        'ieee-blue-medium': '#3B82F6', 
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
     <!-- Load Font Awesome for icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         /* Custom styles to mimic the dark blue and light blue IEEE branding */
@@ -429,13 +451,6 @@
     <!-- 2. Main Header (Medium Blue with Logo/Title/Search) -->
     <header id="main-header" class="shadow-lg">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex justify-between items-center">
-            
-            <!-- Mobile Menu Toggle (Left Side) -->
-            <button id="menu-toggle" class="md:hidden text-white text-xl p-2 rounded-lg hover:bg-ieee-blue-dark transition duration-150">
-                <i class="fas fa-bars"></i>
-                <span class="ml-2 text-sm font-semibold">MENU</span>
-            </button>
-
             <!-- Logo/Title Block -->
             <div class="flex-grow md:flex-grow-0">
                 <a href="index.html" class="flex flex-col items-start text-ieee-blue leading-none">
@@ -444,9 +459,10 @@
                 </a>
             </div>
 
+            <!-- Search and IEEE Logo (Right Side - Desktop) -->
             <div class="hidden md:flex items-center space-x-4">
-                <form id="desktop-search-form" onsubmit="handleSearch(event, 'desktop-search-input');" class="flex items-center">
-                    <input type="search" id="desktop-search-input" placeholder="Search Conference" class="p-2 text-sm text-ieee-grey-text rounded-l-lg focus:ring-2 focus:ring-ieee-blue-light border border-gray-300">
+                <form onsubmit="event.preventDefault(); console.log('Searching...');" class="flex items-center">
+                    <input type="search" placeholder="Search Conference" class="p-2 text-sm text-ieee-grey-text rounded-l-lg focus:ring-2 focus:ring-ieee-blue-light border border-gray-300">
                     <button type="submit" class="bg-white p-2 text-ieee-blue-dark rounded-r-lg border border-gray-300 border-l-0">
                         <i class="fa fa-search"></i>
                     </button>
@@ -459,19 +475,10 @@
                     <img src="assests/tems-logo.png" alt="Tems Logo" class="w-full h-auto object-contain">
                 </a>
             </div>
-            
-            <button id="search-toggle-mobile" class="md:hidden text-white text-xl p-2 rounded-lg hover:bg-ieee-blue-dark transition duration-150">
-                <i class="fas fa-search"></i>
-            </button>
-        </div>
-        
-        <div id="mobile-search-bar" class="hidden md:hidden px-4 pb-3">
-            <form id="mobile-search-form" onsubmit="handleSearch(event, 'mobile-search-input');" class="flex items-center">
-                <input type="search" id="mobile-search-input" placeholder="Search Conference" class="w-full p-2 text-sm text-ieee-grey-text rounded-l-lg focus:ring-2 focus:ring-ieee-blue-light border border-gray-300">
-                <button type="submit" class="bg-white p-2 text-ieee-blue-dark rounded-r-lg border border-gray-300 border-l-0">
-                    <i class="fa fa-search"></i>
-                </button>
-            </form>
+            <button id="menu-toggle" class="md:hidden text-ieee-blue text-xl p-2 rounded-lg hover:bg-ieee-blue-dark transition duration-150">
+                <i class="fas fa-bars"></i>
+                <span class="ml-2 text-sm font-semibold">MENU</span>
+            </button>     
         </div>
     </header>
 
@@ -479,7 +486,7 @@
     <nav id="main-nav-bar" class="hidden md:block">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <ul class="flex justify-center space-x-6 lg:space-x-10">
-                <li><a href="#" class="block py-3 text-white font-semibold hover:text-gray-200 transition duration-150 active-nav">HOME</a></li>
+                <li><a href="index.html" class="block py-3 text-white font-semibold hover:text-gray-200 transition duration-150 active-nav">HOME</a></li>
                 <li><a href="committee.html" class="block py-3 text-white font-semibold hover:text-gray-200 transition duration-150">COMMITTEE</a></li>
                 <li class="group relative">
                     <a href="#" class="block py-3 text-white font-semibold hover:text-gray-200 transition duration-150">FOR AUTHORS <i class="fas fa-caret-down text-xs"></i></a>
@@ -512,10 +519,13 @@
                 <button id="mobile-author-toggle" class="flex justify-between items-center w-full py-2 px-3 rounded hover:bg-ieee-blue-medium text-left">
                     FOR AUTHORS <i class="fas fa-caret-down text-xs ml-2"></i>
                 </button>
-                <ul id="mobile-author-menu" class="ml-4 mt-1 space-y-1 bg-ieee-blue-medium rounded-lg hidden">
-                    <li><a href="call-for-papers.html" class="block py-1 px-3 rounded hover:bg-ieee-blue-light text-sm">Call for Papers</a></li>
-                    <li><a href="important-dates.html" class="block py-1 px-3 rounded hover:bg-ieee-blue-light text-sm">Important Dates</a></li>
-                    <li><a href="instructions-for-authors.html" class="block py-1 px-3 rounded hover:bg-ieee-blue-light text-sm">Instructions for Authors</a></li>
+                <ul id="mobile-author-menu" class="ml-4 mt-1 space-y-1 bg-ieee-blue-medium rounded-lg ">
+                     <li><a href="call-for-papers.html" class="block px-4 py-2 text-ieee-grey-text hover:bg-gray-100">Call for Papers</a></li>
+                        <li><a href="important-dates.html" class="block px-4 py-2 text-ieee-grey-text hover:bg-gray-100 active-dropdown-link">Important Dates</a></li>
+                        <li><a href="instructions-for-authors.html" class="block px-4 py-2 text-ieee-grey-text hover:bg-gray-100">Instructions for Authors</a></li>
+                        <li><a href="instructions-of-review-manuscripts.html" class="block px-4 py-2 text-ieee-grey-text hover:bg-gray-100">Review Manuscripts</a></li>
+                         <!-- Active link within the dropdown -->
+                        <li><a href="instructions-for-camera-ready-papers.html" class="block px-4 py-2 text-ieee-grey-text hover:bg-gray-100 ">Camera Ready</a></li>
                 </ul>
             </li>
             <li><a href="registration.html" class="block py-2 px-3 rounded hover:bg-ieee-blue-medium">REGISTRATION</a></li>

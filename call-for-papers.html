@@ -51,10 +51,12 @@
         .meta-nav {
             background-color: var(--ieee-blue-dark);
             height: 30px;
+            background-color: rgba(0, 102, 153, .1);
+            box-shadow: inset 0 -1px 0 0 #069;
         }
 
         .meta-nav a {
-            color: white;
+            color: var(--ieee-blue-dark);;
             font-size: 0.75rem;
             opacity: 0.9;
             transition: opacity 0.2s;
@@ -70,6 +72,8 @@
             background-color: var(--ieee-blue-medium);
             background-image: url('https://placehold.co/100x100/0073B7/0073B7?text='); /* Placeholder for the blue pattern */
             background-repeat: repeat-x;
+            background: linear-gradient(360deg, rgba(219, 240, 252, 1) 35%, rgba(247, 250, 254, 1) 100%);
+            color: #337ab7;
         }
 
         /* Main Navigation Bar */
@@ -181,11 +185,11 @@
     <nav class="meta-nav hidden md:block">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <ul class="flex justify-end space-x-4 py-1">
-                <li><a href="#" target="_blank">IEEE.org</a></li>
-                <li><a href="#" target="_blank">IEEE Xplore</a></li>
-                <li><a href="#" target="_blank">IEEE Standards</a></li>
-                <li class="hidden lg:block"><a href="#" target="_blank">IEEE Spectrum</a></li>
-                <li><a href="#" target="_blank">More Sites</a></li>
+                <li><a href="https://www.ieee.org/" target="_blank"><strong>IEEE.org</strong></a></li>
+                <li><a href="https://ieeexplore.ieee.org/Xplore/home.jsp" target="_blank"><strong>IEEE Xplore</strong></a></li>
+                <li><a href="https://standards.ieee.org/?_gl=1*11sucg7*_gcl_au*NDM5MDk1NjMxLjE3NjQ1ODc5OTk." target="_blank"><strong>IEEE Standards</strong></a></li>
+                <li class="hidden lg:block"><a href="http://spectrum.ieee.org/" target="_blank"><strong>IEEE Spectrum</strong></a></li>
+                <li><a href="https://www.ieee.org/sitemap.html" target="_blank"><strong>More Sites</strong></a></li>
             </ul>
         </div>
     </nav>
@@ -193,10 +197,6 @@
     <!-- 2. Main Header (Medium Blue with Logo/Title/Search) -->
     <header id="main-header" class="shadow-lg">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex justify-between items-center">
-            
-            <!-- Mobile Menu Toggle (Left Side) -->
-            
-
             <!-- Logo/Title Block -->
             <div class="flex-grow md:flex-grow-0">
                 <a href="index.html" class="flex flex-col items-start text-ieee-blue leading-none">
@@ -213,31 +213,18 @@
                         <i class="fa fa-search"></i>
                     </button>
                 </form>
-                <a href="https://www.ieee.org/" target="_blank" class="w-16">
-                    <!-- Placeholder for IEEE Logo SVG -->
-                    <svg viewBox="0 0 100 20" xmlns="http://www.w3.org/2000/svg" class="fill-white">
-                        <rect width="100" height="20" fill="white"/>
-                        <text x="50%" y="70%" font-family="Arial" font-size="12" fill="var(--ieee-blue-dark)" text-anchor="middle">IEEE Logo</text>
-                    </svg>
+                <a href="https://www.ieee.org/" target="_blank" class="w-20">
+                    <img src="assests/footerimg.webp" alt="Symbiosis Logo" class="w-full h-auto object-contain">
+                </a>
+
+                <a href="https://www.ieee.org/" target="_blank" class="w-20">
+                    <img src="assests/tems-logo.png" alt="Tems Logo" class="w-full h-auto object-contain">
                 </a>
             </div>
             <button id="menu-toggle" class="md:hidden text-ieee-blue text-xl p-2 rounded-lg hover:bg-ieee-blue-dark transition duration-150">
                 <i class="fas fa-bars"></i>
                 <span class="ml-2 text-sm font-semibold">MENU</span>
-            </button>
-            
-            <!-- Mobile Search Toggle (Right Side) -->
-            
-        </div>
-        
-        <!-- Mobile Search Input (Hidden by default) -->
-        <div id="mobile-search-bar" class="hidden md:hidden px-4 pb-3">
-            <form onsubmit="event.preventDefault(); console.log('Searching Mobile...');" class="flex items-center">
-                <input type="search" placeholder="Search Conference" class="w-full p-2 text-sm text-ieee-grey-text rounded-l-lg focus:ring-2 focus:ring-ieee-blue-light border border-gray-300">
-                <button type="submit" class="bg-white p-2 text-ieee-blue-dark rounded-r-lg border border-gray-300 border-l-0">
-                    <i class="fa fa-search"></i>
-                </button>
-            </form>
+            </button>     
         </div>
     </header>
 
@@ -282,7 +269,7 @@
                 </button>
                 <ul id="mobile-author-menu" class="ml-4 mt-1 space-y-1 bg-ieee-blue-medium rounded-lg">
                     
-                    <li><a href="#" class="block py-1 px-3 rounded hover:bg-ieee-blue-light text-sm active-dropdown-link">Call for Papers</a></li>
+                    <li><a href="call-for-papers.html" class="block py-1 px-3 rounded hover:bg-ieee-blue-light text-sm active-dropdown-link">Call for Papers</a></li>
                     <li><a href="important-dates.html" class="block py-1 px-3 rounded hover:bg-ieee-blue-light text-sm ">Important Dates</a></li>
                     <li><a href="instructions-for-authors.html" class="block py-1 px-3 rounded hover:bg-ieee-blue-light text-sm">Instructions for Authors</a></li>
                     <li><a href="instructions-of-review-manuscripts.html" class="block py-1 px-3 rounded hover:bg-ieee-blue-light text-sm ">Review Manuscripts</a></li>
