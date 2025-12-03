@@ -6,6 +6,28 @@
     <title>Call for Papers - International Conference on AI and Security (AISIIS)</title>
     <!-- Load Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        // Custom Tailwind Configuration for the conference theme
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        // The strong primary blue matching the conference header
+                        'ieee-primary': '#0073B7', 
+                        'ieee-hover-blue': '#1E3A8A', // Darker shade for hover effect (Tailwind blue-900)
+                        
+                        // Colors referenced in your original code
+                        'ieee-red': '#DC2626',
+                        'ieee-blue-dark': '#005A9C', 
+                        'ieee-blue-medium': '#3B82F6', 
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
     <!-- Load Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
@@ -123,6 +145,34 @@
             opacity: 0.2;
             z-index: 0;
         }
+        .accordion-header {
+            cursor: pointer;
+            /* Added transition for smoother background change on hover/active */
+            transition: background-color 0.3s ease, color 0.3s ease;
+            /* Ensure the text is visible and prominent against the dark blue */
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Styling for the content panel transition */
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            /* Fine-tuned transition for max-height and padding */
+            transition: max-height 0.5s ease-in-out, padding 0.5s ease-in-out;
+        }
+        
+        /* The class applied when the content is visible */
+        .accordion-content.open {
+            max-height: 1000px; /* Large value for smooth expansion */
+            padding-top: 1.5rem; /* Equivalent to p-6 (24px) */
+            padding-bottom: 1.5rem; /* Equivalent to p-6 (24px) */
+        }
+
+        /* Icon styling */
+        .plus-icon {
+            transition: transform 0.3s ease;
+            font-weight: 300; /* Use a lighter font weight for the plus/minus icon */
+        }
     </style>
 </head>
 <body class="bg-ieee-bg text-ieee-grey-text">
@@ -145,14 +195,11 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex justify-between items-center">
             
             <!-- Mobile Menu Toggle (Left Side) -->
-            <button id="menu-toggle" class="md:hidden text-white text-xl p-2 rounded-lg hover:bg-ieee-blue-dark transition duration-150">
-                <i class="fas fa-bars"></i>
-                <span class="ml-2 text-sm font-semibold">MENU</span>
-            </button>
+            
 
             <!-- Logo/Title Block -->
             <div class="flex-grow md:flex-grow-0">
-                <a href="index.html" class="flex flex-col items-start text-white leading-none">
+                <a href="index.html" class="flex flex-col items-start text-ieee-blue leading-none">
                     <h1 class="text-xl md:text-2xl font-bold uppercase tracking-tight">The 5th IEEE TEMSMET 2026 Conference</h1>
                     <span class="text-xs md:text-sm font-light">(Technology, Engineering, Management for Societal Impact)</span>
                 </a>
@@ -174,11 +221,13 @@
                     </svg>
                 </a>
             </div>
+            <button id="menu-toggle" class="md:hidden text-ieee-blue text-xl p-2 rounded-lg hover:bg-ieee-blue-dark transition duration-150">
+                <i class="fas fa-bars"></i>
+                <span class="ml-2 text-sm font-semibold">MENU</span>
+            </button>
             
             <!-- Mobile Search Toggle (Right Side) -->
-            <button id="search-toggle-mobile" class="md:hidden text-white text-xl p-2 rounded-lg hover:bg-ieee-blue-dark transition duration-150">
-                <i class="fas fa-search"></i>
-            </button>
+            
         </div>
         
         <!-- Mobile Search Input (Hidden by default) -->
@@ -197,7 +246,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <ul class="flex justify-center space-x-6 lg:space-x-10">
                 <li><a href="index.html" class="block py-3 text-white font-semibold hover:text-gray-200 transition duration-150">HOME</a></li>
-                <li><a href="commite.html" class="block py-3 text-white font-semibold hover:text-gray-200 transition duration-150">COMMITTEE</a></li>
+                <li><a href="committee.html" class="block py-3 text-white font-semibold hover:text-gray-200 transition duration-150">COMMITTEE</a></li>
                 <li class="group relative">
                     <a href="#" class="block py-3 text-white font-semibold hover:text-gray-200 transition duration-150 active-nav">FOR AUTHORS <i class="fas fa-caret-down text-xs"></i></a>
                     <ul class="absolute hidden group-hover:block bg-white shadow-xl rounded-b-lg min-w-[200px] z-30">
@@ -212,7 +261,7 @@
                 </li>
                 <li><a href="registration.html" class="block py-3 text-white font-semibold hover:text-gray-200 transition duration-150">REGISTRATION</a></li>
                 <li><a href="#" class="block py-3 text-white font-semibold hover:text-gray-200 transition duration-150">SPONSORSHIPS</a></li>
-                <li><a href="#" class="block py-3 text-white font-semibold hover:text-gray-200 transition duration-150">CONTACT US</a></li>
+                <li><a href="contact-us.html" class="block py-3 text-white font-semibold hover:text-gray-200 transition duration-150">CONTACT US</a></li>
             </ul>
         </div>
     </nav>
@@ -242,7 +291,7 @@
             </li>
             <li><a href="registration.html" class="block py-2 px-3 rounded hover:bg-ieee-blue-medium">REGISTRATION</a></li>
             <li><a href="#" class="block py-2 px-3 rounded hover:bg-ieee-blue-medium">SPONSORSHIPS</a></li>
-            <li><a href="#" class="block py-2 px-3 rounded hover:bg-ieee-blue-medium">CONTACT US</a></li>
+            <li><a href="contact-us.html" class="block py-2 px-3 rounded hover:bg-ieee-blue-medium">CONTACT US</a></li>
         </ul>
         <!-- Mobile Social Links -->
         <div class="mt-8 pt-4 border-t border-white/20">
@@ -285,98 +334,210 @@
 
         <!-- Technical Tracks Section (Tabs Interface) -->
         <section class="mb-12">
-            <h2 class="text-3xl font-extrabold text-ieee-red text-center mb-6">Technical Topics (but not limited to)</h2>
+            <h2 class="text-4xl font-extrabold text-ieee-blue text-center mb-10 tracking-tight">Technical Topics </h2>
 
-            <div class="bg-white rounded-lg shadow-xl overflow-hidden">
-                <!-- Tab Headers -->
-                <div id="track-tabs" class="flex flex-wrap border-b border-gray-200 text-sm font-medium text-center text-gray-500 bg-gray-50">
-                    <button data-track="1" class="tab-button active flex-1 p-3 md:p-4 text-ieee-blue-dark hover:text-ieee-red transition duration-150">
-                        Track 1: AI-Based Security & Intelligence for IIoT
-                    </button>
-                    <button data-track="2" class="tab-button flex-1 p-3 md:p-4 text-ieee-blue-dark hover:text-ieee-red transition duration-150">
-                        Track 2: AI for Smart Healthcare & Medical IoT
-                    </button>
-                    <button data-track="3" class="tab-button flex-1 p-3 md:p-4 text-ieee-blue-dark hover:text-ieee-red transition duration-150">
-                        Track 3: Secure & Ethical AI Systems
-                    </button>
-                    <button data-track="4" class="tab-button flex-1 p-3 md:p-4 text-ieee-blue-dark hover:text-ieee-red transition duration-150">
-                        Track 4: Human–Machine Collaboration
-                    </button>
-                    <button data-track="5" class="tab-button flex-1 p-3 md:p-4 text-ieee-blue-dark hover:text-ieee-red transition duration-150">
-                        Track 5: Smart & Intelligent Sensor Applications
-                    </button>
-                </div>
+            <!-- Accordion Container -->
+            <div id="accordion-container" class="space-y-4">
 
-                <!-- Tab Content -->
-                <div id="track-content" class="p-6 md:p-8">
-                    
-                    <!-- Track 1 Content -->
-                    <div data-track="1" class="track-pane">
-                        <h3 class="text-xl font-bold text-ieee-blue-medium mb-4">Track 1: AI-Based Security and Intelligence for Industrial IoT</h3>
-                        <ul class="list-disc list-inside space-y-2 text-gray-700 ml-4">
-                            <li>AI-based threat detection and mitigation for Industrial IoT (IIoT)</li>
-                            <li>Machine learning for anomaly detection in industrial networks</li>
-                            <li>Federated and distributed learning for industrial cybersecurity</li>
-                            <li>Fault-tolerant AI architectures for industrial automation</li>
-                            <li>Intrusion detection and prevention in smart factories</li>
-                            <li>Deep learning for malware classification in IIoT environments</li>
-                            <li>Blockchain for secure IIoT data sharing and identity management</li>
-                        </ul>
-                    </div>
-
-                    <!-- Track 2 Content -->
-                    <div data-track="2" class="track-pane hidden">
-                        <h3 class="text-xl font-bold text-ieee-blue-medium mb-4">Track 2: AI for Smart Healthcare and Medical IoT</h3>
-                        <ul class="list-disc list-inside space-y-2 text-gray-700 ml-4">
-                            <li>Deep learning for disease diagnosis and early detection</li>
-                            <li>AI-enabled predictive healthcare analytics and patient monitoring</li>
-                            <li>Federated learning for clinical data sharing and privacy preservation</li>
-                            <li>Explainable AI (XAI) for medical decision-making</li>
-                            <li>Reinforcement learning in personalized treatment planning</li>
-                            <li>AI-driven biomedical signal and image analysis</li>
-                            <li>Digital twins and AI modeling for healthcare systems</li>
-                            <li>AI for remote monitoring and telemedicine applications</li>
-                        </ul>
-                    </div>
-                    
-                    <!-- Track 3 Content -->
-                    <div data-track="3" class="track-pane hidden">
-                        <h3 class="text-xl font-bold text-ieee-blue-medium mb-4">Track 3: Secure and Ethical AI Systems for Industry and Society</h3>
-                        <ul class="list-disc list-inside space-y-2 text-gray-700 ml-4">
-                            <li>Ethics-by-design frameworks for AI in industrial automation</li>
-                            <li>AI control mechanisms and failsafe architectures</li>
-                            <li>Explainability and interpretability for critical decision systems</li>
-                            <li>AI accountability and auditability models</li>
-                            <li>Managing algorithmic bias in industrial and social contexts</li>
-                            <li>Standards and benchmarks for ethical and safe AI</li>
-                        </ul>
-                    </div>
-
-                    <!-- Track 4 Content -->
-                    <div data-track="4" class="track-pane hidden">
-                        <h3 class="text-xl font-bold text-ieee-blue-medium mb-4">Track 4: Human–Machine Collaboration and Cognitive AI Systems</h3>
-                        <ul class="list-disc list-inside space-y-2 text-gray-700 ml-4">
-                            <li>AI-driven human-machine collaboration in industrial environments</li>
-                            <li>Cognitive AI systems for decision support and control</li>
-                            <li>Adaptive interfaces for human-in-the-loop systems</li>
-                            <li>Trust, transparency, and human factors in AI-enabled operations</li>
-                        </ul>
-                    </div>
-
-                    <!-- Track 5 Content -->
-                    <div data-track="5" class="track-pane hidden">
-                        <h3 class="text-xl font-bold text-ieee-blue-medium mb-4">Track 5: Smart and Intelligent Sensor Applications</h3>
-                        <ul class="list-disc list-inside space-y-2 text-gray-700 ml-4">
-                            <li>AI and machine learning for sensor data processing</li>
-                            <li>Sensor fusion and signal conditioning</li>
-                            <li>Self-calibrating and self-healing sensors</li>
-                            <li>Smart camera systems</li>
-                            <li>Industrial IoT and predictive maintenance sensors</li>
-                        </ul>
+                <!-- Track 1 Item - Enhanced Styling -->
+                <div class="accordion-item rounded-xl shadow-2xl overflow-hidden border border-ieee-primary/20">
+                    <button class="accordion-header active flex justify-between items-center w-full p-5 text-left text-xl font-bold bg-ieee-primary text-white hover:bg-ieee-hover-blue transition duration-300 ease-in-out">
+                        Track 1: Sustainable Power, Energy Systems & Green Technologies
+                        <span class="plus-icon text-2xl font-light" data-open-icon="&#x2212;" data-closed-icon="&#x2B;">&#x2212;</span>
+                    </button>
+                    <!-- Content div structure refined for padding consistency -->
+                    <div class="accordion-content open bg-white">
+                        <div class="p-0">
+                            <h3 class="text-2xl font-extrabold text-ieee-blue-dark mb-4 border-b pb-2 border-ieee-blue-medium/30 px-6 pt-0">Track 1: Sustainable Power, Energy Systems & Green Technologies</h3>
+                            <ul class="list-disc list-inside space-y-2 text-gray-700 ml-4 px-6 pb-0">
+                                <li>Sustainable Power Generation & Transportation Systems</li>
+                                <li>Renewable and Clean Energy (Solar, Wind, Green Hydrogen, Power-to-X)</li>
+                                <li>Power Electronic Converters, Topologies & Control</li>
+                                <li>Digital Twins for Power Electronic and Energy Systems</li>
+                                <li>Electric & Hybrid Electric Vehicles, Charging Infrastructure</li>
+                                <li>AI and Data Analytics in Power & Energy Engineering</li>
+                                <li>IoT Integration in Smart Energy Systems</li>
+                                <li>Smart Grids, Resilience & Energy Commerce</li>
+                                <li>Cybersecurity for Cyber-Physical Energy Systems</li>
+                                <li>Sustainable Energy Policy, Carbon Neutrality & Global Impact</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
+
+                <!-- Track 2 Item -->
+                <div class="accordion-item rounded-xl shadow-2xl overflow-hidden border border-ieee-primary/20">
+                    <button class="accordion-header flex justify-between items-center w-full p-5 text-left text-xl font-bold bg-ieee-primary text-white hover:bg-ieee-hover-blue transition duration-300 ease-in-out">
+                        Track 2: Artificial Intelligence, Data Science & Cybersecurity Governance
+                        <span class="plus-icon text-2xl font-light" data-open-icon="&#x2212;" data-closed-icon="&#x2B;">&#x2B;</span>
+                    </button>
+                    <div class="accordion-content bg-white">
+                        <div class="p-0">
+                            <h3 class="text-2xl font-extrabold text-ieee-blue-dark mb-4 border-b pb-2 border-ieee-blue-medium/30 px-6 pt-0">Track 2: Artificial Intelligence, Data Science & Cybersecurity Governance</h3>
+                            <ul class="list-disc list-inside space-y-2 text-gray-700 ml-4 px-6 pb-0">
+                                <li>Recurrent Neural Networks (RNN), LSTM & Deep Learning Architectures</li>
+                                <li>Generative AI, Foundation Models & Multimodal Systems</li>
+                                <li>Transformers and Large Language Models (LLMs)</li>
+                                <li>Image/Video Processing, Object Detection & Recognition</li>
+                                <li>AR/VR for Engineering, Education & Human-Centric Solutions</li>
+                                <li>Predictive Analytics & Forecasting in Real-World Scenarios</li>
+                                <li>Big Data Analytics & Applied AI in Healthcare & Finance</li>
+                                <li>AI Ethics, Bias, Transparency, Safety & Responsible AI</li>
+                                <li>Cybersecurity, Data Privacy, Digital Trust & Zero Trust Architecture</li>
+                                <li>AI Laws, Policies & Global Governance Frameworks</li>
+                                <li>Risk Modelling, Threat Detection & Security Challenges in the AI Era</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Track 3 Item -->
+                <div class="accordion-item rounded-xl shadow-2xl overflow-hidden border border-ieee-primary/20">
+                    <button class="accordion-header flex justify-between items-center w-full p-5 text-left text-xl font-bold bg-ieee-primary text-white hover:bg-ieee-hover-blue transition duration-300 ease-in-out">
+                        Track 3: Smart Systems, Communication Technologies & Intelligent Infrastructure
+                        <span class="plus-icon text-2xl font-light" data-open-icon="&#x2212;" data-closed-icon="&#x2B;">&#x2B;</span>
+                    </button>
+                    <div class="accordion-content bg-white">
+                        <div class="p-0">
+                            <h3 class="text-2xl font-extrabold text-ieee-blue-dark mb-4 border-b pb-2 border-ieee-blue-medium/30 px-6 pt-0">Track 3: Smart Systems, Communication Technologies & Intelligent Infrastructure</h3>
+                            <ul class="list-disc list-inside space-y-2 text-gray-700 ml-4 px-6 pb-0">
+                                <li>IoT, IIoT, Sensor Networks & Edge/Fog Computing</li>
+                                <li>Smart Cities, Smart Homes & Human-Centred Smart Services</li>
+                                <li>Blockchain, Cryptography & Privacy-Preserving Technologies</li>
+                                <li>Wireless Networks, Optical Communications & Sensor Networks</li>
+                                <li>RF, Microwave & mmWave Innovations</li>
+                                <li>Embedded Systems, Real-Time Systems & Cyber-Physical Devices</li>
+                                <li>Software-Defined Networking (SDN) & Network Function Virtualisation (NFV)</li>
+                                <li>High-Performance Computing for Engineering Applications</li>
+                                <li>Evolution to 5G, 6G & Future Connectivity</li>
+                                <li>Resilient Digital Infrastructure for Society</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Track 4 Item -->
+                <div class="accordion-item rounded-xl shadow-2xl overflow-hidden border border-ieee-primary/20">
+                    <button class="accordion-header flex justify-between items-center w-full p-5 text-left text-xl font-bold bg-ieee-primary text-white hover:bg-ieee-hover-blue transition duration-300 ease-in-out">
+                        Track 4: Engineering, Digital Management & Human-Centred Technology
+                        <span class="plus-icon text-2xl font-light" data-open-icon="&#x2212;" data-closed-icon="&#x2B;">&#x2B;</span>
+                    </button>
+                    <div class="accordion-content bg-white">
+                        <div class="p-0">
+                            <h3 class="text-2xl font-extrabold text-ieee-blue-dark mb-4 border-b pb-2 border-ieee-blue-medium/30 px-6 pt-0">Track 4: Engineering, Digital Management & Human-Centred Technology</h3>
+                            <ul class="list-disc list-inside space-y-2 text-gray-700 ml-4 px-6 pb-0">
+                                <li>Software Engineering & Smart Management Practices</li>
+                                <li>Smart Manufacturing, Automation & Industry 5.0</li>
+                                <li>Predictive Maintenance & AI-Driven Production Systems</li>
+                                <li>Digital Twins for Business, Supply Chain & Operations</li>
+                                <li>Organisational Change & Workforce Transformation in the Digital Era</li>
+                                <li>AI-Enhanced CRM, Service Delivery & Personalisation</li>
+                                <li>CFO Tech: AI-Powered Financial Forecasting & Risk Analytics</li>
+                                <li>AI-Augmented Decision Making & Strategic Management</li>
+                                <li>Digital Currencies, CBDCs & Policy Considerations</li>
+                                <li>Cloud-Based Analytics & Agile Business Platforms</li>
+                                <li>Human-Tech Collaboration in Future Workplaces</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Track 5 Item -->
+                <div class="accordion-item rounded-xl shadow-2xl overflow-hidden border border-ieee-primary/20">
+                    <button class="accordion-header flex justify-between items-center w-full p-5 text-left text-xl font-bold bg-ieee-primary text-white hover:bg-ieee-hover-blue transition duration-300 ease-in-out">
+                        Track 5: VLSI, Robotics, Embedded Systems & Intelligent Signal Processing
+                        <span class="plus-icon text-2xl font-light" data-open-icon="&#x2212;" data-closed-icon="&#x2B;">&#x2B;</span>
+                    </button>
+                    <div class="accordion-content bg-white">
+                        <div class="p-0">
+                            <h3 class="text-2xl font-extrabold text-ieee-blue-dark mb-4 border-b pb-2 border-ieee-blue-medium/30 px-6 pt-0">Track 5: VLSI, Robotics, Embedded Systems & Intelligent Signal Processing</h3>
+                            <ul class="list-disc list-inside space-y-2 text-gray-700 ml-4 px-6 pb-0">
+                                <li>Audio, Acoustic, Image, Video & Multidimensional Signal Processing</li>
+                                <li>Computer Vision & Intelligent Perception Systems</li>
+                                <li>Mobile Robotics, Outdoor Service Robots & Autonomous Navigation</li>
+                                <li>Aerial Robots: GNC, Autonomy & AI Integration</li>
+                                <li>Human–Machine Interaction & Multirobot Coordination</li>
+                                <li>AI-Assisted VLSI Design, EDA Frameworks & Nanoelectronic Systems</li>
+                                <li>Neuromorphic Computing Trends & Brain-Inspired Systems</li>
+                                <li>Quantum Computing for Engineering & Optimisation</li>
+                                <li>Deep Submicron Design Challenges & Testing Methodologies</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Track 6 Item -->
+                <div class="accordion-item rounded-xl shadow-2xl overflow-hidden border border-ieee-primary/20">
+                    <button class="accordion-header flex justify-between items-center w-full p-5 text-left text-xl font-bold bg-ieee-primary text-white hover:bg-ieee-hover-blue transition duration-300 ease-in-out">
+                        Track 6: Innovation, Entrepreneurship & Inclusive Digital Economies
+                        <span class="plus-icon text-2xl font-light" data-open-icon="&#x2212;" data-closed-icon="&#x2B;">&#x2B;</span>
+                    </button>
+                    <div class="accordion-content bg-white">
+                        <div class="p-0">
+                            <h3 class="text-2xl font-extrabold text-ieee-blue-dark mb-4 border-b pb-2 border-ieee-blue-medium/30 px-6 pt-0">Track 6: Innovation, Entrepreneurship & Inclusive Digital Economies</h3>
+                            <ul class="list-disc list-inside space-y-2 text-gray-700 ml-4 px-6 pb-0">
+                                <li>Disruptive Product Innovations & Scalable Ventures</li>
+                                <li>Inclusive and Sustainable Business Models for Social Impact</li>
+                                <li>AI-Powered Sales, Marketing & Consumer Intelligence</li>
+                                <li>Startup Acceleration, Funding Strategies & Market Dynamics</li>
+                                <li>Technology Commercialisation & Innovation Management</li>
+                                <li>Frugal Innovation, Grassroots Innovation & Community Tech</li>
+                                <li>Women in Tech Leadership & Youth Entrepreneurship</li>
+                                <li>Global Collaboration Models under Vasudhaiva Kutumbakam</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Track 7 Item -->
+                <div class="accordion-item rounded-xl shadow-2xl overflow-hidden border border-ieee-primary/20">
+                    <button class="accordion-header flex justify-between items-center w-full p-5 text-left text-xl font-bold bg-ieee-primary text-white hover:bg-ieee-hover-blue transition duration-300 ease-in-out">
+                        Track 7: Law, Ethics, Public Policy & Human-Centred Governance
+                        <span class="plus-icon text-2xl font-light" data-open-icon="&#x2212;" data-closed-icon="&#x2B;">&#x2B;</span>
+                    </button>
+                    <div class="accordion-content bg-white">
+                        <div class="p-0">
+                            <h3 class="text-2xl font-extrabold text-ieee-blue-dark mb-4 border-b pb-2 border-ieee-blue-medium/30 px-6 pt-0">Track 7: Law, Ethics, Public Policy & Human-Centred Governance</h3>
+                            <ul class="list-disc list-inside space-y-2 text-gray-700 ml-4 px-6 pb-0">
+                                <li>AI Regulations, Privacy Laws & Global Digital Governance</li>
+                                <li>Legal Challenges around Autonomous Systems & Robotics</li>
+                                <li>Ethical Dilemmas in AI, Data Use & Automation</li>
+                                <li>Policy Frameworks for Sustainable Technology Adoption</li>
+                                <li>Tech Diplomacy, Cross-Border Data Flow & Digital Sovereignty</li>
+                                <li>Environmental Policies & Sustainable Urban Planning</li>
+                                <li>Governance for Smart Cities, Mobility & Green Energy</li>
+                                <li>Human Rights, Digital Inclusion & Equity</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Track 8 Item -->
+                <div class="accordion-item rounded-xl shadow-2xl overflow-hidden border border-ieee-primary/20">
+                    <button class="accordion-header flex justify-between items-center w-full p-5 text-left text-xl font-bold bg-ieee-primary text-white hover:bg-ieee-hover-blue transition duration-300 ease-in-out">
+                        Track 8: Education, Society & the Future of Human–AI Coexistence
+                        <span class="plus-icon text-2xl font-light" data-open-icon="&#x2212;" data-closed-icon="&#x2B;">&#x2B;</span>
+                    </button>
+                    <div class="accordion-content bg-white">
+                        <div class="p-0">
+                            <h3 class="text-2xl font-extrabold text-ieee-blue-dark mb-4 border-b pb-2 border-ieee-blue-medium/30 px-6 pt-0">Track 8: Education, Society & the Future of Human–AI Coexistence</h3>
+                            <ul class="list-disc list-inside space-y-2 text-gray-700 ml-4 px-6 pb-0">
+                                <li>AI in Education, Personalised Learning & Smart Classrooms</li>
+                                <li>Future Skills, Workforce Development & Lifelong Learning</li>
+                                <li>Role of Humanities & Social Sciences in the AI Era</li>
+                                <li>Digital Health, Telemedicine & Technological Well-Being</li>
+                                <li>Human–AI Collaboration & Responsible Coexistence</li>
+                                <li>Social Innovation & Community-Oriented Technologies</li>
+                                <li>Technology for Accessibility & Assistive Solutions</li>
+                                <li>Global Citizenship & Vasudeva Kutumbakam in Society</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </section>
+
 
         <!-- CMT Acknowledgment -->
         <div class="text-center text-sm text-gray-500 mt-10 p-4 bg-gray-100 rounded-lg shadow-inner">
@@ -498,6 +659,62 @@
                 });
             });
 
+        });
+        document.addEventListener('DOMContentLoaded', () => {
+            const accordionItems = document.querySelectorAll('.accordion-item');
+
+            accordionItems.forEach(item => {
+                const header = item.querySelector('.accordion-header');
+                const content = item.querySelector('.accordion-content');
+                const icon = item.querySelector('.plus-icon');
+                
+                // Toggle function to handle opening/closing
+                const toggleAccordion = () => {
+                    const isOpen = header.classList.contains('active');
+
+                    if (isOpen) {
+                        // Close the content
+                        header.classList.remove('active');
+                        content.classList.remove('open');
+                        icon.textContent = icon.dataset.closedIcon;
+                    } else {
+                        // Close all other open items first (Single-accordion functionality)
+                        accordionItems.forEach(otherItem => {
+                            const otherHeader = otherItem.querySelector('.accordion-header');
+                            const otherContent = otherItem.querySelector('.accordion-content');
+                            const otherIcon = otherItem.querySelector('.plus-icon');
+
+                            if (otherHeader !== header && otherHeader.classList.contains('active')) {
+                                otherHeader.classList.remove('active');
+                                otherContent.classList.remove('open');
+                                otherIcon.textContent = otherIcon.dataset.closedIcon;
+                            }
+                        });
+
+                        // Open the clicked content
+                        header.classList.add('active');
+                        content.classList.add('open');
+                        icon.textContent = icon.dataset.openIcon;
+                    }
+                };
+                
+                header.addEventListener('click', toggleAccordion);
+
+                // Initialize state based on the 'open' class
+                const innerContent = content.querySelector('div');
+                
+                // Track 1 starts open, so set the icon and state correctly
+                if (content.classList.contains('open')) {
+                    header.classList.add('active');
+                    icon.textContent = icon.dataset.openIcon;
+                    // Ensure the inner padding of the track title is present on load
+                    innerContent.querySelector('h3').classList.add('pt-6'); 
+                } else {
+                    // For all other tracks, ensure they start closed
+                    icon.textContent = icon.dataset.closedIcon;
+                    innerContent.querySelector('h3').classList.remove('pt-6');
+                }
+            });
         });
     </script>
 </body>

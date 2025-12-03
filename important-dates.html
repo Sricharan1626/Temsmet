@@ -29,10 +29,12 @@
         .meta-nav {
             background-color: var(--ieee-blue-dark);
             height: 30px;
+            background-color: rgba(0, 102, 153, .1);
+            box-shadow: inset 0 -1px 0 0 #069;
         }
 
         .meta-nav a {
-            color: white;
+            color: var(--ieee-blue-dark);;
             font-size: 0.75rem;
             opacity: 0.9;
             transition: opacity 0.2s;
@@ -48,6 +50,8 @@
             background-color: var(--ieee-blue-medium);
             background-image: url('https://placehold.co/100x100/0073B7/0073B7?text='); /* Placeholder for the blue pattern */
             background-repeat: repeat-x;
+            background: linear-gradient(360deg, rgba(219, 240, 252, 1) 35%, rgba(247, 250, 254, 1) 100%);
+            color: #337ab7;
         }
 
         /* Main Navigation Bar */
@@ -227,11 +231,11 @@
     <nav class="meta-nav hidden md:block">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <ul class="flex justify-end space-x-4 py-1">
-                <li><a href="#" target="_blank">IEEE.org</a></li>
-                <li><a href="#" target="_blank">IEEE Xplore</a></li>
-                <li><a href="#" target="_blank">IEEE Standards</a></li>
-                <li class="hidden lg:block"><a href="#" target="_blank">IEEE Spectrum</a></li>
-                <li><a href="#" target="_blank">More Sites</a></li>
+                <li><a href="https://www.ieee.org/" target="_blank"><strong>IEEE.org</strong></a></li>
+                <li><a href="https://ieeexplore.ieee.org/Xplore/home.jsp" target="_blank"><strong>IEEE Xplore</strong></a></li>
+                <li><a href="https://standards.ieee.org/?_gl=1*11sucg7*_gcl_au*NDM5MDk1NjMxLjE3NjQ1ODc5OTk." target="_blank"><strong>IEEE Standards</strong></a></li>
+                <li class="hidden lg:block"><a href="http://spectrum.ieee.org/" target="_blank"><strong>IEEE Spectrum</strong></a></li>
+                <li><a href="https://www.ieee.org/sitemap.html" target="_blank"><strong>More Sites</strong></a></li>
             </ul>
         </div>
     </nav>
@@ -241,14 +245,14 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex justify-between items-center">
             
             <!-- Mobile Menu Toggle (Left Side) -->
-            <button id="menu-toggle" class="md:hidden text-white text-xl p-2 rounded-lg hover:bg-ieee-blue-dark transition duration-150">
+            <button id="menu-toggle" class="md:hidden text-ieee-blue text-xl p-2 rounded-lg hover:bg-ieee-blue-dark transition duration-150">
                 <i class="fas fa-bars"></i>
                 <span class="ml-2 text-sm font-semibold">MENU</span>
             </button>
 
             <!-- Logo/Title Block -->
             <div class="flex-grow md:flex-grow-0">
-                <a href="#" class="flex flex-col items-start text-white leading-none">
+                <a href="#" class="flex flex-col items-start text-ieee-blue leading-none">
                     <h1 class="text-xl md:text-2xl font-bold uppercase tracking-tight">The 5th IEEE TEMSMET 2026 Conference</h1>
                     <span class="text-xs md:text-sm font-light">(Technology, Engineering, Management for Societal Impact)</span>
                 </a>
@@ -262,12 +266,12 @@
                         <i class="fa fa-search"></i>
                     </button>
                 </form>
-                <a href="https://www.ieee.org/" target="_blank" class="w-16">
-                    <!-- Placeholder for IEEE Logo SVG -->
-                    <svg viewBox="0 0 100 20" xmlns="http://www.w3.org/2000/svg" class="fill-white">
-                        <rect width="100" height="20" fill="white"/>
-                        <text x="50%" y="70%" font-family="Arial" font-size="12" fill="var(--ieee-blue-dark)" text-anchor="middle">IEEE Logo</text>
-                    </svg>
+                <a href="https://www.ieee.org/" target="_blank" class="w-20">
+                    <img src="assests/footerimg.webp" alt="Symbiosis Logo" class="w-full h-auto object-contain">
+                </a>
+
+                <a href="https://www.ieee.org/" target="_blank" class="w-20">
+                    <img src="assests/tems-logo.png" alt="Tems Logo" class="w-full h-auto object-contain">
                 </a>
             </div>
             
@@ -307,7 +311,7 @@
                 </li>
                 <li><a href="registration.html" class="block py-3 text-white font-semibold hover:text-gray-200 transition duration-150">REGISTRATION</a></li>
                 <li><a href="#" class="block py-3 text-white font-semibold hover:text-gray-200 transition duration-150">SPONSORSHIPS</a></li>
-                <li><a href="#" class="block py-3 text-white font-semibold hover:text-gray-200 transition duration-150">CONTACT US</a></li>
+                <li><a href="contact-us.html" class="block py-3 text-white font-semibold hover:text-gray-200 transition duration-150">CONTACT US</a></li>
             </ul>
         </div>
     </nav>
@@ -371,8 +375,8 @@
             
             <!-- Timeline Item: Paper Submission Deadline (Future) -->
             <div class="timeline-item">
-                <div class="timeline-date md:text-xl font-medium text-gray-500" data-date="2026-07-26">
-                    July 26, 2026
+                <div class="timeline-date md:text-xl font-medium text-gray-500" data-date="2026-07-15">
+                    July 15, 2026
                 </div>
                 <div class="timeline-dot" id="dot-submission"></div>
                 <div class="timeline-content">
@@ -383,8 +387,8 @@
 
             <!-- Timeline Item: Notification of Acceptance (Future) -->
             <div class="timeline-item">
-                <div class="timeline-date md:text-xl font-medium text-gray-500" data-date="2026-08-16">
-                    August 16, 2026
+                <div class="timeline-date md:text-xl font-medium text-gray-500" data-date="2026-08-31">
+                    August 31, 2026
                 </div>
                 <div class="timeline-dot" id="dot-acceptance"></div>
                 <div class="timeline-content">
@@ -395,8 +399,8 @@
             
             <!-- Timeline Item: Camera-Ready Submission (Future) -->
             <div class="timeline-item">
-                <div class="timeline-date md:text-xl font-medium text-gray-500" data-date="2026-09-20">
-                    September 20, 2026
+                <div class="timeline-date md:text-xl font-medium text-gray-500" data-date="2026-09-30">
+                    September 30, 2026
                 </div>
                 <div class="timeline-dot" id="dot-camera-ready"></div>
                 <div class="timeline-content">
@@ -431,8 +435,8 @@
             
             <!-- Timeline Item: Conference Dates (Placeholder date set after all deadlines in JS) -->
             <div class="timeline-item">
-                <div class="timeline-date md:text-xl font-medium text-gray-500" data-date="2026-10-20">
-                    October 21-23, 2026
+                <div class="timeline-date md:text-xl font-medium text-gray-500" data-date="2026-10-29">
+                    October 29-31, 2026
                 </div>
                 <div class="timeline-dot" id="dot-conference-dates"></div>
                 <div class="timeline-content">
@@ -491,13 +495,13 @@
         // Define all event dates and their IDs (Conference Dates moved to the end of the array to ensure deadlines pulse first)
         const eventData = [
             // Deadlines
-            { id: 'dot-submission', date: new Date('2026-07-26T23:59:59') },
-            { id: 'dot-acceptance', date: new Date('2026-08-16T23:59:59') },
-            { id: 'dot-camera-ready', date: new Date('2026-09-20T23:59:59') },
-            { id: 'dot-early-reg', date: new Date('2026-10-04T23:59:59') },
+            { id: 'dot-submission', date: new Date('2026-07-15T23:59:59') },
+            { id: 'dot-acceptance', date: new Date('2026-08-31T23:59:59') },
+            { id: 'dot-camera-ready', date: new Date('2026-09-30T23:59:59') },
+            { id: 'dot-early-reg', date: new Date('2026-10-15T23:59:59') },
             { id: 'dot-regular-reg', date: new Date('2026-10-15T23:59:59') },
             // Conference Dates (Placeholder date set after all deadlines)
-            { id: 'dot-conference-dates', date: new Date('2026-10-20T00:00:00') }, 
+            { id: 'dot-conference-dates', date: new Date('2026-10-29T00:00:00') }, 
         ].sort((a, b) => a.date - b.date); // Sort them chronologically
 
         function updateTimelineStatus() {

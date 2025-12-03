@@ -29,10 +29,12 @@
         .meta-nav {
             background-color: var(--ieee-blue-dark);
             height: 30px;
+            background-color: rgba(0, 102, 153, .1);
+            box-shadow: inset 0 -1px 0 0 #069;
         }
 
         .meta-nav a {
-            color: white;
+            color: var(--ieee-blue-dark);;
             font-size: 0.75rem;
             opacity: 0.9;
             transition: opacity 0.2s;
@@ -56,6 +58,8 @@
             background-color: var(--ieee-blue-medium);
             background-image: url('https://placehold.co/100x100/0073B7/0073B7?text='); /* Placeholder for the blue pattern */
             background-repeat: repeat-x;
+            background: linear-gradient(360deg, rgba(219, 240, 252, 1) 35%, rgba(247, 250, 254, 1) 100%);
+            color: #337ab7;
         }
 
         /* Main Navigation Bar */
@@ -64,61 +68,94 @@
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
         }
 
-        /* NEW Style for Key Organizer Cards */
-        .key-organizer-card {
-            background-color: white;
+         .core-leadership-card {
+            background-color: #EBF8FF; /* Light background for prominence */
             border-radius: 0.75rem;
-            box-shadow: 0 8px 16px -4px rgba(0, 0, 0, 0.15);
-            transition: box-shadow 0.3s;
-            padding: 2rem;
-            text-align: left;
-            border-left: 6px solid var(--ieee-blue-dark);
+            padding: 1.5rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border: 2px solid var(--ieee-blue-light);
+            transition: background-color 0.2s;
+            height: 100%;
         }
-        .key-organizer-card:hover {
-            box-shadow: 0 12px 20px -5px rgba(0, 0, 0, 0.2);
+        .core-leadership-card:hover {
+            background-color: #DBEEFF;
         }
-        .key-organizer-card .title {
-            font-size: 1.6rem;
-            font-weight: 700;
+        .core-leadership-card .member-name {
+            font-size: 1.25rem;
+            font-weight: 800;
             color: var(--ieee-blue-dark);
-            margin-bottom: 0.25rem;
         }
-        .key-organizer-card .role {
-            font-size: 1.1rem;
+        .core-leadership-card .member-role {
+            font-size: 0.9rem;
             font-weight: 600;
             color: var(--ieee-blue-medium);
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.25rem;
         }
-        .key-organizer-card .contact-info {
-            display: flex;
-            align-items: center;
-            font-size: 0.9rem;
+        .core-leadership-card .member-affiliation {
+            font-size: 0.8rem;
             color: #4B5563;
-            margin-top: 0.5rem;
-        }
-        .key-organizer-card .contact-info i {
-            color: var(--ieee-blue-light);
-            margin-right: 0.6rem;
-            width: 1.1rem;
-            text-align: center;
         }
         
-        /* Default Committee Card Style (for secondary committees) */
-        .committee-card {
-            display: flex;
-            flex-direction: column;
-            padding: 1rem;
-            border-radius: 0.5rem;
+        /* === Tier 2: General/Program Chairs === */
+        .chair-card {
             background-color: white;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            transition: transform 0.2s, box-shadow 0.2s;
-            text-align: center;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border-left: 5px solid var(--ieee-blue-medium);
+            transition: transform 0.2s;
+            height: 100%;
+        }
+        .chair-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+        }
+        .chair-card .member-name {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--ieee-blue-dark);
+        }
+        .chair-card .member-role {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--ieee-blue-medium);
+            margin-bottom: 0.4rem;
+        }
+        .chair-card .member-affiliation {
+            font-size: 0.75rem;
+            color: #6B7280;
         }
 
-        .committee-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+
+        /* === Tier 3: General Members (List Cards) === */
+        .list-card {
+            background-color: #F9FAFB;
+            padding: 0.75rem 1rem;
+            border-left: 3px solid var(--ieee-blue-light);
+            border-radius: 0.25rem;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+            transition: background-color 0.2s;
+            height: 100%;
         }
+
+        .list-card:hover {
+            background-color: #EBF8FF;
+        }
+        .list-card p {
+            line-height: 1.3;
+        }
+        /* Specific styling for name/affiliation in list cards */
+        .list-card .member-name {
+            font-size: 0.95rem; 
+            font-weight: 700;
+            color: var(--ieee-blue-dark);
+        }
+        .list-card .member-affiliation {
+            font-size: 0.75rem; 
+            color: #6B7280;
+        }
+
+
         
         /* Custom Styles for Section Headers */
         .committee-section-header {
@@ -130,6 +167,38 @@
             font-size: 1.5rem;
             font-weight: 700;
             text-align: center;
+        }
+        
+        /* Mobile Menu Transitions */
+        #mobile-menu-drawer {
+            transition: transform 0.3s ease-in-out;
+            transform: translateX(-100%);
+            z-index: 50;
+        }
+
+        #mobile-menu-drawer.open {
+            transform: translateX(0);
+        }
+        
+        /* Footer Styles */
+        #site-footer {
+            background-color: var(--ieee-blue-dark);
+            position: relative;
+            overflow: hidden; 
+        }
+
+        #site-footer::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://placehold.co/800x400/0073B7/005A9C?text=Technical+Circuit+Pattern');
+            background-size: cover;
+            background-position: right center;
+            opacity: 0.2;
+            z-index: 0;
         }
 
         /* Mobile Menu Transitions */
@@ -171,11 +240,11 @@
     <nav class="meta-nav hidden md:block">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <ul class="flex justify-end space-x-4 py-1">
-                <li><a href="#" target="_blank">IEEE.org</a></li>
-                <li><a href="#" target="_blank">IEEE Xplore</a></li>
-                <li><a href="#" target="_blank">IEEE Standards</a></li>
-                <li class="hidden lg:block"><a href="#" target="_blank">IEEE Spectrum</a></li>
-                <li><a href="#" target="_blank">More Sites</a></li>
+                <li><a href="https://www.ieee.org/" target="_blank"><strong>IEEE.org</strong></a></li>
+                <li><a href="https://ieeexplore.ieee.org/Xplore/home.jsp" target="_blank"><strong>IEEE Xplore</strong></a></li>
+                <li><a href="https://standards.ieee.org/?_gl=1*11sucg7*_gcl_au*NDM5MDk1NjMxLjE3NjQ1ODc5OTk." target="_blank"><strong>IEEE Standards</strong></a></li>
+                <li class="hidden lg:block"><a href="http://spectrum.ieee.org/" target="_blank"><strong>IEEE Spectrum</strong></a></li>
+                <li><a href="https://www.ieee.org/sitemap.html" target="_blank"><strong>More Sites</strong></a></li>
             </ul>
         </div>
     </nav>
@@ -192,7 +261,7 @@
 
             <!-- Logo/Title Block -->
             <div class="flex-grow md:flex-grow-0">
-                <a href="index.html" class="flex flex-col items-start text-white leading-none">
+                <a href="index.html" class="flex flex-col items-start text-ieee-blue leading-none">
                     <h1 class="text-xl md:text-2xl font-bold uppercase tracking-tight">The 5th IEEE TEMSMET 2026 Conference</h1>
                     <span class="text-xs md:text-sm font-light">(Technology, Engineering, and Management for Societal Impact)</span>
                 </a>
@@ -206,12 +275,12 @@
                         <i class="fa fa-search"></i>
                     </button>
                 </form>
-                <a href="https://www.ieee.org/" target="_blank" class="w-16">
-                    <!-- Placeholder for IEEE Logo SVG -->
-                    <svg viewBox="0 0 100 20" xmlns="http://www.w3.org/2000/svg" class="fill-white">
-                        <rect width="100" height="20" fill="white"/>
-                        <text x="50%" y="70%" font-family="Arial" font-size="12" fill="var(--ieee-blue-dark)" text-anchor="middle">IEEE Logo</text>
-                    </svg>
+                <a href="https://www.ieee.org/" target="_blank" class="w-20">
+                    <img src="assests/footerimg.webp" alt="Symbiosis Logo" class="w-full h-auto object-contain">
+                </a>
+
+                <a href="https://www.ieee.org/" target="_blank" class="w-20">
+                    <img src="assests/tems-logo.png" alt="Tems Logo" class="w-full h-auto object-contain">
                 </a>
             </div>
             
@@ -252,7 +321,7 @@
                 </li>
                 <li><a href="registration.html" class="block py-3 text-white font-semibold hover:text-gray-200 transition duration-150">REGISTRATION</a></li>
                 <li><a href="#" class="block py-3 text-white font-semibold hover:text-gray-200 transition duration-150">SPONSORSHIPS</a></li>
-                <li><a href="#" class="block py-3 text-white font-semibold hover:text-gray-200 transition duration-150">CONTACT US</a></li>
+                <li><a href="contact-us.html" class="block py-3 text-white font-semibold hover:text-gray-200 transition duration-150">CONTACT US</a></li>
             </ul>
         </div>
     </nav>
@@ -297,114 +366,496 @@
     <!-- 4. Main Content Area -->
     <main class="max-w-7xl mx-auto p-4 sm:p-6 lg:p-8">
 
-        <h1 class="text-4xl font-extrabold text-ieee-blue-dark text-center mb-10">Organizing Committee (TEMSMET 2026)</h1>
+        <h1 class="text-4xl font-extrabold text-ieee-blue-dark text-center mb-10">Organizing Committee (5th IEEE TEMSMET 2026)</h1>
         
         <!-- ============================================== -->
         <!-- COMMITTEE SECTION - Start -->
         <!-- ============================================== -->
 
-        <!-- Section 1: Key Organizers (New Card Style) -->
+        <!-- Section 1: Core Committee (Chief Patron, Patrons) -->
         <section class="mb-12">
-            <h2 class="committee-section-header">Key Organizers</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <!-- General Chair: Prof. Dr. Anil Kumar Sharma -->
-                <div class="key-organizer-card">
-                    <p class="title">Prof. Dr. Anil Kumar Sharma</p>
-                    <p class="role">General Chair</p>
-                    <p class="text-base text-gray-600">Director, Symbiosis Institute of Technology Hyderabad</p>
-                    <div class="mt-4 border-t pt-3 border-gray-100">
-                        <div class="contact-info">
-                            <i class="fas fa-envelope"></i>
-                            <a href="mailto:director@sithyd.ac.in" class="hover:underline">director@sithyd.ac.in</a>
-                        </div>
-                        <div class="contact-info">
-                            <i class="fas fa-phone"></i>
-                            <span>+91-40-6671-0001</span>
-                        </div>
-                    </div>
-                </div>
-                <!-- Program Chair: Prof. Dr. Sunita Garhwal -->
-                <div class="key-organizer-card">
-                    <p class="title">Prof. Dr. Sunita Garhwal</p>
-                    <p class="role">Program Chair</p>
-                    <p class="text-base text-gray-600">Professor, Computer Science, SIT Hyderabad</p>
-                    <div class="mt-4 border-t pt-3 border-gray-100">
-                        <div class="contact-info">
-                            <i class="fas fa-envelope"></i>
-                            <a href="mailto:sunita@sithyd.ac.in" class="hover:underline">sunita@sithyd.ac.in</a>
-                        </div>
-                        <div class="contact-info">
-                            <i class="fas fa-phone"></i>
-                            <span>+91-40-6671-0150</span>
-                        </div>
-                    </div>
-                </div>
-                <!-- Technical Chair: Dr. Rajesh Verma -->
-                <div class="key-organizer-card">
-                    <p class="title">Dr. Rajesh Verma</p>
-                    <p class="role">Technical Chair</p>
-                    <p class="text-base text-gray-600">Associate Professor, Department of Management Studies</p>
-                    <div class="mt-4 border-t pt-3 border-gray-100">
-                        <div class="contact-info">
-                            <i class="fas fa-envelope"></i>
-                            <a href="mailto:rajesh.verma@sithyd.ac.in" class="hover:underline">rajesh.verma@sithyd.ac.in</a>
-                        </div>
-                        <div class="contact-info">
-                            <i class="fas fa-phone"></i>
-                            <span>+91-40-6671-0180</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Section 2: Organizing Committee -->
-        <section class="mb-12">
-            <h2 class="committee-section-header">Organizing Committee</h2>
+            <h2 class="committee-section-header">Core Committee (Patrons & President)</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <!-- Member Placeholder Card -->
-                <div class="committee-card">
-                    <p class="font-bold text-lg">Prof. Dr. Meena Sharma</p>
-                    <p class="text-sm text-gray-600 font-semibold">Finance Chair</p>
+                
+                <!-- Chief Patron -->
+                <div class="core-leadership-card md:col-span-2">
+                    <p class="member-name">Dr. S. B. Mujumdar</p>
+                    <p class="member-role">Chief Patron</p>
+                    <p class="member-affiliation">Chancellor, Symbiosis International (Deemed University), Pune, India | Founder and President, Symbiosis</p>
                 </div>
-                <div class="committee-card">
-                    <p class="font-bold text-lg">Dr. Amit Gupta</p>
-                    <p class="text-sm text-gray-600 font-semibold">Publicity Chair</p>
+
+                <!-- Patrons -->
+                <div class="core-leadership-card">
+                    <p class="member-name">Dr. Vidya Yeravdekar</p>
+                    <p class="member-role">Patron</p>
+                    <p class="member-affiliation">Pro-Chancellor, Symbiosis International (Deemed University), Pune, India | Principal Director, Symbiosis</p>
                 </div>
-                <div class="committee-card">
-                    <p class="font-bold text-lg">Dr. Priya Singh</p>
-                    <p class="text-sm text-gray-600 font-semibold">Local Arrangements</p>
+                <div class="core-leadership-card">
+                    <p class="member-name">Dr. Ramakrishnan Raman</p>
+                    <p class="member-role">Patron</p>
+                    <p class="member-affiliation">Vice Chancellor, Symbiosis International (Deemed University), Pune, India</p>
                 </div>
-                <div class="committee-card">
-                    <p class="font-bold text-lg">Dr. Vikash Kumar</p>
-                    <p class="text-sm text-gray-600 font-semibold">Registration Chair</p>
+                <div class="core-leadership-card">
+                    <p class="member-name">Dr. Rajiv Yeravdekar</p>
+                    <p class="member-role">Patron</p>
+                    <p class="member-affiliation">Provost, Faculty of Medical and Health Sciences, Symbiosis International (Deemed University)</p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Section 2: Honorary Chairs (Distinct Style) -->
+        <section class="mb-12 justify-center">
+            <h2 class="committee-section-header">Honorary Chairs</h2>
+             <div class="flex justify-center">
+                <div class="core-leadership-card">
+                    <p class="member-name">Sudeendra Koushik  </p>
+                    <p class="member-role">Honorary Chair</p>
+                    <p class="member-affiliation">President Elect – IEEE TEMS Global</p>
+                </div>
+             </div>
+        </section>
+
+
+        <!-- Section 3: General Chairs -->
+        <section class="mb-12">
+            <h2 class="committee-section-header">General Chairs</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 ">
+                
+                <!-- General Chair 1 -->
+                <div class="chair-card">
+                    <p class="member-name">Dr. Rajanikanth Aluvalu</p>
+                    <p class="member-role">General Chair</p>
+                    <p class="member-affiliation">Professor, Symbiosis International (Deemed University), Hyderabad, India</p>
+                </div>
+                <!-- General Chair 2 -->
+                <div class="chair-card">
+                    <p class="member-name">Yatheendranath Tarikere</p>
+                    <p class="member-role">General Chair</p>
+                    <p class="member-affiliation">CEO, DhiiHii Labs Pvt Ltd</p>
                 </div>
             </div>
         </section>
 
-        <!-- Section 3: Technical Program Committee -->
+        <!-- Section 4: Program Chairs -->
         <section class="mb-12">
-            <h2 class="committee-section-header">Technical Program Committee</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                <!-- Member Placeholder Card (Simpler style for larger lists) -->
-                <div class="committee-card p-3">
-                    <p class="font-bold text-base leading-snug">Prof. John Smith</p>
-                    <p class="text-xs text-gray-500">IEEE Senior Member</p>
+            <h2 class="committee-section-header">Program Chairs</h2>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <div class="chair-card">
+                    <p class="member-name">Dr Sunil George</p>
+                    <p class="member-affiliation">Symbiosis International (Deemed University), Hyderabad, India</p>
                 </div>
-                <div class="committee-card p-3">
-                    <p class="font-bold text-base leading-snug">Dr. Lisa Wang</p>
-                    <p class="text-xs text-gray-500">Stanford University</p>
+                <div class="chair-card">
+                    <p class="member-name">Dr. K. P. Venugopala Rao</p>
+                    <p class="member-affiliation">Symbiosis International (Deemed University), Hyderabad, India</p>
                 </div>
-                <div class="committee-card p-3">
-                    <p class="font-bold text-base leading-snug">Prof. Ahmed Hassan</p>
-                    <p class="text-xs text-gray-500">Cairo University</p>
+                <div class="chair-card">
+                    <p class="member-name">Dr. Disha Pathak</p>
+                    <p class="member-affiliation">Symbiosis International (Deemed University), Hyderabad, India</p>
                 </div>
-                <div class="committee-card p-3">
-                    <p class="font-bold text-base leading-snug">Dr. Maria Santos</p>
-                    <p class="text-xs text-gray-500">University of São Paulo</p>
+                <div class="chair-card">
+                    <p class="member-name">Mr. Sai Prashanth Mallellu</p>
+                    <p class="member-affiliation">Faculty of Engineering, Symbiosis International (Deemed University), Hyderabad, India</p>
                 </div>
             </div>
         </section>
+
+        <!-- Section 5: Steering Committee -->
+        <section class="mb-12">
+            <h2 class="committee-section-header">Steering Committee</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
+                <div class="list-card"><p class="member-name">Dr. Ketan Kotecha</p><p class="member-affiliation">Dean, FoE,SIU, Director,SIT-P, Pune, India</p></div>
+                <div class="list-card"><p class="member-name">Mr. Bala Prasad Peddigari</p><p class="member-affiliation">TCS</p></div>
+                <div class="list-card"><p class="member-name">M N Hoda</p><p class="member-affiliation">Director, BVICAM</p></div>
+                <div class="list-card"><p class="member-name">Andrew D. Lowery</p><p class="member-affiliation">Volvo Group and IEEE Region 2 Director</p></div>
+                <div class="list-card"><p class="member-name">Halim Yanikomeroglu</p><p class="member-affiliation">Carleton University, Canada</p></div>
+                <div class="list-card"><p class="member-name">Henning Schulzrinne</p><p class="member-affiliation">Columbia University, USA</p></div>
+                <div class="list-card"><p class="member-name">Merouane Debbah</p><p class="member-affiliation">Khalifa University, Abu Dhabi, UAE</p></div>
+                <div class="list-card"><p class="member-name">Tim Lee</p><p class="member-affiliation">Boeing, USA</p></div>
+                <div class="list-card"><p class="member-name">Andrea Goldsmith</p><p class="member-affiliation">Princeton University, USA</p></div>
+                <div class="list-card"><p class="member-name">Anader Benyamin-Seeyar</p><p class="member-affiliation">WSP, Canada</p></div>
+                <div class="list-card"><p class="member-name">Jean-Pierre Bienaimé</p><p class="member-affiliation">Chairman Ubiquity Consulting, France</p></div>
+                <div class="list-card"><p class="member-name">Celia Desmond</p><p class="member-affiliation">President WCT, Canada</p></div>
+                <div class="list-card"><p class="member-name">Emre Ayranci</p><p class="member-affiliation">muRata pSemi, USA</p></div>
+                <div class="list-card"><p class="member-name">Meng Lu</p><p class="member-affiliation">Aeolix ITS, The Netherlands</p></div>
+                <div class="list-card"><p class="member-name">Besma Smida</p><p class="member-affiliation">University of Illinois Chicago, USA</p></div>
+            </div>
+        </section>
+        
+        <!-- Section 6: International Advisory Committee -->
+        <section class="mb-12">
+            <h2 class="committee-section-header">International Advisory Committee</h2>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+                <div class="list-card"><p class="member-name">Ashutosh Dutta</p><p class="member-affiliation">JHU/APL, USA</p></div>
+                <div class="list-card"><p class="member-name">Periklis Chatzimisios</p><p class="member-affiliation">International Hellenic University, Greece</p></div>
+                <div class="list-card"><p class="member-name">Sinem Coleri</p><p class="member-affiliation">COG University, COE, Turkey</p></div>
+                <div class="list-card"><p class="member-name">Venkatesha Prasad R</p><p class="member-affiliation">TuDelft The Netherlands</p></div>
+                <div class="list-card"><p class="member-name">Sudhir Dixit</p><p class="member-affiliation">Basic Internet Foundation, USA</p></div>
+                <div class="list-card"><p class="member-name">Fawzi Behmann</p><p class="member-affiliation">TelNet Management Consulting Inc. USA</p></div>
+                <div class="list-card"><p class="member-name">Lajos Hanzo</p><p class="member-affiliation">University of Southampton, UK</p></div>
+                <div class="list-card"><p class="member-name">Sumei Sun</p><p class="member-affiliation">Institute for Infocomm Research, Singapore</p></div>
+                <div class="list-card"><p class="member-name">Gunes Karabulut Kurt</p><p class="member-affiliation">Polytechnique Montréal, Canada</p></div>
+            </div>
+        </section>
+
+        <!-- Section 7: National Advisory Committee -->
+        <section class="mb-12">
+            <h2 class="committee-section-header">National Advisory Committee</h2>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                <div class="list-card"><p class="member-name">Dr. Satyanarayana Bheesette</p><p class="member-affiliation">India</p></div>
+                <div class="list-card"><p class="member-name">Prof. (Dr.) Ajay K. Sharma</p><p class="member-affiliation">NIT Delhi</p></div>
+                <div class="list-card"><p class="member-name">Dr. Suresh Nair</p><p class="member-affiliation">MD, Amara Raja Design Alpha Pvt. Ltd</p></div>
+                <div class="list-card"><p class="member-name">Debabrata Das</p><p class="member-affiliation">IIIT Bangalore, India</p></div>
+                <div class="list-card"><p class="member-name">Swades De</p><p class="member-affiliation">IIT Delhi, India</p></div>
+                <div class="list-card"><p class="member-name">Aloknath De</p><p class="member-affiliation">TechCrafter.cps</p></div>
+                <div class="list-card"><p class="member-name">Chengappa MR</p><p class="member-affiliation">HP, India</p></div>
+                <div class="list-card"><p class="member-name">Puneet Mishra</p><p class="member-affiliation">ISRO, India</p></div>
+            </div>
+        </section>
+
+        <!-- Section 8: WIE Chair -->
+        <section class="mb-12">
+            <h2 class="committee-section-header">WIE Chair</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="list-card"><p class="member-name">Celia Shahnaz</p><p class="member-affiliation">BUET, Bangladesh</p></div>
+                <div class="list-card"><p class="member-name">Rajani Manchineella</p><p class="member-affiliation">HCL TECHNOLOGIES, India</p></div>
+                <div class="list-card"><p class="member-name">Sanjana Muvvala</p><p class="member-affiliation">O.C.Tanner, India</p></div>
+            </div>
+        </section>
+        
+        <!-- Section 9: Young Professional Chair -->
+        <section class="mb-12">
+            <h2 class="committee-section-header">Young Professional Chair</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="list-card"><p class="member-name">Uthej K.</p><p class="member-affiliation">Infosys, India</p></div>
+                <div class="list-card"><p class="member-name">Anjanyeulu D</p><p class="member-affiliation">L&T Technology Services, India</p></div>
+                <div class="list-card"><p class="member-name">Yeshwant L M</p><p class="member-affiliation">Confluent, India</p></div>
+                <div class="list-card"><p class="member-name">Gaurav Pathak</p><p class="member-affiliation">Cisco, India</p></div>
+            </div>
+        </section>
+        
+        <!-- Section 10: Student Chair -->
+        <section class="mb-12">
+            <h2 class="committee-section-header">Student Chair</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="list-card"><p class="member-name">Dunaboina Bhavya Deepti Sanvy</p><p class="member-affiliation">Symbiosis International University, India</p></div>
+                <div class="list-card"><p class="member-name">Venna Saranya</p><p class="member-affiliation">Symbiosis International University, India</p></div>
+                <div class="list-card"><p class="member-name">Anwita R</p><p class="member-affiliation">Symbiosis International University, India</p></div>
+            </div>
+        </section>
+        
+        <!-- Section 11: Finance Committee -->
+        <section class="mb-12">
+            <h2 class="committee-section-header">Finance Committee</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                 <div class="list-card"><p class="member-name">Chair: Mr K. Jangaiah</p><p class="member-affiliation">SIT-H</p></div>
+                 <div class="list-card"><p class="member-name">Abhishek Mahesh Appaji</p><p class="member-affiliation">B.M.S. College of Engineering, India</p></div>
+            </div>
+        </section>
+        
+        <!-- Section 12: Publication Committee -->
+        <section class="mb-12">
+            <h2 class="committee-section-header">Publication Committee</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="list-card"><p class="member-name">Chair: Dr.Somula Ramasubbareddy</p><p class="member-affiliation">SIT-H</p></div>
+                <div class="list-card"><p class="member-name">Co-Chair: Dr.Uma Maheswari V</p><p class="member-affiliation">CBIT, Hyderabad</p></div>
+                <div class="list-card"><p class="member-name">Co-Chair: Dr.Siddharth Selvarajan</p><p class="member-affiliation">Leeds University, UK</p></div>
+            </div>
+        </section>
+
+        <!-- Section 13: Publicity Committee -->
+        <section class="mb-12">
+            <h2 class="committee-section-header">Publicity Committee</h2>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+                <div class="list-card"><p class="member-name">Chair: Dr. Kranthi Kumar Singamaneni</p><p class="member-affiliation">SIT-H</p></div>
+                <div class="list-card"><p class="member-name">Co-Chair: Dr.Amulya Prasad Panda</p><p class="member-affiliation">SIT-H</p></div>
+                <div class="list-card"><p class="member-name">Prasant Misra</p><p class="member-affiliation">TCS, India</p></div>
+                <div class="list-card"><p class="member-name">Zakaria El Ouadi</p><p class="member-affiliation">Moroccan School of Engineering Sciences</p></div>
+                <div class="list-card"><p class="member-name">Brindha Saminathan</p><p class="member-affiliation">Sri Sai Ram Engineering College, India</p></div>
+                <div class="list-card"><p class="member-name">Samuel Tensingh</p><p class="member-affiliation">Sydney University, Australia</p></div>
+                <div class="list-card"><p class="member-name">S.P. Dimuthu Anuraj</p><p class="member-affiliation">University of Jaffna, Sri Lanka</p></div>
+            </div>
+        </section>
+
+        <!-- Section 14: Hospitality, Transportation & Accommodation -->
+        <section class="mb-12">
+            <h2 class="committee-section-header">Hospitality, Transportation & Accommodation</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                 <div class="list-card"><p class="member-name">Chair: Dr. Akash Sharma</p><p class="member-affiliation">SIT-H</p></div>
+                 <div class="list-card"><p class="member-name">Co-Chair: Mr.Sai Prashanth Mallellu</p><p class="member-affiliation">SIT-H</p></div>
+                 <div class="list-card"><p class="member-name">Dr. P. V. Vinitha</p><p class="member-affiliation">SIT-H</p></div>
+            </div>
+        </section>
+
+        <!-- Section 15: Web Development & Content Creation -->
+        <section class="mb-12">
+            <h2 class="committee-section-header">Web Development & Content Creation</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="list-card"><p class="member-name">Chair: Dr. Kiran Siripuri</p><p class="member-affiliation">SIT-H</p></div>
+                <div class="list-card"><p class="member-name">Mr. Kondapalkula Sricharan Rao</p><p class="member-affiliation">SIT-H</p></div>
+                <div class="list-card"><p class="member-name">Mr. Vinay Chakravarthy Addanki</p><p class="member-affiliation">SIT-H</p></div>
+                <div class="list-card"><p class="member-name">Mr. Venkatesh Karyampudi</p><p class="member-affiliation">SIT-H</p></div>
+            </div>
+        </section>
+        
+        <!-- Section 16: Workshop Coordination Team -->
+        <section class="mb-12">
+            <h2 class="committee-section-header">Workshop Coordination Team</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="list-card"><p class="member-name">Chair: Dr. Salakapuri Rakesh</p><p class="member-affiliation">SIT-H</p></div>
+                <div class="list-card"><p class="member-name">Co-Chair: Dr. Sriram Kumar P</p><p class="member-affiliation">SIT-H</p></div>
+                <div class="list-card"><p class="member-name">Member: Dr. Dr. Dhruba Jyoti Bora</p><p class="member-affiliation">SIT-H</p></div>
+                <div class="list-card md:col-span-3 lg:col-span-3"><p class="member-name">Student Volunteers</p></div>
+            </div>
+        </section>
+
+        <!-- Section 17: Registration Committee -->
+        <section class="mb-12">
+            <h2 class="committee-section-header">Registration Committee (Logistics)</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="list-card"><p class="member-name">Chair: Dr.Bibu Prasad Sahu</p><p class="member-affiliation">SIT-H</p></div>
+                <div class="list-card"><p class="member-name">Co-Chair: Dr.Santhosh kumar</p><p class="member-affiliation">SIT-H</p></div>
+                <div class="list-card"><p class="member-name">Member: Dr.Vinitha</p><p class="member-affiliation">SIT-H</p></div>
+                <div class="list-card md:col-span-3 lg:col-span-3"><p class="member-name">Student Volunteers</p></div>
+            </div>
+        </section>
+
+        
+        <!-- Section 18: Technical Program Committee (Members) -->
+        <section class="mb-12">
+            <h2 class="committee-section-header">Technical Program Committee (TPC Members)</h2>
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <h3 class="font-bold text-lg text-ieee-blue-dark mb-3">Chairs</h3>
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mb-6">
+                    <div class="chair-card p-2"><p class="member-name">Chair: M. Devanathan</p><p class="member-affiliation">IEEE TEMS</p></div>
+                    <div class="chair-card p-2"><p class="member-name">Co-Chair: Dr. Prasanalakshmi Balaji</p><p class="member-affiliation">Saudi Arabia</p></div>
+                    <div class="chair-card p-2"><p class="member-name">Co-Chair: Dr. Manisha Guduri</p><p class="member-affiliation">USA</p></div>
+                    <div class="chair-card p-2"><p class="member-name">Co-Chair: Dr.Swapna Mudrakola</p><p class="member-affiliation">India</p></div>
+                    <div class="chair-card p-2"><p class="member-name">Co-Chair: Dr.Krishna Keerthi Ch</p><p class="member-affiliation">Novartis, India</p></div>
+                </div>
+
+                <h3 class="font-bold text-lg text-ieee-blue-dark mb-3 border-t pt-4">Members (Extended List)</h3>
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3">
+                    <!-- TPC Members - Cleaned and placed into list-cards -->
+                    <div class="list-card p-2"><p class="member-name">A. Phani Kumar Reddy</p><p class="member-affiliation">IIT Kanpur, India</p></div>
+                    <div class="list-card p-2"><p class="member-name">Abdeljebar Mansour</p><p class="member-affiliation">Abdelmalek Essaadi University, Morocco</p></div>
+                    <div class="list-card p-2"><p class="member-name">Abhinav Goel</p><p class="member-affiliation">Pes University, India</p></div>
+                    <div class="list-card p-2"><p class="member-name">Adrian Shaw</p><p class="member-affiliation">Hewlett-Packard Laboratories, UK</p></div>
+                    <div class="list-card p-2"><p class="member-name">Agapi Mesodiakaki</p><p class="member-affiliation">Aristotle University of Thessaloniki, Greece</p></div>
+                    <div class="list-card p-2"><p class="member-name">Aggeliki Sgora</p><p class="member-affiliation">Ionian University, Greece</p></div>
+                    <div class="list-card p-2"><p class="member-name">Ajay Mutukula</p><p class="member-affiliation">Kite Pharma, USA</p></div>
+                    <div class="list-card p-2"><p class="member-name">Ajay Nagrale</p><p class="member-affiliation">Meta Platforms, Inc., USA</p></div>
+                    <div class="list-card p-2"><p class="member-name">Alain Allouis</p><p class="member-affiliation">Alstom, France</p></div>
+                    <div class="list-card p-2"><p class="member-name">Alessandra Rizzardi</p><p class="member-affiliation">University of Insubria, Italy</p></div>
+                    <div class="list-card p-2"><p class="member-name">Alessandro Carrega</p><p class="member-affiliation">UNIGE, Italy</p></div>
+                    <div class="list-card p-2"><p class="member-name">Alex Galis</p><p class="member-affiliation">University College London (UCL), UK</p></div>
+                    <div class="list-card p-2"><p class="member-name">Alireza Ghasempour</p><p class="member-affiliation">UAST, Iran</p></div>
+                    <div class="list-card p-2"><p class="member-name">Amogh Katti</p><p class="member-affiliation">GITAM University, India</p></div>
+                    <div class="list-card p-2"><p class="member-name">Amr El-Sherif</p><p class="member-affiliation">Egypt University of Informatics, Egypt</p></div>
+                    <div class="list-card p-2"><p class="member-name">Amr Hilal</p><p class="member-affiliation">Tennessee Tech, USA</p></div>
+                    <div class="list-card p-2"><p class="member-name">An Braeken</p><p class="member-affiliation">Vrije Universiteit Brussel, Belgium</p></div>
+                    <div class="list-card p-2"><p class="member-name">Andrea Saracino</p><p class="member-affiliation">Scuola Superiore Universitaria Sant'Anna di Pisa, Italy</p></div>
+                    <div class="list-card p-2"><p class="member-name">Anil Kumar</p><p class="member-affiliation">Intel Corporation, India</p></div>
+                    <div class="list-card p-2"><p class="member-name">Anis Amazigh Hamza</p><p class="member-affiliation">Université de Limoges, France</p></div>
+                    <div class="list-card p-2"><p class="member-name">Anwer Al-Dulaimi</p><p class="member-affiliation">Veltris, Canada</p></div>
+                    <div class="list-card p-2"><p class="member-name">Ashish Sheikh</p><p class="member-affiliation">Cisco Systems, USA</p></div>
+                    <div class="list-card p-2"><p class="member-name">Ashwani Dubey</p><p class="member-affiliation">Amity University Uttar Pradesh, India</p></div>
+                    <div class="list-card p-2"><p class="member-name">Ashwini P</p><p class="member-affiliation">Vit, University, India</p></div>
+                    <div class="list-card p-2"><p class="member-name">Augusto Casaca</p><p class="member-affiliation">INESC-ID, Portugal</p></div>
+                    <div class="list-card p-2"><p class="member-name">B. Umamaheswari</p><p class="member-affiliation">Sri Sairam Engineering College, India</p></div>
+                    <div class="list-card p-2"><p class="member-name">Bachir Jdid</p><p class="member-affiliation">UCSI University, France</p></div>
+                    <div class="list-card p-2"><p class="member-name">Balakrishnan Subramanian</p><p class="member-affiliation">Aarupadai Veedu Institute of Technology, India</p></div>
+                    <div class="list-card p-2"><p class="member-name">Bimal Patel</p><p class="member-affiliation">Charotar University of Science and Technology, India</p></div>
+                    <div class="list-card p-2"><p class="member-name">Bing-Hong Liu</p><p class="member-affiliation">National Kaohsiung University of Science and Technology, Taiwan</p></div>
+                    <div class="list-card p-2"><p class="member-name">Carl Debono</p><p class="member-affiliation">University of Malta, Malta</p></div>
+                    <div class="list-card p-2"><p class="member-name">Charalampos Kalalas</p><p class="member-affiliation">CTTC, Spain</p></div>
+                    <div class="list-card p-2"><p class="member-name">Chien Aun Chan</p><p class="member-affiliation">The University of Melbourne, Australia</p></div>
+                    <div class="list-card p-2"><p class="member-name">Christos Grecos</p><p class="member-affiliation">Arkansas State University, USA</p></div>
+                    <div class="list-card p-2"><p class="member-name">Claudio Paoloni</p><p class="member-affiliation">Lancaster University, UK</p></div>
+                    <div class="list-card p-2"><p class="member-name">Cruz Antony J</p><p class="member-affiliation">Sathyabama Institute of Science and Technology, India</p></div>
+                    <div class="list-card p-2"><p class="member-name">Debabrata Dalai</p><p class="member-affiliation">IIST, India</p></div>
+                    <div class="list-card p-2"><p class="member-name">Deborsi Basu</p><p class="member-affiliation">IIT, Kharagpur, India</p></div>
+                    <div class="list-card p-2"><p class="member-name">Demosthenes Vouyioukas</p><p class="member-affiliation">University of Piraeus, Greece</p></div>
+                    <div class="list-card p-2"><p class="member-name">Dimitri Papadimitriou</p><p class="member-affiliation">University of Antwerp - imec, Belgium</p></div>
+                    <div class="list-card p-2"><p class="member-name">Dinesh Kumar T</p><p class="member-affiliation">SCSVMV University, India</p></div>
+                    <div class="list-card p-2"><p class="member-name">Divya Upadhyay</p><p class="member-affiliation">ABES Engineering College, India</p></div>
+                    <div class="list-card p-2"><p class="member-name">Domenico Ciuonzo</p><p class="member-affiliation">University of Naples Federico II, Italy</p></div>
+                    <div class="list-card p-2"><p class="member-name">Egemen Çetinkaya</p><p class="member-affiliation">Verizon, USA</p></div>
+                    <div class="list-card p-2"><p class="member-name">Elias Bawan</p><p class="member-affiliation">Universitas Gadjah Mada, Indonesia</p></div>
+                    <div class="list-card p-2"><p class="member-name">Eric Renault</p><p class="member-affiliation">Université Gustave Eiffel, France</p></div>
+                    <div class="list-card p-2"><p class="member-name">Fabrizio Granelli</p><p class="member-affiliation">University of Trento, Italy</p></div>
+                    <div class="list-card p-2"><p class="member-name">Fasil Latheef</p><p class="member-affiliation">Ofinno, India</p></div>
+                    <div class="list-card p-2"><p class="member-name">Flavio Silva</p><p class="member-affiliation">University of Minho, Portugal</p></div>
+                    <div class="list-card p-2"><p class="member-name">Geeta Sandeep Nadella</p><p class="member-affiliation">University of the Cumberlands, USA</p></div>
+                    <div class="list-card p-2"><p class="member-name">George Xylomenos</p><p class="member-affiliation">AUEB, Greece</p></div>
+                    <div class="list-card p-2"><p class="member-name">Giampaolo Bovenzi</p><p class="member-affiliation">University of Napoli Federico II, Italy</p></div>
+                    <div class="list-card p-2"><p class="member-name">Giovanni Pau</p><p class="member-affiliation">Kore University of Enna, Italy</p></div>
+                    <div class="list-card p-2"><p class="member-name">Giridhar Mandyam</p><p class="member-affiliation">Qualcomm, USA</p></div>
+                    <div class="list-card p-2"><p class="member-name">Giuseppe Ruggeri</p><p class="member-affiliation">UNIRC, Italy</p></div>
+                    <div class="list-card p-2"><p class="member-name">Go Hasegawa</p><p class="member-affiliation">Tohoku University, Japan</p></div>
+                    <div class="list-card p-2"><p class="member-name">Gowripriyaa V</p><p class="member-affiliation">Coimbatore Institute of Technology, India</p></div>
+                    <div class="list-card p-2"><p class="member-name">Gyu Myoung Lee</p><p class="member-affiliation">Liverpool John Moores University, UK</p></div>
+                    <div class="list-card p-2"><p class="member-name">Hamid Reza Ghaeini</p><p class="member-affiliation">University of Tehran, Iran</p></div>
+                    <div class="list-card p-2"><p class="member-name">Hari Gonaygunta</p><p class="member-affiliation">University of the Cumberlands, USA</p></div>
+                    <div class="list-card p-2"><p class="member-name">Hassan El Alami</p><p class="member-affiliation">Howard University, USA</p></div>
+                    <div class="list-card p-2"><p class="member-name">Heng Wang</p><p class="member-affiliation">Chongqing University of Posts and Telecommunications, China</p></div>
+                    <div class="list-card p-2"><p class="member-name">Hung Cao</p><p class="member-affiliation">University of New Brunswick, Canada</p></div>
+                    <div class="list-card p-2"><p class="member-name">Iffath Fawad</p><p class="member-affiliation">Dayananda Sagar College of Engineering, India</p></div>
+                    <div class="list-card p-2"><p class="member-name">Ioakeim Samaras</p><p class="member-affiliation">Intracom Telecom, Greece</p></div>
+                    <div class="list-card p-2"><p class="member-name">Jagdeep Singh</p><p class="member-affiliation">University of Delhi, India</p></div>
+                    <div class="list-card p-2"><p class="member-name">Jaswanth Nidamanuri</p><p class="member-affiliation">Woxsen University, India</p></div>
+                    <div class="list-card p-2"><p class="member-name">Javier Gozalvez</p><p class="member-affiliation">Universidad Miguel Hernandez de Elche, Spain</p></div>
+                    <div class="list-card p-2"><p class="member-name">Jayprakash Thakur</p><p class="member-affiliation">Intel, India</p></div>
+                    <div class="list-card p-2"><p class="member-name">Jency Rubia J</p><p class="member-affiliation">Vel Tech Rangarajan Dr Sagunthala R D Institute of Science and Technology, India</p></div>
+                    <div class="list-card p-2"><p class="member-name">Jenefa J</p><p class="member-affiliation">Assistant Professor, India</p></div>
+                    <div class="list-card p-2"><p class="member-name">Jenhui Chen</p><p class="member-affiliation">Chang Gung University, Taiwan</p></div>
+                    <div class="list-card p-2"><p class="member-name">Jen-Yi Pan</p><p class="member-affiliation">National Chung Cheng University, Taiwan</p></div>
+                    <div class="list-card p-2"><p class="member-name">Jingjing Wang</p><p class="member-affiliation">Beihang University, China</p></div>
+                    <div class="list-card p-2"><p class="member-name">Joan Bas</p><p class="member-affiliation">CTTC, Spain</p></div>
+                    <div class="list-card p-2"><p class="member-name">João Kleinschmidt</p><p class="member-affiliation">Universidade Federal Do ABC, Brazil</p></div>
+                    <div class="list-card p-2"><p class="member-name">Joong-Lyul Lee</p><p class="member-affiliation">University of North Carolina at Pembroke, USA</p></div>
+                    <div class="list-card p-2"><p class="member-name">Jorge Sá Silva</p><p class="member-affiliation">University of Coimbra, Portugal</p></div>
+                    <div class="list-card p-2"><p class="member-name">José Luis Hernandez Ramos</p><p class="member-affiliation">Universidad de Murcia, Spain</p></div>
+                    <div class="list-card p-2"><p class="member-name">Joyanto Roychoudhary</p><p class="member-affiliation">Meghnad Saha Institute Of Technology, India</p></div>
+                    <div class="list-card p-2"><p class="member-name">Karthik Chakravarthy Cheekuri</p><p class="member-affiliation">Microsoft, USA</p></div>
+                    <div class="list-card p-2"><p class="member-name">Karthik Meduri</p><p class="member-affiliation">University of the Cumberlands, USA</p></div>
+                    <div class="list-card p-2"><p class="member-name">Keshavkumar Durgakeri</p><p class="member-affiliation">Intel Corporation, India</p></div>
+                    <div class="list-card p-2"><p class="member-name">Khushter Kaifi</p><p class="member-affiliation">Nagarro, India</p></div>
+                    <div class="list-card p-2"><p class="member-name">Koichi Ishibashi</p><p class="member-affiliation">Kanazawa Institute of Technology, Japan</p></div>
+                    <div class="list-card p-2"><p class="member-name">Kostas Chounos</p><p class="member-affiliation">University of Thessaly, Greece</p></div>
+                    <div class="list-card p-2"><p class="member-name">Koteswararao Kondepu</p><p class="member-affiliation">IIT Dharwad, India</p></div>
+                    <div class="list-card p-2"><p class="member-name">Kurt Tutschku</p><p class="member-affiliation">Blekinge Institute of Technology, Sweden</p></div>
+                    <div class="list-card p-2"><p class="member-name">Madhavi Repe</p><p class="member-affiliation">Savitribai Phule Pune University, India</p></div>
+                    <div class="list-card p-2"><p class="member-name">Madhu Niranjan Reddy Puduru</p><p class="member-affiliation">Synchronoss Technologies Inc, USA</p></div>
+                    <div class="list-card p-2"><p class="member-name">Mallikarjuna Chilakanahatti Patil</p><p class="member-affiliation">BMSIT & Management, VTU, India</p></div>
+                    <div class="list-card p-2"><p class="member-name">Mamiko Inamori</p><p class="member-affiliation">Tokai University, Japan</p></div>
+                    <div class="list-card p-2"><p class="member-name">Manjunath Krishnamurthy</p><p class="member-affiliation">JP Morgan Chase and Co., USA</p></div>
+                    <div class="list-card p-2"><p class="member-name">Manoj Tolani</p><p class="member-affiliation">Manipal Institute of Technology, Manipal, India</p></div>
+                    <div class="list-card p-2"><p class="member-name">Marco Baldi</p><p class="member-affiliation">Università Politecnica delle Marche, Italy</p></div>
+                    <div class="list-card p-2"><p class="member-name">Maxime Compastie</p><p class="member-affiliation">i2CAT Foundation, Spain</p></div>
+                    <div class="list-card p-2"><p class="member-name">Md Sayeem Rahman</p><p class="member-affiliation">Jain University, India</p></div>
+                    <div class="list-card p-2"><p class="member-name">Megha Sahu</p><p class="member-affiliation">IIT Bhilai, India</p></div>
+                    <div class="list-card p-2"><p class="member-name">Mervin Thomas</p><p class="member-affiliation">National Institute of Technology, India</p></div>
+                    <div class="list-card p-2"><p class="member-name">Michail Alexandros Kourtis</p><p class="member-affiliation">NCSR Demokritos, Greece</p></div>
+                    <div class="list-card p-2"><p class="member-name">Miguel Gutierrez Gaitan</p><p class="member-affiliation">PUC (Chile), Chile</p></div>
+                    <div class="list-card p-2"><p class="member-name">Ming-Fong Tsai</p><p class="member-affiliation">National United University, Taiwan</p></div>
+                    <div class="list-card p-2"><p class="member-name">Moez Esseghir</p><p class="member-affiliation">Université de Technologie de Troyes, France</p></div>
+                    <div class="list-card p-2"><p class="member-name">Mohan Gajula</p><p class="member-affiliation">Nike Inc, USA</p></div>
+                    <div class="list-card p-2"><p class="member-name">Mohd Hamza Naim Shaikh</p><p class="member-affiliation">University College London, UK</p></div>
+                    <div class="list-card p-2"><p class="member-name">Motoyoshi Sekiya</p><p class="member-affiliation">Fujitsu Limited, Japan</p></div>
+                    <div class="list-card p-2"><p class="member-name">Mrugendrasinh Rahevar</p><p class="member-affiliation">Charotar University of Science and Technology, India</p></div>
+                    <div class="list-card p-2"><p class="member-name">Mukesh Taneja</p><p class="member-affiliation">Mavenir, India</p></div>
+                    <div class="list-card p-2"><p class="member-name">Murugan Murali</p><p class="member-affiliation">Pondicherry University, India</p></div>
+                    <div class="list-card p-2"><p class="member-name">Nam Chu</p><p class="member-affiliation">University of Technology Sydney, Australia</p></div>
+                    <div class="list-card p-2"><p class="member-name">Narayan Badiger</p><p class="member-affiliation">S G Balekundri Institute of Technology, India</p></div>
+                    <div class="list-card p-2"><p class="member-name">Navjot Talwandi</p><p class="member-affiliation">University of Engineering, India</p></div>
+                    <div class="list-card p-2"><p class="member-name">Nicholas Race</p><p class="member-affiliation">Lancaster University, UK</p></div>
+                    <div class="list-card p-2"><p class="member-name">Nidhya Rangarajan</p><p class="member-affiliation">Madanapalle Institute of Technology & Science, India</p></div>
+                    <div class="list-card p-2"><p class="member-name">Nilotpal Chakraborty</p><p class="member-affiliation">IIIT, Guwahati, India</p></div>
+                    <div class="list-card p-2"><p class="member-name">Niranjan Eregowda</p><p class="member-affiliation">Visvesaraya Technological University, India</p></div>
+                    <div class="list-card p-2"><p class="member-name">Nishant Kumar</p><p class="member-affiliation">IIT Roorkee, India</p></div>
+                    <div class="list-card p-2"><p class="member-name">Nobuhiko Miki</p><p class="member-affiliation">Ritsumeikan University, Japan</p></div>
+                    <div class="list-card p-2"><p class="member-name">Oluwakayode Onireti</p><p class="member-affiliation">University of Glasgow, UK</p></div>
+                    <div class="list-card p-2"><p class="member-name">Otto Waltari</p><p class="member-affiliation">F-Secure, Finland</p></div>
+                    <div class="list-card p-2"><p class="member-name">Panagiotis Radoglou-Grammatikis</p><p class="member-affiliation">University of Western Macedonia, Greece</p></div>
+                    <div class="list-card p-2"><p class="member-name">Pankaj Kulkarni</p><p class="member-affiliation">Radysis, India</p></div>
+                    <div class="list-card p-2"><p class="member-name">Paolo Bucciol</p><p class="member-affiliation">Twilio, USA</p></div>
+                    <div class="list-card p-2"><p class="member-name">Pascal Vontobel</p><p class="member-affiliation">The Chinese University of Hong Kong, Hong Kong</p></div>
+                    <div class="list-card p-2"><p class="member-name">Pasquale Dottorato</p><p class="member-affiliation">Lab ID, Italy</p></div>
+                    <div class="list-card p-2"><p class="member-name">Paul Mitchell</p><p class="member-affiliation">University of York, UK</p></div>
+                    <div class="list-card p-2"><p class="member-name">Paulo Mendes</p><p class="member-affiliation">Airbus, Germany</p></div>
+                    <div class="list-card p-2"><p class="member-name">Payali Das</p><p class="member-affiliation">IIT Delhi, India</p></div>
+                    <div class="list-card p-2"><p class="member-name">Pekka Pirinen</p><p class="member-affiliation">University of Oulu, Finland</p></div>
+                    <div class="list-card p-2"><p class="member-name">Pietro Manzoni</p><p class="member-affiliation">Universitat Politècnica de València, Spain</p></div>
+                    <div class="list-card p-2"><p class="member-name">Ping Zhou</p><p class="member-affiliation">Apple, USA</p></div>
+                    <div class="list-card p-2"><p class="member-name">Pol Alemany</p><p class="member-affiliation">CTTC/CERCA, Spain</p></div>
+                    <div class="list-card p-2"><p class="member-name">Prasanna Misra</p><p class="member-affiliation">IIIT, India</p></div>
+                    <div class="list-card p-2"><p class="member-name">Prateeth Rao</p><p class="member-affiliation">IIIT - Bangalore, India</p></div>
+                    <div class="list-card p-2"><p class="member-name">Pratyush Tewari</p><p class="member-affiliation">Blue Book Services, USA</p></div>
+                    <div class="list-card p-2"><p class="member-name">Praveen Kumar Thota</p><p class="member-affiliation">Amazon Web Services, USA</p></div>
+                    <div class="list-card p-2"><p class="member-name">Prince Jain</p><p class="member-affiliation">Parul University, India</p></div>
+                    <div class="list-card p-2"><p class="member-name">Prodromos Makris</p><p class="member-affiliation">ICCS/NTUA, Greece</p></div>
+                    <div class="list-card p-2"><p class="member-name">Puneet Sharma</p><p class="member-affiliation">Karnavati University, India</p></div>
+                    <div class="list-card p-2"><p class="member-name">Rafael Nobrega</p><p class="member-affiliation">Federal Institute of Minas Gerais, Brazil</p></div>
+                    <div class="list-card p-2"><p class="member-name">Raghavendra Sheddi</p><p class="member-affiliation">Rural Engineering College, Hulkoti, India</p></div>
+                    <div class="list-card p-2"><p class="member-name">Rahul Makkar</p><p class="member-affiliation">IIIT Kota, India</p></div>
+                    <div class="list-card p-2"><p class="member-name">Rajesh S</p><p class="member-affiliation">Saintgits College of Engineering, India</p></div>
+                    <div class="list-card p-2"><p class="member-name">Rajesh Thalwagal Mathad</p><p class="member-affiliation">Dayananda Sagar University, India</p></div>
+                    <div class="list-card p-2"><p class="member-name">Rakeshkumar Mahto</p><p class="member-affiliation">California State University, Fullerton, USA</p></div>
+                    <div class="list-card p-2"><p class="member-name">Ramesh Shunmugam</p><p class="member-affiliation">Rajalakshmi Engineering College, India</p></div>
+                    <div class="list-card p-2"><p class="member-name">Ramiro Samano-Robles</p><p class="member-affiliation">CRRES, Portugal</p></div>
+                    <div class="list-card p-2"><p class="member-name">Ran Zhang</p><p class="member-affiliation">University of North Carolina at Charlotte, USA</p></div>
+                    <div class="list-card p-2"><p class="member-name">Rapeepat Ratasuk</p><p class="member-affiliation">Nokia Bell Labs, USA</p></div>
+                    <div class="list-card p-2"><p class="member-name">Ravi Kumar Kurapati</p><p class="member-affiliation">Home Depot Management Company LLC, USA</p></div>
+                    <div class="list-card p-2"><p class="member-name">Razib Khan</p><p class="member-affiliation">Independent University Bangladesh, Bangladesh</p></div>
+                    <div class="list-card p-2"><p class="member-name">Rehash Rushmi Pavitra A</p><p class="member-affiliation">SRM Institute of Science and Technology, India</p></div>
+                    <div class="list-card p-2"><p class="member-name">Rekha P</p><p class="member-affiliation">BNM Institute of Technology Bangalore, India</p></div>
+                    <div class="list-card p-2"><p class="member-name">Remya Jayachandran</p><p class="member-affiliation">The National Institute of Engineering Mysore, India</p></div>
+                    <div class="list-card p-2"><p class="member-name">Ricard Vilalta</p><p class="member-affiliation">CTTC, Spain</p></div>
+                    <div class="list-card p-2"><p class="member-name">Riccardo Sisto</p><p class="member-affiliation">Politecnico di Torino, Italy</p></div>
+                    <div class="list-card p-2"><p class="member-name">Ripal Ranpara</p><p class="member-affiliation">Marwadi University, India</p></div>
+                    <div class="list-card p-2"><p class="member-name">Rojalina Priyadarshini</p><p class="member-affiliation">C. V. Raman Global University, India</p></div>
+                    <div class="list-card p-2"><p class="member-name">Rongbo Zhu</p><p class="member-affiliation">Huazhong Agricultural University, China</p></div>
+                    <div class="list-card p-2"><p class="member-name">Rosario Garroppo</p><p class="member-affiliation">University of Pisa, Italy</p></div>
+                    <div class="list-card p-2"><p class="member-name">S Kannadhasan</p><p class="member-affiliation">Study World College of Engineering, India</p></div>
+                    <div class="list-card p-2"><p class="member-name">Sabarimuthu M</p><p class="member-affiliation">Kongu Engineering College, India</p></div>
+                    <div class="list-card p-2"><p class="member-name">Sagnik De</p><p class="member-affiliation">University of Calcutta, Kolkata, India</p></div>
+                    <div class="list-card p-2"><p class="member-name">SakthiSudhan Karuppanan</p><p class="member-affiliation">Dr NGP Institute of Technology, India</p></div>
+                    <div class="list-card p-2"><p class="member-name">Salahuddin Mohammad Masum</p><p class="member-affiliation">Southwest Tennessee Community College, USA</p></div>
+                    <div class="list-card p-2"><p class="member-name">Salvatore D'Oro</p><p class="member-affiliation">Northeastern University, USA</p></div>
+                    <div class="list-card p-2"><p class="member-name">Sandeep V</p><p class="member-affiliation">Dayananda Sagar College of Engineering, India</p></div>
+                    <div class="list-card p-2"><p class="member-name">Sandhya S</p><p class="member-affiliation">RV College of Engineering, India</p></div>
+                    <div class="list-card p-2"><p class="member-name">Sanjay Patel</p><p class="member-affiliation">Nirma University, India</p></div>
+                    <div class="list-card p-2"><p class="member-name">Sanjeev Mourya</p><p class="member-affiliation">Gyansys Inc, USA</p></div>
+                    <div class="list-card p-2"><p class="member-name">Santhakumar Govindasamy</p><p class="member-affiliation">Anna University, India</p></div>
+                    <div class="list-card p-2"><p class="member-name">Sarada Prasad Gochhayat</p><p class="member-affiliation">IIT, Jammu, India</p></div>
+                    <div class="list-card p-2"><p class="member-name">Sarath Babu</p><p class="member-affiliation">Iowa State University, USA</p></div>
+                    <div class="list-card p-2"><p class="member-name">Sarfraz Hussain</p><p class="member-affiliation">REVA University, India</p></div>
+                    <div class="list-card p-2"><p class="member-name">Saumya Dwivedi</p><p class="member-affiliation">Radisys India Limited, India</p></div>
+                    <div class="list-card p-2"><p class="member-name">Sayed Chhattan Shah</p><p class="member-affiliation">Birmingham City University, UK</p></div>
+                    <div class="list-card p-2"><p class="member-name">Septimiu Nechifor</p><p class="member-affiliation">Siemens SRL, Romania</p></div>
+                    <div class="list-card p-2"><p class="member-name">Shachi P</p><p class="member-affiliation">BMS College of Engineering, India</p></div>
+                    <div class="list-card p-2"><p class="member-name">Shashikant Patil</p><p class="member-affiliation">Atlas SkillTech University, India</p></div>
+                    <div class="list-card p-2"><p class="member-name">Sheela Kakanur Shivayogi</p><p class="member-affiliation">Apple Inc, USA</p></div>
+                    <div class="list-card p-2"><p class="member-name">Shivani Bhasgi</p><p class="member-affiliation">Poojya Dodappa Appa College of Engineering, India</p></div>
+                    <div class="list-card p-2"><p class="member-name">Simon Watts</p><p class="member-affiliation">CN21, UK</p></div>
+                    <div class="list-card p-2"><p class="member-name">Siva Prakash</p><p class="member-affiliation">JPMorgan Chase & Co, USA</p></div>
+                    <div class="list-card p-2"><p class="member-name">Slawomir Kuklinski</p><p class="member-affiliation">Warsaw University of Technology, Poland</p></div>
+                    <div class="list-card p-2"><p class="member-name">Sneha Sharma</p><p class="member-affiliation">Dyanand Sagar University, India</p></div>
+                    <div class="list-card p-2"><p class="member-name">Sridhar Iyer</p><p class="member-affiliation">KLE, India</p></div>
+                    <div class="list-card p-2"><p class="member-name">Stefan Mangold</p><p class="member-affiliation">Lovefield Wireless GmbH, Switzerland</p></div>
+                    <div class="list-card p-2"><p class="member-name">Subhra Prakash Giri</p><p class="member-affiliation">Amrita School of Engineering, India</p></div>
+                    <div class="list-card p-2"><p class="member-name">Suganthi Su</p><p class="member-affiliation">Sri Sairam Institute of Technology, India</p></div>
+                    <div class="list-card p-2"><p class="member-name">Sujatha Gaddam</p><p class="member-affiliation">Rise Krishna Sai Prakasam Group of Institutions, India</p></div>
+                    <div class="list-card p-2"><p class="member-name">Sunil Khatri</p><p class="member-affiliation">University of Mumbai, India</p></div>
+                    <div class="list-card p-2"><p class="member-name">Suresh Muthusamy</p><p class="member-affiliation">Kongu Engineering College, India</p></div>
+                    <div class="list-card p-2"><p class="member-name">Surinder Sood</p><p class="member-affiliation">University of AUCKLAND, India</p></div>
+                    <div class="list-card p-2"><p class="member-name">Syed Manzoor Qasim</p><p class="member-affiliation">King Abdulaziz City for Science and Technology, Saudi Arabia</p></div>
+                    <div class="list-card p-2"><p class="member-name">T Kalavathidevi</p><p class="member-affiliation">Kongu Engineering College, India</p></div>
+                    <div class="list-card p-2"><p class="member-name">Takuya Asaka</p><p class="member-affiliation">Tokyo Metropolitan University, Japan</p></div>
+                    <div class="list-card p-2"><p class="member-name">Tapadhir Das</p><p class="member-affiliation">University of the Pacific, USA</p></div>
+                    <div class="list-card p-2"><p class="member-name">Tariq Umer</p><p class="member-affiliation">COMSATS University Islamabad Lahore Campus, Pakistan</p></div>
+                    <div class="list-card p-2"><p class="member-name">Tony Q. S. Quek</p><p class="member-affiliation">Singapore University of Technology and Design, Singapore</p></div>
+                    <div class="list-card p-2"><p class="member-name">Uwe Herzog</p><p class="member-affiliation">Eurescom, Germany</p></div>
+                    <div class="list-card p-2"><p class="member-name">V Pushparajesh</p><p class="member-affiliation">Jain Deemed to be University, India</p></div>
+                    <div class="list-card p-2"><p class="member-name">Vaishnavi Moorthy</p><p class="member-affiliation">SRM Institute of Science and Technology, India</p></div>
+                    <div class="list-card p-2"><p class="member-name">Vanlin Sathya</p><p class="member-affiliation">Campbell, USA</p></div>
+                    <div class="list-card p-2"><p class="member-name">Vasanthakumar GU</p><p class="member-affiliation">Nitte Meenakshi Institute of Technology, India</p></div>
+                    <div class="list-card p-2"><p class="member-name">Ved Kafle</p><p class="member-affiliation">NICT, Japan</p></div>
+                    <div class="list-card p-2"><p class="member-name">Vijaya Kittu Manda</p><p class="member-affiliation">PBMEIT, India</p></div>
+                    <div class="list-card p-2"><p class="member-name">Vijayalakshmi Chetlapalli</p><p class="member-affiliation">Arista Networks, India</p></div>
+                    <div class="list-card p-2"><p class="member-name">Vincenzo Piuri</p><p class="member-affiliation">Università degli Studi di Milano, Italy</p></div>
+                    <div class="list-card p-2"><p class="member-name">Vishal Rathod</p><p class="member-affiliation">C-DAC, India</p></div>
+                    <div class="list-card p-2"><p class="member-name">Wafi Danesh</p><p class="member-affiliation">SUNY at New Paltz, USA</p></div>
+                    <div class="list-card p-2"><p class="member-name">Xiang Gui</p><p class="member-affiliation">Massey University, New Zealand</p></div>
+                    <div class="list-card p-2"><p class="member-name">Yang Wang</p><p class="member-affiliation">La Salle University, USA</p></div>
+                    <div class="list-card p-2"><p class="member-name">Yiu-Wing Leung</p><p class="member-affiliation">Hong Kong Baptist University, Hong Kong</p></div>
+                    <div class="list-card p-2"><p class="member-name">You-Chiun Wang</p><p class="member-affiliation">National Sun Yat-Sen University, Taiwan</p></div>
+                    <div class="list-card p-2"><p class="member-name">Zhi Liu</p><p class="member-affiliation">The University of Electro-Communications, Japan</p></div>
+                </div>
+            </div>
+        </section>
+
 
         <!-- ============================================== -->
         <!-- COMMITTEE SECTION - End -->

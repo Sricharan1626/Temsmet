@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>5th IEEE TEMSMET 2026</title>
+    <title>The 5th IEEE TEMSMET 2026 Conference</title>
     <!-- Load Tailwind CSS --><script src="https://cdn.tailwindcss.com"></script>
     <!-- Load Font Awesome for icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
@@ -42,13 +42,14 @@
             opacity: 1;
         }
 
-        /* Main Header Background */
+        /* Main Header Background (mimicking the tiled pattern) */
         #main-header {
             background-color: var(--ieee-blue-medium);
-            background-image: url('https://placehold.co/100x100/0073B7/0073B7?text='); 
+            background-image: url('https://placehold.co/100x100/0073B7/0073B7?text='); /* Placeholder for the blue pattern */
             background-repeat: repeat-x;
             background: linear-gradient(360deg, rgba(219, 240, 252, 1) 35%, rgba(247, 250, 254, 1) 100%);
             color: #337ab7;
+            
         }
 
         /* Main Navigation Bar */
@@ -57,7 +58,7 @@
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
         }
 
-        /* Active Navigation Link */
+        /* Active Navigation Link - using dark blue border accent */
         #main-nav-bar a.active-nav {
             color: white; 
             border-bottom: 4px solid var(--ieee-blue-dark);
@@ -65,14 +66,21 @@
             margin-bottom: -4px; 
         }
 
-        /* Hero Slider Styling */
+        /* Hero Slider Placeholder Styling */
         .hero-slider-mock {
-            height: 500px;
+            height: 400px; /* Desktop height */
             position: relative;
             overflow: hidden;
             border-radius: 0.5rem;
         }
 
+        @media (min-width: 640px) {
+            .hero-slider-mock {
+                height: 500px;
+            }
+        }
+
+        /* Slider specific styles */
         .slide {
             position: absolute;
             top: 0;
@@ -84,27 +92,27 @@
             opacity: 0;
             transition: opacity 1s ease-in-out;
             display: flex;
-            align-items: flex-end; 
-            padding-bottom: 4rem; 
+            align-items: flex-end; /* Align content to the bottom */
+            padding-bottom: 3rem; /* Push content up */
         }
         
         .slide.active {
             opacity: 1;
         }
 
-        /* Slide content */
+        /* Slide content container */
         .slide-content {
             position: relative;
             z-index: 20; 
             width: 100%;
         }
 
-        /* Text Shadow for readability */
+        /* Text Shadow for readability without overlay */
         .slide-content h2, .slide-content p {
-            text-shadow: 0 3px 8px rgba(0,0,0,0.9);
+            text-shadow: 0 2px 10px rgba(0,0,0,0.8);
         }
 
-        /* Slider Dots */
+        /* Slider Dots (Indicators) */
         .slider-dots {
             position: absolute;
             bottom: 20px;
@@ -131,6 +139,131 @@
             transform: scale(1.3);
             box-shadow: 0 0 8px rgba(0,0,0,0.3);
         }
+
+        /* Button styling */
+        .submit-btn {
+            background-color: white;
+            color: var(--ieee-blue-dark);
+            border: 2px solid white;
+            font-weight: 700;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+        }
+
+        .submit-btn:hover {
+            background-color: var(--ieee-blue-dark);
+            color: white;
+            border-color: var(--ieee-blue-dark);
+        }
+
+        /* Keynote Speaker Card Styling */
+        .keynote-card-v2 {
+            background-color: white;
+            border-radius: 0.75rem; 
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.06); 
+            overflow: hidden; 
+            transition: transform 0.2s ease-in-out;
+            display: flex;
+            flex-direction: column; 
+        }
+
+        .keynote-card-v2:hover {
+            transform: translateY(-5px); 
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+        }
+
+        .keynote-card-v2 .image-container {
+            position: relative;
+            width: 100%;
+            height: 200px; 
+            overflow: hidden;
+            border-top-left-radius: 0.75rem; 
+            border-top-right-radius: 0.75rem; 
+        }
+
+        .keynote-card-v2 .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; 
+            display: block; 
+        }
+
+        .keynote-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background-color: rgba(255, 255, 255, 0.95); 
+            color: var(--ieee-blue-dark); 
+            padding: 0.3rem 0.75rem;
+            border-radius: 0.25rem; 
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
+        }
+
+        .keynote-content {
+            padding: 1.5rem; 
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1; 
+        }
+
+        .keynote-content h3 {
+            font-size: 1.5rem; 
+            font-weight: 700; 
+            color: var(--ieee-blue-dark); 
+            margin-bottom: 0.25rem;
+        }
+
+        .keynote-content .role {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--ieee-blue-medium); 
+            margin-bottom: 0.25rem;
+        }
+
+        .keynote-content .organization {
+            font-size: 0.9rem;
+            color: #6B7280; 
+            margin-bottom: 1rem;
+        }
+
+        .keynote-content .info-item {
+            display: flex;
+            align-items: center;
+            font-size: 0.9rem;
+            color: #4B5563; 
+            margin-bottom: 0.5rem; 
+        }
+
+        .keynote-content .info-item i {
+            color: var(--ieee-blue-light); 
+            margin-right: 0.75rem;
+            width: 1rem; 
+            text-align: center;
+        }
+
+        .keynote-content .talk-topic {
+            margin-top: 1rem; 
+            padding-top: 1rem;
+            border-top: 1px solid #E5E7EB; 
+            flex-grow: 1; 
+        }
+
+        .keynote-content .talk-topic .label {
+            font-size: 0.8rem;
+            color: #6B7280;
+            margin-bottom: 0.25rem;
+        }
+
+        .keynote-content .talk-topic .title {
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--ieee-grey-text);
+        }
+
+        /* Styles for Conference Program */
         .program-day {
             background-color: white;
             border-radius: 0.75rem;
@@ -177,200 +310,24 @@
             font-size: 0.85rem;
             color: #6B7280;
         }
-
-        /* Button styling */
-        .submit-btn {
-            background-color: white;
-            color: var(--ieee-blue-dark);
-            border: 2px solid white;
-            font-weight: 700;
-            transition: all 0.2s ease;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
-        }
-
-        .submit-btn:hover {
-            background-color: var(--ieee-blue-dark);
-            color: white;
-            border-color: var(--ieee-blue-dark);
-        }
-
-        /* Keynote Speaker Card Styling - Rectangular V3 */
-        .keynote-card-v3 {
-            background-color: white;
-            border-radius: 0.5rem; 
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
-            overflow: hidden; 
-            transition: transform 0.2s ease-in-out;
-            display: flex;
-            flex-direction: column; 
-            border: 1px solid #E5E7EB;
-        }
-
-        .keynote-card-v3:hover {
-            transform: translateY(-5px); 
-            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
-        }
-
-        .keynote-card-v3 .image-container {
-            position: relative;
-            width: 100%;
-            height: 280px; 
-            overflow: hidden;
-        }
-
-        .keynote-card-v3 .image-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover; 
-            object-position: top center;
-        }
-
-        /* Badge Style */
-        .keynote-badge {
-            position: absolute;
-            top: 0;
-            right: 0;
-            background-color: var(--ieee-blue-dark); 
-            color: white; 
-            padding: 0.5rem 1rem;
-            font-size: 0.85rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            z-index: 10;
-        }
-
-        .keynote-content {
-            padding: 1.5rem; 
-            display: flex;
-            flex-direction: column;
-            flex-grow: 1; 
-        }
-
-        .keynote-content h3 {
-            font-size: 1.4rem; 
-            font-weight: 800; 
-            color: var(--ieee-blue-dark); 
-            margin-bottom: 0.25rem;
-        }
-
-        .keynote-content .role {
-            font-size: 0.95rem;
-            font-weight: 600;
-            color: var(--ieee-blue-medium); 
-            margin-bottom: 0.25rem;
-        }
-
-        .keynote-content .organization {
-            font-size: 0.9rem;
-            color: #6B7280; 
-            margin-bottom: 1rem;
-            font-style: italic;
-        }
-
-        .keynote-content .info-item {
-            display: flex;
-            align-items: flex-start;
-            font-size: 0.9rem;
-            color: #374151; 
-            margin-bottom: 0.5rem; 
-        }
-
-        .keynote-content .info-item i {
-            color: var(--ieee-blue-medium); 
-            margin-right: 0.75rem;
-            width: 1rem; 
-            text-align: center;
-            margin-top: 3px;
-        }
-
-        .keynote-content .talk-topic {
-            margin-top: 1rem; 
-            padding-top: 1rem;
-            border-top: 1px solid #E5E7EB; 
-            background-color: #F9FAFB;
-            margin-left: -1.5rem;
-            margin-right: -1.5rem;
-            margin-bottom: -1.5rem;
-            padding-left: 1.5rem;
-            padding-right: 1.5rem;
-            padding-bottom: 1.5rem;
-        }
-
-        .keynote-content .talk-topic .label {
-            font-size: 0.75rem;
-            color: #6B7280;
-            text-transform: uppercase;
-            font-weight: 700;
-            margin-bottom: 0.25rem;
-        }
-
-        .keynote-content .talk-topic .title {
-            font-size: 1rem;
-            font-weight: 600;
-            color: var(--ieee-grey-text);
-            font-style: italic;
-        }
-
-        /* Content Sections */
-        .content-card {
-            background-color: white;
-            border-radius: 0.5rem;
-            padding: 2rem;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            margin-bottom: 2rem;
-        }
-
-        .section-title {
-            color: var(--ieee-blue-dark);
-            font-weight: 800;
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
-            position: relative;
-            padding-bottom: 0.5rem;
-        }
         
-        .section-title::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            width: 60px;
-            height: 4px;
-            background-color: var(--ieee-blue-medium);
-        }
-
-        /* Rankings Grid */
-        .ranking-box {
-            background-color: #F0F9FF; /* Light blue tint */
-            border-left: 4px solid var(--ieee-blue-medium);
-            padding: 1rem;
-            margin-bottom: 0.5rem;
-        }
-        .ranking-title {
-            font-weight: 700;
-            color: var(--ieee-blue-medium);
-        }
-        .ranking-text {
-            font-size: 0.9rem;
-            color: var(--ieee-grey-text);
-        }
-
-        /* Structure Cards (Used for Potential Speakers) */
-        .structure-card {
-            background-color: white;
-            border: 1px solid #E5E7EB;
+        /* Stats Styles */
+        .stat-card {
             padding: 1.5rem;
             border-radius: 0.5rem;
-            transition: all 0.3s;
+            background-color: var(--ieee-blue-medium);
+            color: white;
+            text-align: center;
         }
-        .structure-card:hover {
-            border-color: var(--ieee-blue-medium);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: 800;
+            line-height: 1;
         }
-        .structure-icon {
-            font-size: 2rem;
-            color: var(--ieee-blue-dark);
-            margin-bottom: 1rem;
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-top: 0.25rem;
         }
 
         /* Footer Styles */
@@ -403,7 +360,7 @@
             transform: translateX(0);
         }
 
-        /* Search Highlight */
+        /* Search Results Highlight */
         .search-highlight {
             background-color: yellow;
             color: black;
@@ -414,14 +371,14 @@
 <body class="bg-ieee-bg text-ieee-grey-text">
 
     <!-- 1. Top Meta Navigation Bar (Dark Blue) -->
-     <nav class="meta-nav hidden md:block">
+    <nav class="meta-nav hidden md:block">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <ul class="flex justify-end space-x-4 py-1">
-                <li><a href="https://www.ieee.org/" target="_blank"><strong>IEEE.org</strong></a></li>
-                <li><a href="https://ieeexplore.ieee.org/Xplore/home.jsp" target="_blank"><strong>IEEE Xplore</strong></a></li>
-                <li><a href="https://standards.ieee.org/?_gl=1*11sucg7*_gcl_au*NDM5MDk1NjMxLjE3NjQ1ODc5OTk." target="_blank"><strong>IEEE Standards</strong></a></li>
-                <li class="hidden lg:block"><a href="http://spectrum.ieee.org/" target="_blank"><strong>IEEE Spectrum</strong></a></li>
-                <li><a href="https://www.ieee.org/sitemap.html" target="_blank"><strong>More Sites</strong></a></li>
+                <li><a href="#" target="_blank"><strong>IEEE.org</strong></a></li>
+                <li><a href="#" target="_blank"><strong>IEEE Xplore</strong></a></li>
+                <li><a href="#" target="_blank"><strong>IEEE Standards</strong></a></li>
+                <li class="hidden lg:block"><a href="#" target="_blank"><strong>IEEE Spectrum</strong></a></li>
+                <li><a href="#" target="_blank"><strong>More Sites</strong></a></li>
             </ul>
         </div>
     </nav>
@@ -429,22 +386,20 @@
     <!-- 2. Main Header (Medium Blue with Logo/Title/Search) -->
     <header id="main-header" class="shadow-lg">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex justify-between items-center">
-            
-            <!-- Mobile Menu Toggle (Left Side) -->
             <button id="menu-toggle" class="md:hidden text-white text-xl p-2 rounded-lg hover:bg-ieee-blue-dark transition duration-150">
                 <i class="fas fa-bars"></i>
                 <span class="ml-2 text-sm font-semibold">MENU</span>
             </button>
 
-            <!-- Logo/Title Block -->
             <div class="flex-grow md:flex-grow-0">
-                <a href="index.html" class="flex flex-col items-start text-ieee-blue leading-none">
-                    <h1 class="text-xl md:text-2xl font-bold uppercase tracking-tight">The 5th IEEE TEMSMET 2026 Conference</h1>
+                <a href="#" class="flex flex-col items-start text-ieee-blue leading-none">
+                    <h1 class="text-xl md:text-2xl font-bold uppercase racking-tight">The 5th IEEE TEMSMET 2026 Conference</h1>
                     <span class="text-xs md:text-sm font-light">(Technology, Engineering, Management for Societal Impact)</span>
                 </a>
             </div>
 
             <div class="hidden md:flex items-center space-x-4">
+                <!-- Desktop Search Form -->
                 <form id="desktop-search-form" onsubmit="handleSearch(event, 'desktop-search-input');" class="flex items-center">
                     <input type="search" id="desktop-search-input" placeholder="Search Conference" class="p-2 text-sm text-ieee-grey-text rounded-l-lg focus:ring-2 focus:ring-ieee-blue-light border border-gray-300">
                     <button type="submit" class="bg-white p-2 text-ieee-blue-dark rounded-r-lg border border-gray-300 border-l-0">
@@ -456,8 +411,9 @@
                 </a>
 
                 <a href="https://www.ieee.org/" target="_blank" class="w-20">
-                    <img src="assests/tems-logo.png" alt="Tems Logo" class="w-full h-auto object-contain">
+                    <img src="assests/" alt="Tems Logo" class="w-full h-auto object-contain">
                 </a>
+
             </div>
             
             <button id="search-toggle-mobile" class="md:hidden text-white text-xl p-2 rounded-lg hover:bg-ieee-blue-dark transition duration-150">
@@ -465,6 +421,7 @@
             </button>
         </div>
         
+        <!-- Mobile Search Input -->
         <div id="mobile-search-bar" class="hidden md:hidden px-4 pb-3">
             <form id="mobile-search-form" onsubmit="handleSearch(event, 'mobile-search-input');" class="flex items-center">
                 <input type="search" id="mobile-search-input" placeholder="Search Conference" class="w-full p-2 text-sm text-ieee-grey-text rounded-l-lg focus:ring-2 focus:ring-ieee-blue-light border border-gray-300">
@@ -485,16 +442,16 @@
                     <a href="#" class="block py-3 text-white font-semibold hover:text-gray-200 transition duration-150">FOR AUTHORS <i class="fas fa-caret-down text-xs"></i></a>
                     <ul class="absolute hidden group-hover:block bg-white shadow-xl rounded-b-lg min-w-[200px] z-20">
                         <li><a href="call-for-papers.html" class="block px-4 py-2 text-ieee-grey-text hover:bg-gray-100">Call for Papers</a></li>
-                        <li><a href="important-dates.html" class="block px-4 py-2 text-ieee-grey-text hover:bg-gray-100 active-dropdown-link">Important Dates</a></li>
-                        <li><a href="instructions-for-authors.html" class="block px-4 py-2 text-ieee-grey-text hover:bg-gray-100">Instructions for Authors</a></li>
-                        <li><a href="instructions-of-review-manuscripts.html" class="block px-4 py-2 text-ieee-grey-text hover:bg-gray-100">Review Manuscripts</a></li>
-                         <!-- Active link within the dropdown -->
-                        <li><a href="instructions-for-camera-ready-papers.html" class="block px-4 py-2 text-ieee-grey-text hover:bg-gray-100 ">Camera Ready</a></li>
+                        <li><a href="important-dates.html" class="block px-4 py-2 text-ieee-grey-text hover:bg-gray-100">Important Dates</a></li>
+                        <!-- Active link within the dropdown -->
+                        <li><a href="instructions-for-authors.html" class="block px-4 py-2 text-ieee-grey-text hover:bg-gray-100 ">Instructions</a></li>
+                        <li><a href="instructions-of-review-manuscripts.html" class="block px-4 py-2 text-ieee-grey-text hover:bg-gray-100 active-dropdown-link">Review Manuscripts</a></li>
+                    <li><a href="instructions-for-camera-ready-papers.html" class="block px-4 py-2 text-ieee-grey-text hover:bg-gray-100">Camera Ready</a></li>
                     </ul>
                 </li>
                 <li><a href="registration.html" class="block py-3 text-white font-semibold hover:text-gray-200 transition duration-150">REGISTRATION</a></li>
                 <li><a href="#" class="block py-3 text-white font-semibold hover:text-gray-200 transition duration-150">SPONSORSHIPS</a></li>
-                <li><a href="contact-us.html" class="block py-3 text-white font-semibold hover:text-gray-200 transition duration-150">CONTACT US</a></li>
+                <li><a href="#" class="block py-3 text-white font-semibold hover:text-gray-200 transition duration-150">CONTACT US</a></li>
             </ul>
         </div>
     </nav>
@@ -518,9 +475,9 @@
                     <li><a href="instructions-for-authors.html" class="block py-1 px-3 rounded hover:bg-ieee-blue-light text-sm">Instructions for Authors</a></li>
                 </ul>
             </li>
-            <li><a href="registration.html" class="block py-2 px-3 rounded hover:bg-ieee-blue-medium">REGISTRATION</a></li>
+            <li><a href="#" class="block py-2 px-3 rounded hover:bg-ieee-blue-medium">REGISTRATION</a></li>
             <li><a href="#" class="block py-2 px-3 rounded hover:bg-ieee-blue-medium">SPONSORSHIPS</a></li>
-            <li><a href="contact-us.html" class="block py-2 px-3 rounded hover:bg-ieee-blue-medium">CONTACT US</a></li>
+            <li><a href="#" class="block py-2 px-3 rounded hover:bg-ieee-blue-medium">CONTACT US</a></li>
         </ul>
         <div class="mt-8 pt-4 border-t border-white/20">
             <div class="flex justify-around text-xl">
@@ -538,285 +495,231 @@
     <!-- 4. Main Content Area -->
     <main id="main-content" class="max-w-7xl mx-auto p-4 sm:p-6 lg:p-8">
 
-        <!-- Search Results Message Box -->
+        <!-- Search Results Message Box (Hidden by default) -->
         <div id="search-message" class="hidden bg-ieee-blue-light/20 text-ieee-blue-dark p-3 rounded-lg shadow-md mb-6 font-semibold text-center">
+            <!-- Message will be inserted here -->
         </div>
 
-        <!-- Hero Section (Slider) -->
+        <!-- Hero Section (Image Slider) -->
         <section class="mb-10">
             <div id="hero-slider" class="hero-slider-mock rounded-lg shadow-xl">
+                
+                <!-- Slide Container -->
                 <div class="slide-container">
                     
-                    <!-- SLIDE 1: Theme -->
-                    <div class="slide active" style="background-image: url('https://placehold.co/1200x500/005A9C/FFFFFF?text=Innovating+for+All');">
+                    <!-- SLIDE 1: Primary Conference Info -->
+                    <div class="slide active" style="background-image: url('assests/symbiosis.png');">
+                        <!-- NO OVERLAY -->
                         <div class="slide-content max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                             <div class="relative z-20 p-6 lg:p-0 w-full lg:w-3/4">
                                 <h2 class="text-3xl lg:text-5xl font-extrabold text-white mb-4 leading-tight">
-                                    Innovating for All: AI, Sustainability, and Vasudeva Kutumbakam
+                                    The 5th IEEE TEMSMET 2026 Conference
                                 </h2>
                                 <p class="text-white text-xl mb-6 font-bold hidden sm:block">
-                                    Emphasizing inclusive innovation, responsible technology, and global sustainability.
+                                    Technology, Engineering, and Management for Societal Impact
                                 </p>
-                                <a href="#theme" class="submit-btn inline-block px-8 py-3 text-lg rounded-full shadow-lg hover:shadow-xl transition duration-300">
-                                    READ THEME
+                                <a href="#" class="submit-btn inline-block px-8 py-3 text-lg rounded-full shadow-lg hover:shadow-xl transition duration-300">
+                                    VIEW CONFERENCE DETAILS
                                 </a>
                             </div>
                         </div>
                     </div>
 
                     <!-- SLIDE 2: Call for Papers -->
-                    <div class="slide" style="background-image: url('https://placehold.co/1200x500/0073B7/FFFFFF?text=Submit+Your+Research');">
+                    <div class="slide" style="background-image: url('https://placehold.co/1200x500/0073B7/FFFFFF?text=Research+Paper+Submission');">
                         <div class="slide-content max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                             <div class="relative z-20 p-6 lg:p-0 w-full lg:w-3/4">
                                 <h2 class="text-3xl lg:text-5xl font-extrabold text-white mb-4 leading-tight">
                                     Call for Papers Open!
                                 </h2>
                                 <p class="text-white text-xl mb-6 font-bold">
-                                    Original research papers and impactful project contributions invited worldwide.
+                                    Submit your research on technology, management, and societal impact.
                                 </p>
                                 <a href="call-for-papers.html" class="submit-btn inline-block px-8 py-3 text-lg rounded-full shadow-lg hover:shadow-xl transition duration-300">
-                                    SUBMIT PAPER
+                                    VIEW DEADLINES & TOPICS
                                 </a>
                             </div>
                         </div>
                     </div>
 
-                    <!-- SLIDE 3: Host Info -->
-                    <div class="slide" style="background-image: url('https://placehold.co/1200x500/0099D8/FFFFFF?text=SIT+Hyderabad');">
+                    <!-- SLIDE 3: Registration Info -->
+                    <div class="slide" style="background-image: url('https://placehold.co/1200x500/0099D8/FFFFFF?text=Early+Bird+Registration');">
                         <div class="slide-content max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                             <div class="relative z-20 p-6 lg:p-0 w-full lg:w-3/4">
                                 <h2 class="text-3xl lg:text-5xl font-extrabold text-white mb-4 leading-tight">
-                                    Hosted by Symbiosis Institute of Technology
+                                    Early Bird Registration is Now Open!
                                 </h2>
                                 <p class="text-white text-xl mb-6 font-bold">
-                                    Delivering world-class technical education in Hyderabad.
+                                    Secure your spot and save on the full conference experience.
                                 </p>
-                                <a href="#about-host-section" class="submit-btn inline-block px-8 py-3 text-lg rounded-full shadow-lg hover:shadow-xl transition duration-300">
-                                    LEARN MORE
+                                <a href="#" class="submit-btn inline-block px-8 py-3 text-lg rounded-full shadow-lg hover:shadow-xl transition duration-300">
+                                    REGISTER TODAY
                                 </a>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div id="slider-dots" class="slider-dots"></div>
+
+                <!-- Slider Navigation Dots -->
+                <div id="slider-dots" class="slider-dots">
+                    <!-- Dots will be generated by JavaScript -->
+                </div>
             </div>
         </section>
         
-        <!-- Section: Conference Theme (Full Width Card) -->
-        <section id="theme" class="content-card">
-            <h2 class="section-title">Conference Theme: Innovating for All</h2>
-            <div class="prose max-w-none text-gray-700 leading-relaxed">
-                <p class="text-lg font-bold text-ieee-blue-dark mb-4">
-                    Theme: Innovating for All: AI, Sustainability, and the Spirit of Vasudeva Kutumbakam
-                </p>
-                <p class="mb-4">
-                    This conference theme embodies the holistic vision of <strong>Vasudeva Kutumbakam</strong>—the ancient Indian philosophy that the world is one family—by emphasising inclusive innovation, responsible technology, and global sustainability. In an era shaped by Artificial Intelligence (AI), the theme explores how intelligent systems can be leveraged to create equitable solutions, uplift communities, and accelerate sustainable development across borders.
-                </p>
-                <p class="mb-4">
-                    The conference highlights the transformative role of AI in addressing global challenges, including climate resilience, resource optimisation, healthcare accessibility, innovative governance, and the development of ethical digital ecosystems. It provides a multidisciplinary platform for researchers, scientists, engineers, academicians, industry leaders, and students to exchange cutting-edge ideas, showcase emerging technologies, and present original research contributions.
-                </p>
-                <p>
-                    Featuring keynote sessions, panel discussions, workshops, and invited talks by eminent experts, the conference aims to inspire collaborative innovation grounded in ethics, sustainability, and the shared responsibility of building a better future for all. Original research papers and impactful project contributions are invited from researchers worldwide.
-                </p>
-            </div>
-        </section>
 
-        <!-- Section: About TEMSMET (Stacked Card 1) -->
-        <section id="about-temsmet" class="content-card">
-            <h2 class="section-title">About 5th IEEE TEMSMET 2026</h2>
-            <div class="text-gray-700 leading-relaxed text-base">
-                <p class="mb-4">
-                    The <strong>5th IEEE TEMSMET 2026</strong> continues the prestigious global conference series of the IEEE Technology and Engineering Management Society (TEMS), serving as the annual flagship platform for thought leadership in technology, innovation, and engineering management. Since its inception in 2020, the TEMSMET series has consistently brought together researchers, practitioners, and professionals from around the world to explore the evolving intersections of technological advancement and strategic management practices.
-                </p>
-                <p class="mb-4">
-                    This 5th edition embraces the transformative theme <strong></strong>“Innovating for All: AI, Sustainability, and the Spirit of Vasudeva Kutumbakam”</strong>, reflecting a vision of inclusive innovation, responsible technological growth, and global unity. This edition of the conference will provide a dynamic forum to deliberate on how Artificial Intelligence, sustainable development, and humanity-centric values are shaping the future of technology management.
-                </p>
-                <p class="mb-4">
-                    The conference invites original research, case studies, and innovative solutions that present interdisciplinary approaches, novel frameworks, implementation models, ethical considerations, and global best practices. Contributions that demonstrate how innovation and AI can drive sustainable and equitable progress across industries, societies, and nations are especially encouraged.
-                </p>
-                <h3 class="font-bold text-ieee-blue-dark mt-4 mb-2">Attendees will benefit from a rich program featuring:</h3>
-                <ul class="list-disc list-inside space-y-1 ml-4 text-sm">
-                    <li>Plenary sessions by distinguished global experts</li>
-                    <li>Invited talks and panel discussions spanning technology, management, sustainability, and societal impact</li>
-                    <li>Presentation of high-quality research papers, selected through a rigorous peer-review process</li>
-                    <li>Networking opportunities for academicians, researchers, industry leaders, students, entrepreneurs, policy thinkers, and practitioners</li>
-                </ul>
-                <p class="mt-4 italic text-sm">
-                    The 5th IEEE TEMSMET 2025 aims to foster collaborative learning, inspire impactful research, and promote a shared commitment to advancing technology for the benefit of all—truly echoing the spirit of Vasudeva Kutumbakam.
-                </p>
-            </div>
-        </section>
+        <!-- Main Content: TEMSMET 2026 Info -->
+        <section class="bg-white p-6 md:p-10 rounded-lg shadow-lg mb-10">
+            <h2 class="text-3xl md:text-4xl text-center font-extrabold mb-6 text-ieee-blue-dark border-b pb-3">
+                About TEMSMET 2026
+            </h2>
 
-        <!-- Section: About Host (Stacked Card 2) -->
-        <section id="about-host-section" class="content-card">
-            <h2 class="section-title">About the Host: SIT Hyderabad</h2>
-            <div class="text-gray-700 leading-relaxed text-base">
-                <p class="mb-4">
-                    <strong>Symbiosis Institute of Technology (SIT) Hyderabad</strong>, established in 2024, is one of the newest constituent institutes of Symbiosis International University (SIU), Pune—a recognised leader in India's private university sector. Inspired by the vision of Chancellor Dr S.B. Mujumdar and founded on the guiding philosophy of "Vasudhaiva Kutumbakam" (the world is one family), SIT Hyderabad is committed to delivering world-class technical education in a vibrant and inclusive academic environment.
-                </p>
-                <p class="mb-4">
-                    Located in Hyderabad, a city ranked among the best in India for livability, innovation, education, and technology-driven growth, the institute is rapidly emerging as a hub for high-quality engineering education. SIT Hyderabad offers contemporary B.Tech programmes in Computer Science and Engineering, Computer Science and Technology, Computer Engineering, and Artificial Intelligence & Machine Learning.
-                </p>
-                <p class="mb-6">
-                    <strong>Symbiosis International University (SIU)</strong> is a prestigious, multidisciplinary university recognised for its global outlook, academic excellence, and commitment to inclusive education. The university has earned strong national and international recognition.
-                </p>
+            <p class="text-base leading-relaxed mb-6">
+                The 5th IEEE International Conference on Technology, Engineering, Management for Societal Impact using Marketing, Entrepreneurship, and Talent brings together leading researchers, industry experts, and academic professionals to explore innovative solutions for global challenges.
+            </p>
 
-                <h3 class="font-bold text-ieee-blue-dark mb-3 border-b pb-1">University Rankings</h3>
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div>
-                        <h4 class="font-bold text-xs text-gray-500 uppercase mb-2">QS World University Sustainability Rankings 2026</h4>
-                        <div class="ranking-box"><p class="ranking-title">787th</p><p class="ranking-text">globally</p></div>
-                        <div class="ranking-box"><p class="ranking-title">251st</p><p class="ranking-text">in Asia</p></div>
-                        <div class="ranking-box"><p class="ranking-title">33rd</p><p class="ranking-text">in India</p></div>
-                        <div class="ranking-box"><p class="ranking-title">14th</p><p class="ranking-text">among private universities in India</p></div>
-                    </div>
-                    <div>
-                        <h4 class="font-bold text-xs text-gray-500 uppercase mb-2">NIRF Rankings 2025</h4>
-                        <div class="ranking-box"><p class="ranking-title">24th</p><p class="ranking-text">in the University category</p></div>
-                        <div class="ranking-box"><p class="ranking-title">46th</p><p class="ranking-text">in Engineering</p></div>
-                        <div class="ranking-box"><p class="ranking-title">7th</p><p class="ranking-text">in Law (Symbiosis Law School, Pune)</p></div>
-                        <div class="ranking-box"><p class="ranking-title">11th</p><p class="ranking-text">in Management (SIBM, Pune)</p></div>
-                    </div>
+            <h3 class="text-2xl font-bold text-ieee-blue-dark mb-4">Conference Scope</h3>
+            <p class="text-base leading-relaxed mb-8">
+                TEMSMET 2026 focuses on the intersection of technology, engineering, and management to create meaningful societal impact through innovative approaches in marketing, entrepreneurship, and talent development.
+            </p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                <div class="p-4 border-l-4 border-ieee-blue-medium bg-gray-50 rounded-lg">
+                    <h4 class="font-bold text-lg text-ieee-blue-dark flex items-center">
+                        <i class="fas fa-hand-holding-heart mr-2 text-ieee-blue-dark"></i> Societal Impact
+                    </h4>
+                    <p class="text-sm text-gray-700 mt-1">Explore how technology drives positive change in communities worldwide.</p>
+                </div>
+                <div class="p-4 border-l-4 border-ieee-blue-medium bg-gray-50 rounded-lg">
+                    <h4 class="font-bold text-lg text-ieee-blue-dark flex items-center">
+                        <i class="fas fa-layer-group mr-2 text-ieee-blue-dark"></i> Interdisciplinary
+                    </h4>
+                    <p class="text-sm text-gray-700 mt-1">Bringing together experts from technology, management, and entrepreneurship.</p>
+                </div>
+                <div class="p-4 border-l-4 border-ieee-blue-medium bg-gray-50 rounded-lg">
+                    <h4 class="font-bold text-lg text-ieee-blue-dark flex items-center">
+                        <i class="fas fa-lightbulb mr-2 text-ieee-blue-dark"></i> Innovation
+                    </h4>
+                    <p class="text-sm text-gray-700 mt-1">Cutting-edge research and practical solutions for tomorrow's challenges.</p>
+                </div>
+                <div class="p-4 border-l-4 border-ieee-blue-medium bg-gray-50 rounded-lg">
+                    <h4 class="font-bold text-lg text-ieee-blue-dark flex items-center">
+                        <i class="fas fa-globe-americas mr-2 text-ieee-blue-dark"></i> Global Network
+                    </h4>
+                    <p class="text-sm text-gray-700 mt-1">Connect with researchers and professionals from around the world.</p>
                 </div>
             </div>
+
+            <p class="text-base leading-relaxed mb-8">
+                Join us for three days of inspiring keynotes, technical sessions, interactive workshops, and networking opportunities that will shape the future of technology for social good.
+            </p>
         </section>
 
-        <!-- Section: Conference Structure -->
-        <section class="mb-10 content-card">
-            <h2 class="section-title text-center">Conference Structure</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
-                <!-- Card 1 -->
-                <div class="structure-card">
-                    <div class="structure-icon"><i class="fas fa-microphone-lines"></i></div>
-                    <h3 class="font-bold text-xl text-ieee-blue-dark mb-2">Keynote Talks</h3>
-                    <p class="text-gray-600 text-sm">Delivered by globally recognised experts in Artificial Intelligence, Engineering, Sustainability, and Technology Management, offering deep insights aligned with the conference theme.</p>
-                </div>
-                <!-- Card 2 -->
-                <div class="structure-card">
-                    <div class="structure-icon"><i class="fas fa-users-line"></i></div>
-                    <h3 class="font-bold text-xl text-ieee-blue-dark mb-2">Panel Discussions</h3>
-                    <p class="text-gray-600 text-sm">Engaging dialogues addressing contemporary issues, including AI ethics and governance, sustainable technological innovation, the future of engineering and management education, and the societal impact of AI-driven solutions.</p>
-                </div>
-                <!-- Card 3 -->
-                <div class="structure-card">
-                    <div class="structure-icon"><i class="fas fa-file-contract"></i></div>
-                    <h3 class="font-bold text-xl text-ieee-blue-dark mb-2">Technical Sessions</h3>
-                    <p class="text-gray-600 text-sm">Tracks featuring high-quality research papers and case studies focusing on emerging technologies, interdisciplinary innovations, AI applications, sustainability frameworks, and advances in engineering and management practices.</p>
-                </div>
-                <!-- Card 4 -->
-                <div class="structure-card">
-                    <div class="structure-icon"><i class="fas fa-screwdriver-wrench"></i></div>
-                    <h3 class="font-bold text-xl text-ieee-blue-dark mb-2">Workshops</h3>
-                    <p class="text-gray-600 text-sm">Hands-on, skill-building sessions that enable participants to explore AI tools, sustainable engineering methods, data-driven decision-making techniques, and innovation management frameworks through practical exercises.</p>
-                </div>
-                <!-- Card 5 -->
-                <div class="structure-card">
-                    <div class="structure-icon"><i class="fas fa-chart-area"></i></div>
-                    <h3 class="font-bold text-xl text-ieee-blue-dark mb-2">Poster Sessions</h3>
-                    <p class="text-gray-600 text-sm">A platform for researchers, innovators, and students to present preliminary findings, concept demonstrations, and ongoing work aligned with the conference theme and its multidisciplinary scope.</p>
-                </div>
-                <!-- Card 6 -->
-                <div class="structure-card">
-                    <div class="structure-icon"><i class="fas fa-handshake"></i></div>
-                    <h3 class="font-bold text-xl text-ieee-blue-dark mb-2">Networking Events</h3>
-                    <p class="text-gray-600 text-sm">Curated networking opportunities, meetups, and informal interactions designed to foster collaboration between academia, industry, startups, policymakers, and research organisations.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Section: Potential Speakers -->
-        <section class="bg-white p-8 rounded-lg shadow-lg mb-10">
-            <h2 class="section-title text-center">Potential Speakers</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
-                <div class="flex items-start">
-                    <div class="flex-shrink-0 mt-1">
-                        <i class="fas fa-building text-ieee-blue-medium text-xl w-8"></i>
-                    </div>
-                    <div>
-                        <h3 class="font-bold text-lg text-ieee-blue-dark">Industry Leaders</h3>
-                        <p class="text-gray-600 text-sm mt-1">CEOs, CTOs, Innovation Officers, and senior technology executives from leading global and national organisations, contributing insights on cutting-edge AI applications, digital transformation, and sustainable technological growth.</p>
-                    </div>
-                </div>
-                <div class="flex items-start">
-                    <div class="flex-shrink-0 mt-1">
-                        <i class="fas fa-graduation-cap text-ieee-blue-medium text-xl w-8"></i>
-                    </div>
-                    <div>
-                        <h3 class="font-bold text-lg text-ieee-blue-dark">Academicians & Researchers</h3>
-                        <p class="text-gray-600 text-sm mt-1">Professors, scientists, and scholars from premier universities and research institutions specialising in Artificial Intelligence, engineering, management, sustainability, and interdisciplinary innovation.</p>
-                    </div>
-                </div>
-                <div class="flex items-start">
-                    <div class="flex-shrink-0 mt-1">
-                        <i class="fas fa-scale-balanced text-ieee-blue-medium text-xl w-8"></i>
-                    </div>
-                    <div>
-                        <h3 class="font-bold text-lg text-ieee-blue-dark">Government Representatives</h3>
-                        <p class="text-gray-600 text-sm mt-1">Policymakers, administrators, and officials involved in national AI strategies, technology governance, regulations, and initiatives supporting ethical, secure, and sustainable technological development.</p>
-                    </div>
-                </div>
-                <div class="flex items-start">
-                    <div class="flex-shrink-0 mt-1">
-                        <i class="fas fa-rocket text-ieee-blue-medium text-xl w-8"></i>
-                    </div>
-                    <div>
-                        <h3 class="font-bold text-lg text-ieee-blue-dark">Entrepreneurs</h3>
-                        <p class="text-gray-600 text-sm mt-1">Startup founders, innovators, and emerging technology leaders developing next-generation AI-driven products, solutions, and platforms across engineering, sustainability, and management domains.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-
-        <!-- Keynote Speakers Section (Previous Edition) -->
+        <!-- Stats Section -->
         <section class="mb-10">
-            <h2 class="text-3xl font-extrabold text-center mb-8 text-ieee-blue-dark">Keynote Speakers (Previous Edition)</h2>
+            <h3 class="text-3xl font-extrabold text-center mb-6 text-ieee-blue-dark">Conference Highlights</h3>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="stat-card">
+                    <div class="stat-value">150+</div>
+                    <div class="stat-label">Expected Papers</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">500+</div>
+                    <div class="stat-label">Participants</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">25+</div>
+                    <div class="stat-label">Countries</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">3</div>
+                    <div class="stat-label">Days</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Keynote Speakers Section -->
+        <section class="mb-10">
+            <h2 class="text-3xl font-extrabold text-center mb-8 text-ieee-blue-dark">Keynote Speakers</h2>
+            <p class="text-center text-lg text-gray-700 mb-8">
+                Learn from world-renowned experts who are driving innovation at the intersection of technology, management, and social impact.
+            </p>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Speaker 1 -->
-                <div class="keynote-card-v3">
+                
+                <!-- Speaker 1: Dr. Sarah Chen -->
+                <div class="keynote-card-v2">
                     <div class="image-container">
-                        <img src="https://placehold.co/400x400/F0F0F0/005A9C?text=Dr.+Sarah+Chen" alt="Dr. Sarah Chen">
+                        <img src="https://placehold.co/400x200/F0F0F0/005A9C?text=Dr.+Sarah+Chen" alt="Dr. Sarah Chen">
                         <span class="keynote-badge">Keynote</span>
                     </div>
                     <div class="keynote-content">
                         <h3>Dr. Sarah Chen</h3>
                         <p class="role">Chief Technology Officer</p>
                         <p class="organization">Tech for Good Foundation</p>
-                        <div class="info-item"><i class="fas fa-location-dot"></i><span>Stanford, USA</span></div>
+                        
+                        <div class="info-item">
+                            <i class="fas fa-building"></i>
+                            <span>Tech for Good Foundation</span>
+                        </div>
+                         <div class="info-item mb-4">
+                            <i class="fas fa-location-dot"></i>
+                            <span>Stanford, USA</span>
+                        </div>
+
                         <div class="talk-topic">
                             <p class="label">Talk Topic: AI for Social Impact</p>
                             <p class="title">"Leveraging AI to Address Global Challenges"</p>
                         </div>
                     </div>
                 </div>
-                <!-- Speaker 2 -->
-                <div class="keynote-card-v3">
+
+                <!-- Speaker 2: Prof. Rajesh Kumar -->
+                <div class="keynote-card-v2">
                     <div class="image-container">
-                        <img src="https://placehold.co/400x400/F0F0F0/005A9C?text=Prof.+Rajesh+Kumar" alt="Prof. Rajesh Kumar">
+                        <img src="https://placehold.co/400x200/F0F0F0/005A9C?text=Prof.+Rajesh+Kumar" alt="Prof. Rajesh Kumar">
                         <span class="keynote-badge">Keynote</span>
                     </div>
                     <div class="keynote-content">
                         <h3>Prof. Rajesh Kumar</h3>
                         <p class="role">Director of Innovation</p>
                         <p class="organization">Indian Institute of Technology</p>
-                        <div class="info-item"><i class="fas fa-location-dot"></i><span>Delhi, India</span></div>
+                        
+                        <div class="info-item">
+                            <i class="fas fa-building"></i>
+                            <span>Indian Institute of Technology</span>
+                        </div>
+                         <div class="info-item mb-4">
+                            <i class="fas fa-location-dot"></i>
+                            <span>Delhi, India</span>
+                        </div>
+
                         <div class="talk-topic">
                             <p class="label">Talk Topic: Sustainable Technology</p>
                             <p class="title">"Engineering Solutions for Climate Change"</p>
                         </div>
                     </div>
                 </div>
-                <!-- Speaker 3 -->
-                <div class="keynote-card-v3">
+
+                <!-- Speaker 3: Dr. Maria Rodriguez -->
+                <div class="keynote-card-v2">
                     <div class="image-container">
-                        <img src="https://placehold.co/400x400/F0F0F0/005A9C?text=Dr.+Maria+Rodriguez" alt="Dr. Maria Rodriguez">
+                        <img src="https://placehold.co/400x200/F0F0F0/005A9C?text=Dr.+Maria+Rodriguez" alt="Dr. Maria Rodriguez">
                         <span class="keynote-badge">Keynote</span>
                     </div>
                     <div class="keynote-content">
                         <h3>Dr. Maria Rodriguez</h3>
                         <p class="role">Entrepreneurship Professor</p>
                         <p class="organization">ESADE Business School</p>
-                        <div class="info-item"><i class="fas fa-location-dot"></i><span>Barcelona, Spain</span></div>
+                        
+                        <div class="info-item">
+                            <i class="fas fa-building"></i>
+                            <span>ESADE Business School</span>
+                        </div>
+                         <div class="info-item mb-4">
+                            <i class="fas fa-location-dot"></i>
+                            <span>Barcelona, Spain</span>
+                        </div>
+
                         <div class="talk-topic">
                             <p class="label">Talk Topic: Digital Entrepreneurship</p>
                             <p class="title">"Building Scalable Social Enterprises"</p>
@@ -826,7 +729,7 @@
             </div>
         </section>
 
-        <!-- Conference Program Section (Keeping existing structure) -->
+        <!-- Conference Program Section -->
         <section class="mb-10">
             <h2 class="text-3xl font-extrabold text-center mb-8 text-ieee-blue-dark">Conference Program</h2>
             <p class="text-center text-lg text-gray-700 mb-8">
@@ -1036,9 +939,9 @@
             <div class="flex flex-col md:flex-row justify-between items-start md:items-center">
                 <!-- Copyright & Disclaimer (Left) -->
                 <div class="text-xs font-light max-w-xl space-y-1 mb-4 md:mb-0 md:pr-8">
-                    <p>&copy; Copyright 2026 IEEE – All rights reserved. Use of this website signifies your agreement to the IEEE Terms and Conditions.</p>
+                    <p>&copy; Copyright 2025 IEEE – All rights reserved. Use of this website signifies your agreement to the IEEE Terms and Conditions.</p>
                     <p class="mt-1">A public charity, IEEE is the world’s largest technical professional organization dedicated to advancing technology for the benefit of humanity.</p>
-                    <p class="mt-1 font-semibold text-ieee-blue-light">Contact: <a href="mailto:temsmet2026@sithyd.siu.edu.in" class="hover:underline">temsmet2026@sithyd.siu.edu.in</a></p>
+                    <p class="mt-1 font-semibold text-ieee-blue-light">Contact: <a href="mailto:aisiis2026@gmail.com" class="hover:underline">aisiis2026@gmail.com</a></p>
                 </div>
 
                 <!-- Social Links (Right) -->
@@ -1080,11 +983,54 @@
             });
         }
 
+        function highlightText(text, term) {
+            if (!term) return text;
+
+            const regex = new RegExp(`(${term})`, 'gi');
+            
+            // Do not highlight inside existing links or buttons to avoid breaking them
+            const tempDiv = document.createElement('div');
+            tempDiv.innerHTML = text;
+            
+            // Use a TreeWalker to process only text nodes
+            const walker = document.createTreeWalker(
+                tempDiv,
+                NodeFilter.SHOW_TEXT,
+                null,
+                false
+            );
+
+            let node;
+            while (node = walker.nextNode()) {
+                const parentNode = node.parentNode;
+                // Only process nodes that aren't inside the header, script, or style
+                if (parentNode && parentNode.closest('header, script, style')) {
+                    continue;
+                }
+                
+                const originalText = node.nodeValue;
+                if (originalText && originalText.trim().length > 0) {
+                    const highlightedHtml = originalText.replace(regex, (match) => 
+                        `<span class="search-highlight">${match}</span>`
+                    );
+
+                    if (highlightedHtml !== originalText) {
+                        const fragment = document.createRange().createContextualFragment(highlightedHtml);
+                        parentNode.replaceChild(fragment, node);
+                        // Skip back so the walker continues from after the inserted fragment
+                        walker.currentNode = parentNode;
+                    }
+                }
+            }
+            return tempDiv.innerHTML;
+        }
+
         const handleSearch = (event, inputId) => {
             event.preventDefault();
             const searchTerm = document.getElementById(inputId).value.trim();
             const mainContent = document.getElementById('main-content');
             const searchMessage = document.getElementById('search-message');
+            const mainContentClone = mainContent.cloneNode(true);
             let matchesFound = 0;
 
             removeHighlights(); // Clear previous highlights
@@ -1099,31 +1045,45 @@
                 return;
             }
 
-            // Target the content area within main
-            let contentNodes = mainContent.querySelectorAll('h1, h2, h3, h4, p, li, span, a');
+            // Target the entire body content, excluding header and footer
+            const contentToSearch = document.body;
+            let originalContent = contentToSearch.innerHTML;
+            
+            // Temporary container to safely highlight text without re-rendering the whole DOM
+            const tempContainer = document.createElement('div');
+            tempContainer.innerHTML = originalContent;
+            
+            // We use a safe method to ensure we only search text nodes within main visible sections
+            let contentNodes = tempContainer.querySelectorAll('h1, h2, h3, h4, p, li, span, a');
 
             contentNodes.forEach(node => {
                 if (!node.closest('header') && !node.closest('footer') && node.id !== 'search-message') {
-                    const originalText = node.innerHTML;
+                    // Check if the node content contains the search term (case-insensitive)
+                    if (node.textContent.toLowerCase().includes(searchTerm.toLowerCase())) {
+                         matchesFound++;
+                    }
                     
                     // Highlight the text inside the node
-                    node.innerHTML = originalText.replace(
+                    node.innerHTML = node.innerHTML.replace(
                         new RegExp(`(${searchTerm})`, 'gi'),
-                        (match) => {
-                            matchesFound++;
-                            return `<span class="search-highlight">${match}</span>`;
-                        }
+                        (match) => `<span class="search-highlight">${match}</span>`
                     );
                 }
             });
 
+            document.body.innerHTML = tempContainer.innerHTML;
+            
+            // Re-select elements (like search message) after overwriting innerHTML
+            const newSearchMessage = document.getElementById('search-message');
+            
             if (matchesFound > 0) {
-                searchMessage.textContent = `Found ${matchesFound} matches for "${searchTerm}".`;
-                searchMessage.classList.remove('hidden');
+                newSearchMessage.textContent = `Found ${matchesFound} matches for "${searchTerm}".`;
+                newSearchMessage.classList.remove('hidden');
+                // Scroll to the first highlighted element
                 document.querySelector('.search-highlight')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
             } else {
-                searchMessage.textContent = `No results found for "${searchTerm}".`;
-                searchMessage.classList.remove('hidden');
+                newSearchMessage.textContent = `No results found for "${searchTerm}".`;
+                newSearchMessage.classList.remove('hidden');
             }
         };
 
@@ -1243,10 +1203,6 @@
             // Initialize the slider when the DOM is ready
             initializeDots();
             startInterval();
-
-            // Set up search event listeners after DOM is ready
-            document.getElementById('desktop-search-form').addEventListener('submit', (e) => handleSearch(e, 'desktop-search-input'));
-            document.getElementById('mobile-search-form').addEventListener('submit', (e) => handleSearch(e, 'mobile-search-input'));
 
         });
     </script>

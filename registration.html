@@ -16,6 +16,10 @@
             --ieee-bg: #F8F8F8;
             --ieee-grey-text: #333333;
         }
+        .colum{
+            background: var(--ieee-blue-dark);
+            color:white;
+        }
 
         /* Set the primary font to Inter for a modern look */
         body {
@@ -27,10 +31,12 @@
         .meta-nav {
             background-color: var(--ieee-blue-dark);
             height: 30px;
+            background-color: rgba(0, 102, 153, .1);
+            box-shadow: inset 0 -1px 0 0 #069;
         }
 
         .meta-nav a {
-            color: white;
+            color: var(--ieee-blue-dark);;
             font-size: 0.75rem;
             opacity: 0.9;
             transition: opacity 0.2s;
@@ -52,6 +58,7 @@
             background-color: var(--ieee-blue-medium);
             background-image: url('assests/header-bkg-blue.png'); /* Placeholder for the blue pattern */
             background-repeat: repeat-x;
+            color: #337ab7;
         }
 
         /* Main Navigation Bar */
@@ -197,11 +204,11 @@
     <nav class="meta-nav hidden md:block">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <ul class="flex justify-end space-x-4 py-1">
-                <li><a href="#" target="_blank">IEEE.org</a></li>
-                <li><a href="#" target="_blank">IEEE Xplore</a></li>
-                <li><a href="#" target="_blank">IEEE Standards</a></li>
-                <li class="hidden lg:block"><a href="#" target="_blank">IEEE Spectrum</a></li>
-                <li><a href="#" target="_blank">More Sites</a></li>
+                <li><a href="https://www.ieee.org/" target="_blank"><strong>IEEE.org</strong></a></li>
+                <li><a href="https://ieeexplore.ieee.org/Xplore/home.jsp" target="_blank"><strong>IEEE Xplore</strong></a></li>
+                <li><a href="https://standards.ieee.org/?_gl=1*11sucg7*_gcl_au*NDM5MDk1NjMxLjE3NjQ1ODc5OTk." target="_blank"><strong>IEEE Standards</strong></a></li>
+                <li class="hidden lg:block"><a href="http://spectrum.ieee.org/" target="_blank"><strong>IEEE Spectrum</strong></a></li>
+                <li><a href="https://www.ieee.org/sitemap.html" target="_blank"><strong>More Sites</strong></a></li>
             </ul>
         </div>
     </nav>
@@ -232,12 +239,12 @@
                         <i class="fa fa-search"></i>
                     </button>
                 </form>
-                <a href="https://www.ieee.org/" target="_blank" class="w-16">
-                    <!-- Placeholder for IEEE Logo SVG -->
-                    <svg viewBox="0 0 100 20" xmlns="http://www.w3.org/2000/svg" class="fill-white">
-                        <rect width="100" height="20" fill="white"/>
-                        <text x="50%" y="70%" font-family="Arial" font-size="12" fill="var(--ieee-blue-dark)" text-anchor="middle">IEEE Logo</text>
-                    </svg>
+                <a href="https://www.ieee.org/" target="_blank" class="w-20">
+                    <img src="assests/footerimg.webp" alt="Symbiosis Logo" class="w-full h-auto object-contain">
+                </a>
+
+                <a href="https://www.ieee.org/" target="_blank" class="w-20">
+                    <img src="assests/tems-logo.png" alt="Tems Logo" class="w-full h-auto object-contain">
                 </a>
             </div>
             
@@ -268,14 +275,17 @@
                     <a href="#" class="block py-3 text-white font-semibold hover:text-gray-200 transition duration-150">FOR AUTHORS <i class="fas fa-caret-down text-xs"></i></a>
                     <ul class="absolute hidden group-hover:block bg-white shadow-xl rounded-b-lg min-w-[200px] z-20">
                         <li><a href="call-for-papers.html" class="block px-4 py-2 text-ieee-grey-text hover:bg-gray-100">Call for Papers</a></li>
-                        <li><a href="important-dates.html" class="block px-4 py-2 text-ieee-grey-text hover:bg-gray-100">Important Dates</a></li>
+                        <li><a href="important-dates.html" class="block px-4 py-2 text-ieee-grey-text hover:bg-gray-100 active-dropdown-link">Important Dates</a></li>
                         <li><a href="instructions-for-authors.html" class="block px-4 py-2 text-ieee-grey-text hover:bg-gray-100">Instructions for Authors</a></li>
+                        <li><a href="instructions-of-review-manuscripts.html" class="block px-4 py-2 text-ieee-grey-text hover:bg-gray-100">Review Manuscripts</a></li>
+                         <!-- Active link within the dropdown -->
+                        <li><a href="instructions-for-camera-ready-papers.html" class="block px-4 py-2 text-ieee-grey-text hover:bg-gray-100 ">Camera Ready</a></li>
                     </ul>
                 </li>
                 <!-- Active Link -->
-                <li><a href="#" class="block py-3 text-white font-semibold hover:text-gray-200 transition duration-150 active-nav">REGISTRATION</a></li>
+                <li><a href="registration.html" class="block py-3 text-white font-semibold hover:text-gray-200 transition duration-150 active-nav">REGISTRATION</a></li>
                 <li><a href="#" class="block py-3 text-white font-semibold hover:text-gray-200 transition duration-150">SPONSORSHIPS</a></li>
-                <li><a href="#" class="block py-3 text-white font-semibold hover:text-gray-200 transition duration-150">CONTACT US</a></li>
+                <li><a href="contact-us.html" class="block py-3 text-white font-semibold hover:text-gray-200 transition duration-150">CONTACT US</a></li>
             </ul>
         </div>
     </nav>
@@ -338,111 +348,125 @@
         </div>
 
         <!-- Pricing Cards Section -->
-        <section class="mb-10">
-            <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
-                
-                <!-- CARD 1: IEEE Member -->
-                <div class="pricing-card">
-                    <div class="card-header">
-                        <h3 class="text-2xl font-black text-ieee-blue-dark">IEEE Member</h3>
-                        <div class="mt-4">
-                            <p class="price-label">Early Bird</p>
-                            <p class="text-4xl font-extrabold text-ieee-blue-medium">$450</p>
-                        </div>
-                        <div class="mt-2">
-                            <p class="price-label">Regular</p>
-                            <p class="text-2xl font-bold text-gray-500">$550</p>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <ul class="feature-list">
-                            <li><i class="fas fa-check-circle"></i> All technical sessions</li>
-                            <li><i class="fas fa-check-circle"></i> Welcome reception</li>
-                            <li><i class="fas fa-check-circle"></i> Conference proceedings</li>
-                            <li><i class="fas fa-check-circle"></i> Certificate of participation</li>
-                            <li><i class="fas fa-check-circle"></i> Networking breaks</li>
-                        </ul>
-                    </div>
-                </div>
+       <section class="mb-10">
+    <h2 class="text-2xl font-bold text-ieee-blue-dark mb-4 border-b pb-2">
+        Author Categories (Registration Fees)
+    </h2>
 
-                <!-- CARD 2: Non-IEEE Member -->
-                <div class="pricing-card">
-                    <div class="card-header">
-                        <h3 class="text-2xl font-black text-ieee-blue-dark">Non-IEEE Member</h3>
-                        <div class="mt-4">
-                            <p class="price-label">Early Bird</p>
-                            <p class="text-4xl font-extrabold text-ieee-blue-medium">$650</p>
-                        </div>
-                        <div class="mt-2">
-                            <p class="price-label">Regular</p>
-                            <p class="text-2xl font-bold text-gray-500">$750</p>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                         <ul class="feature-list">
-                            <li><i class="fas fa-check-circle"></i> All technical sessions</li>
-                            <li><i class="fas fa-check-circle"></i> Welcome reception</li>
-                            <li><i class="fas fa-check-circle"></i> Conference proceedings</li>
-                            <li><i class="fas fa-check-circle"></i> Certificate of participation</li>
-                            <li><i class="fas fa-check-circle"></i> Networking breaks</li>
-                        </ul>
-                    </div>
-                </div>
+    <div class="overflow-x-auto mt-6">
+        <table class="min-w-full border border-gray-300 text-left">
+            <thead class="colum">
+                <tr>
+                    <th class="p-3 border">Category</th>
+                    <th class="p-3 border">Indian Authors (INR)</th>
+                    <th class="p-3 border">Foreign Authors (USD)</th>
+                </tr>
+            </thead>
 
-                <!-- CARD 3: Student (MOST POPULAR) -->
-                <div class="pricing-card highlight transform ">
-                    
-                    <div class="card-header">
-                        <h3 class="text-2xl font-black">Student</h3>
-                        <div class="mt-4">
-                            <p class="price-label">Early Bird</p>
-                            <p class="text-4xl font-extrabold">$250</p>
-                        </div>
-                        <div class="mt-2">
-                            <p class="price-label">Regular</p>
-                            <p class="text-2xl font-bold">$350</p>
-                        </div>
-                    </div>
-                    <div class="card-body bg-gray-50 flex flex-col justify-between">
-                         <ul class="feature-list">
-                            <li><i class="fas fa-check-circle"></i> All technical sessions</li>
-                            <li><i class="fas fa-check-circle"></i> Welcome reception</li>
-                            <li><i class="fas fa-check-circle"></i> Conference proceedings</li>
-                            <li><i class="fas fa-check-circle"></i> Certificate of participation</li>
-                            <li class="font-semibold text-ieee-blue-dark"><i class="fas fa-user-group"></i> Student networking event</li>
-                        </ul>
-                        <!-- Padding added to make content align visually -->
-                        <div>&nbsp;</div>
-                    </div>
-                </div>
+            <tbody>
 
-                <!-- CARD 4: Industry -->
-                <div class="pricing-card">
-                    <div class="card-header">
-                        <h3 class="text-2xl font-black text-ieee-blue-dark">Industry</h3>
-                        <div class="mt-4">
-                            <p class="price-label">Early Bird</p>
-                            <p class="text-4xl font-extrabold text-ieee-blue-medium">$850</p>
-                        </div>
-                        <div class="mt-2">
-                            <p class="price-label">Regular</p>
-                            <p class="text-2xl font-bold text-gray-500">$950</p>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                         <ul class="feature-list">
-                            <li><i class="fas fa-check-circle"></i> All technical sessions</li>
-                            <li><i class="fas fa-check-circle"></i> Welcome reception</li>
-                            <li><i class="fas fa-check-circle"></i> Conference proceedings</li>
-                            <li><i class="fas fa-check-circle"></i> Certificate of participation</li>
-                            <li class="font-semibold text-ieee-blue-dark"><i class="fas fa-building-user"></i> Industry networking dinner</li>
-                            <li class="font-semibold text-ieee-blue-dark"><i class="fas fa-tv"></i> Exhibition access</li>
-                        </ul>
-                    </div>
-                </div>
+                <tr class="border">
+                    <td class="p-3 border font-semibold">IEEE Member</td>
+                    <td class="p-3 border">7000 INR</td>
+                    <td class="p-3 border">250 USD</td>
+                </tr>
 
-            </div>
-        </section>
+                <tr class="border">
+                    <td class="p-3 border font-semibold">Non-IEEE Member</td>
+                    <td class="p-3 border">7500 INR</td>
+                    <td class="p-3 border">300 USD</td>
+                </tr>
+
+                <tr class="border">
+                    <td class="p-3 border font-semibold">IEEE TEMS Member</td>
+                    <td class="p-3 border">6000 INR</td>
+                    <td class="p-3 border">250 USD</td>
+                </tr>
+
+                <tr class="border">
+                    <td class="p-3 border font-semibold">IEEE Student Member</td>
+                    <td class="p-3 border">5000 INR</td>
+                    <td class="p-3 border">200 USD</td>
+                </tr>
+
+                <tr class="border">
+                    <td class="p-3 border font-semibold">Non-IEEE Student Member</td>
+                    <td class="p-3 border">6000 INR</td>
+                    <td class="p-3 border">250 USD</td>
+                </tr>
+
+                <tr class="border">
+                    <td class="p-3 border font-semibold">IEEE TEMS Student Member</td>
+                    <td class="p-3 border">4500 INR</td>
+                    <td class="p-3 border">150 USD</td>
+                </tr>
+
+                <tr class="border bg-gray-50">
+                    <td class="p-3 border font-semibold">
+                        Charges per additional accepted paper (Student authors)*
+                    </td>
+                    <td class="p-3 border">4000 INR</td>
+                    <td class="p-3 border">75 USD</td>
+                </tr>
+
+                <tr class="border bg-gray-50">
+                    <td class="p-3 border font-semibold">
+                        Charges per additional accepted paper (Other authors)*
+                    </td>
+                    <td class="p-3 border">4500 INR</td>
+                    <td class="p-3 border">100 USD</td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+
+    <p class="text-sm text-gray-600 mt-2">
+        * If registering author is same as previous paper(s).
+    </p>
+</section>
+
+<section class="mb-10">
+    <h2 class="text-2xl font-bold text-ieee-blue mb-4 border-b pb-2">
+        Delegates / Participants
+    </h2>
+
+    <div class="overflow-x-auto mt-6">
+        <table class="min-w-full border border-gray-300 text-left">
+            <thead class="colum">
+                <tr>
+                    <th class="p-3 border">Category</th>
+                    <th class="p-3 border">Fees</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <tr class="border">
+                    <td class="p-3 border font-semibold">IEEE Member</td>
+                    <td class="p-3 border">1,000 INR / DAY</td>
+                </tr>
+
+                <tr class="border">
+                    <td class="p-3 border font-semibold">IEEE TEMS Member</td>
+                    <td class="p-3 border">800 INR / DAY</td>
+                </tr>
+
+                <tr class="border">
+                    <td class="p-3 border font-semibold">Non-IEEE Member</td>
+                    <td class="p-3 border">1500 INR / DAY</td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+
+</section>
+
+
+
+
+
         
         <!-- What's Included Section -->
         <section class="bg-white p-6 rounded-lg shadow-lg mb-10">
@@ -472,41 +496,24 @@
         </section>
 
         <!-- Registration Info Section -->
-        <section class="mb-10">
-            <h2 class="text-2xl font-bold text-ieee-blue-dark mb-6 text-center">Registration Information & Policies</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <!-- Info Column 1 -->
-                <div class="space-y-4">
-                    <div class="info-card">
-                        <h3 class="font-bold text-lg text-ieee-blue-dark flex items-center">
-                            <i class="fas fa-money-bill-transfer mr-3 text-ieee-blue-medium"></i> Payment Methods
-                        </h3>
-                        <p class="text-gray-700 mt-2">Credit card, bank transfer, or IEEE voucher.</p>
-                    </div>
-                    <div class="info-card">
-                        <h3 class="font-bold text-lg text-ieee-blue-dark flex items-center">
-                            <i class="fas fa-plane-departure mr-3 text-ieee-blue-medium"></i> Visa Support
-                        </h3>
-                        <p class="text-gray-700 mt-2">Invitation letters available upon registration to assist with your visa application.</p>
-                    </div>
-                </div>
-                <!-- Info Column 2 -->
-                <div class="space-y-4">
-                    <div class="info-card">
-                        <h3 class="font-bold text-lg text-ieee-blue-dark flex items-center">
-                            <i class="fas fa-calendar-times mr-3 text-ieee-blue-medium"></i> Cancellation Policy
-                        </h3>
-                        <p class="text-gray-700 mt-2">Full refund until <strong>September 1, 2026</strong>. Please check the full policy for details on partial refunds thereafter.</p>
-                    </div>
-                    <div class="info-card">
-                        <h3 class="font-bold text-lg text-ieee-blue-dark flex items-center">
-                            <i class="fas fa-users-viewfinder mr-3 text-ieee-blue-medium"></i> Group Discounts
-                        </h3>
-                        <p class="text-gray-700 mt-2"><strong>10% off</strong> for groups of 5+ registering from the same institution.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+       <!-- Notes Section -->
+<section class="mb-10">
+    <div class="info-card">
+        <h3 class="font-bold text-lg text-ieee-blue-dark flex items-center">
+            <i class="fas fa-circle-info mr-3 text-ieee-blue-medium"></i> Important Notes
+        </h3>
+        <ul class="text-gray-700 mt-2 list-disc pl-6 space-y-2">
+            <li>All costs above are in INR / USD.</li>
+            <li>Payment will be processed in the local currency after conversion from USD to INR.</li>
+            <li>All participants (authors, co-authors, non-authors) must register individually.</li>
+            <li>Each complete registration allows only one paper.</li>
+            <li>Author registration includes one free paper. Extra papers must be added and paid for.</li>
+            <li>All papers must be registered. Unregistered papers will not be included in the program.</li>
+            <li>All registration categories include access to technical sessions, welcome reception, inauguration, closing ceremony, daily working lunches, and conference banquet.</li>
+            <li><strong>Cancellation Policy:</strong> The registration fee is non-refundable.</li>
+        </ul>
+    </div>
+</section>
 
 
         <!-- Register Now Call to Action (Bottom) -->
