@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>5th IEEE TEMSMET 2026</title>
+    <title>5th TEMSMET 2026</title>
     <!-- Load Tailwind CSS --><script src="https://cdn.tailwindcss.com"></script>
      <script>
         // Custom Tailwind Configuration for the conference theme
@@ -86,6 +86,30 @@
             padding-bottom: 0.75rem;
             margin-bottom: -4px; 
         }
+        .hero-slider-mock {
+    position: relative;
+    overflow: hidden;
+}
+
+.slide-container {
+    position: relative;
+    height: 500px; /* must be fixed or min-height */
+}
+
+.slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+    background-size: cover;
+    background-position: center;
+}
+
+.slide.active {
+    opacity: 1;
+    z-index: 1;
+}
+
 
         /* Hero Slider Styling */
         .hero-slider-mock {
@@ -436,7 +460,7 @@
 <body class="bg-ieee-bg text-ieee-grey-text">
 
     <!-- 1. Top Meta Navigation Bar (Dark Blue) -->
-     <nav class="meta-nav hidden md:block">
+    <!-- <nav class="meta-nav hidden md:block">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <ul class="flex justify-end space-x-4 py-1">
                 <li><a href="https://www.ieee.org/" target="_blank"><strong>IEEE.org</strong></a></li>
@@ -446,7 +470,7 @@
                 <li><a href="https://www.ieee.org/sitemap.html" target="_blank"><strong>More Sites</strong></a></li>
             </ul>
         </div>
-    </nav>
+    </nav>-->
 
     <!-- 2. Main Header (Medium Blue with Logo/Title/Search) -->
     <header id="main-header" class="shadow-lg">
@@ -454,7 +478,7 @@
             <!-- Logo/Title Block -->
             <div class="flex-grow md:flex-grow-0">
                 <a href="index.html" class="flex flex-col items-start text-ieee-blue leading-none">
-                    <h1 class="text-xl md:text-2xl font-bold uppercase tracking-tight">The 5th IEEE TEMSMET 2026 Conference</h1>
+                    <h1 class="text-xl md:text-2xl font-bold uppercase tracking-tight">The 5th TEMSMET 2026 Conference</h1>
                     <span class="text-xs md:text-sm font-light">(Technology, Engineering, Management for Societal Impact)</span>
                 </a>
             </div>
@@ -469,6 +493,9 @@
                 </form>
                 <a href="https://www.ieee.org/" target="_blank" class="w-20">
                     <img src="assests/footerimg.webp" alt="Symbiosis Logo" class="w-full h-auto object-contain">
+                </a>
+                <a href="https://www.ieee.org/" target="_blank" class="w-20">
+                    <img src="assests/download (1).png" alt="Symbiosis Logo" class="w-full h-auto object-contain">
                 </a>
 
                 <a href="https://www.ieee.org/" target="_blank" class="w-20">
@@ -491,14 +518,15 @@
                 <li class="group relative">
                     <a href="#" class="block py-3 text-white font-semibold hover:text-gray-200 transition duration-150">FOR AUTHORS <i class="fas fa-caret-down text-xs"></i></a>
                     <ul class="absolute hidden group-hover:block bg-white shadow-xl rounded-b-lg min-w-[200px] z-20">
-                        <li><a href="call-for-papers.html" class="block px-4 py-2 text-ieee-grey-text hover:bg-gray-100">Call for Papers</a></li>
-                        <li><a href="important-dates.html" class="block px-4 py-2 text-ieee-grey-text hover:bg-gray-100 active-dropdown-link">Important Dates</a></li>
+                        
                         <li><a href="instructions-for-authors.html" class="block px-4 py-2 text-ieee-grey-text hover:bg-gray-100">Instructions for Authors</a></li>
                         <li><a href="instructions-of-review-manuscripts.html" class="block px-4 py-2 text-ieee-grey-text hover:bg-gray-100">Review Manuscripts</a></li>
                          <!-- Active link within the dropdown -->
                         <li><a href="instructions-for-camera-ready-papers.html" class="block px-4 py-2 text-ieee-grey-text hover:bg-gray-100 ">Camera Ready</a></li>
                     </ul>
                 </li>
+                <li><a href="call-for-papers.html" class="block py-3 text-white font-semibold hover:text-gray-200 transition duration-150">CALL FOR PAPER</a></li>
+                <li><a href="important-dates.html" class="block py-3 text-white font-semibold hover:text-gray-200 transition duration-150">IMPORTANT DATES</a></li>
                 <li><a href="registration.html" class="block py-3 text-white font-semibold hover:text-gray-200 transition duration-150">REGISTRATION</a></li>
                 <li><a href="#" class="block py-3 text-white font-semibold hover:text-gray-200 transition duration-150">SPONSORSHIPS</a></li>
                 <li><a href="contact-us.html" class="block py-3 text-white font-semibold hover:text-gray-200 transition duration-150">CONTACT US</a></li>
@@ -558,7 +586,7 @@
                 <div class="slide-container">
                     
                     <!-- SLIDE 1: Theme -->
-                    <div class="slide active" style="background-image: url('https://placehold.co/1200x500/005A9C/FFFFFF?text=Innovating+for+All');">
+                    <div class="slide active" style="background-image: url('assests/symbiosis.png');">
                         <div class="slide-content max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                             <div class="relative z-20 p-6 lg:p-0 w-full lg:w-3/4">
                                 <h2 class="text-3xl lg:text-5xl font-extrabold text-white mb-4 leading-tight">
@@ -633,10 +661,10 @@
 
         <!-- Section: About TEMSMET (Stacked Card 1) -->
         <section id="about-temsmet" class="content-card">
-            <h2 class="section-title">About 5th IEEE TEMSMET 2026</h2>
+            <h2 class="section-title">About 5th TEMSMET 2026</h2>
             <div class="text-gray-700 leading-relaxed text-base">
                 <p class="mb-4">
-                    The <strong>5th IEEE TEMSMET 2026</strong> continues the prestigious global conference series of the IEEE Technology and Engineering Management Society (TEMS), serving as the annual flagship platform for thought leadership in technology, innovation, and engineering management. Since its inception in 2020, the TEMSMET series has consistently brought together researchers, practitioners, and professionals from around the world to explore the evolving intersections of technological advancement and strategic management practices.
+                    The <strong>5th TEMSMET 2026</strong> continues the prestigious global conference series of the Technology and Engineering Management Society (TEMS), serving as the annual flagship platform for thought leadership in technology, innovation, and engineering management. Since its inception in 2020, the TEMSMET series has consistently brought together researchers, practitioners, and professionals from around the world to explore the evolving intersections of technological advancement and strategic management practices.
                 </p>
                 <p class="mb-4">
                     This 5th edition embraces the transformative theme <strong></strong>“Innovating for All: AI, Sustainability, and the Spirit of Vasudeva Kutumbakam”</strong>, reflecting a vision of inclusive innovation, responsible technological growth, and global unity. This edition of the conference will provide a dynamic forum to deliberate on how Artificial Intelligence, sustainable development, and humanity-centric values are shaping the future of technology management.
@@ -652,7 +680,7 @@
                     <li>Networking opportunities for academicians, researchers, industry leaders, students, entrepreneurs, policy thinkers, and practitioners</li>
                 </ul>
                 <p class="mt-4 italic text-sm">
-                    The 5th IEEE TEMSMET 2025 aims to foster collaborative learning, inspire impactful research, and promote a shared commitment to advancing technology for the benefit of all—truly echoing the spirit of Vasudeva Kutumbakam.
+                    The 5th TEMSMET 2025 aims to foster collaborative learning, inspire impactful research, and promote a shared commitment to advancing technology for the benefit of all—truly echoing the spirit of Vasudeva Kutumbakam.
                 </p>
             </div>
         </section>
@@ -779,62 +807,7 @@
 
 
         <!-- Keynote Speakers Section (Previous Edition) -->
-        <section class="mb-10">
-            <h2 class="text-3xl font-extrabold text-center mb-8 text-ieee-blue-dark">Keynote Speakers (Previous Edition)</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Speaker 1 -->
-                <div class="keynote-card-v3">
-                    <div class="image-container">
-                        <img src="https://placehold.co/400x400/F0F0F0/005A9C?text=Dr.+Sarah+Chen" alt="Dr. Sarah Chen">
-                        <span class="keynote-badge">Keynote</span>
-                    </div>
-                    <div class="keynote-content">
-                        <h3>Dr. Sarah Chen</h3>
-                        <p class="role">Chief Technology Officer</p>
-                        <p class="organization">Tech for Good Foundation</p>
-                        <div class="info-item"><i class="fas fa-location-dot"></i><span>Stanford, USA</span></div>
-                        <div class="talk-topic">
-                            <p class="label">Talk Topic: AI for Social Impact</p>
-                            <p class="title">"Leveraging AI to Address Global Challenges"</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Speaker 2 -->
-                <div class="keynote-card-v3">
-                    <div class="image-container">
-                        <img src="https://placehold.co/400x400/F0F0F0/005A9C?text=Prof.+Rajesh+Kumar" alt="Prof. Rajesh Kumar">
-                        <span class="keynote-badge">Keynote</span>
-                    </div>
-                    <div class="keynote-content">
-                        <h3>Prof. Rajesh Kumar</h3>
-                        <p class="role">Director of Innovation</p>
-                        <p class="organization">Indian Institute of Technology</p>
-                        <div class="info-item"><i class="fas fa-location-dot"></i><span>Delhi, India</span></div>
-                        <div class="talk-topic">
-                            <p class="label">Talk Topic: Sustainable Technology</p>
-                            <p class="title">"Engineering Solutions for Climate Change"</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Speaker 3 -->
-                <div class="keynote-card-v3">
-                    <div class="image-container">
-                        <img src="https://placehold.co/400x400/F0F0F0/005A9C?text=Dr.+Maria+Rodriguez" alt="Dr. Maria Rodriguez">
-                        <span class="keynote-badge">Keynote</span>
-                    </div>
-                    <div class="keynote-content">
-                        <h3>Dr. Maria Rodriguez</h3>
-                        <p class="role">Entrepreneurship Professor</p>
-                        <p class="organization">ESADE Business School</p>
-                        <div class="info-item"><i class="fas fa-location-dot"></i><span>Barcelona, Spain</span></div>
-                        <div class="talk-topic">
-                            <p class="label">Talk Topic: Digital Entrepreneurship</p>
-                            <p class="title">"Building Scalable Social Enterprises"</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+       
 
         <!-- Conference Program Section (Keeping existing structure) -->
         <section class="mb-10">
@@ -845,7 +818,7 @@
 
             <!-- Day 1: Technology Innovation -->
             <div class="program-day">
-                <div class="program-day-header">Day 1: Technology Innovation <span class="font-normal text-sm block">October 21, 2026</span></div>
+                <div class="program-day-header">Day 1: Technology Innovation <span class="font-normal text-sm block">October 29, 2026</span></div>
                 
                 <div class="program-item bg-gray-100">
                     <span class="program-time">9:00 AM</span>
@@ -908,7 +881,7 @@
 
             <!-- Day 2: Engineering & Management -->
             <div class="program-day">
-                <div class="program-day-header">Day 2: Engineering & Management <span class="font-normal text-sm block">October 22, 2026</span></div>
+                <div class="program-day-header">Day 2: Engineering & Management <span class="font-normal text-sm block">October 30, 2026</span></div>
                 
                 <div class="program-item bg-gray-100">
                     <span class="program-time">9:00 AM</span>
@@ -971,7 +944,7 @@
 
             <!-- Day 3: Entrepreneurship & Talent -->
             <div class="program-day">
-                <div class="program-day-header">Day 3: Entrepreneurship & Talent <span class="font-normal text-sm block">October 23, 2026</span></div>
+                <div class="program-day-header">Day 3: Entrepreneurship & Talent <span class="font-normal text-sm block">October 31, 2026</span></div>
                 
                 <div class="program-item bg-gray-100">
                     <span class="program-time">9:00 AM</span>
@@ -1045,11 +1018,11 @@
             <!-- 2. Copyright & Social Section (Split layout) -->
             <div class="flex flex-col md:flex-row justify-between items-start md:items-center">
                 <!-- Copyright & Disclaimer (Left) -->
-                <div class="text-xs font-light max-w-xl space-y-1 mb-4 md:mb-0 md:pr-8">
-                    <p>&copy; Copyright 2026 IEEE – All rights reserved. Use of this website signifies your agreement to the IEEE Terms and Conditions.</p>
+                <!--<div class="text-xs font-light max-w-xl space-y-1 mb-4 md:mb-0 md:pr-8">
+                    <p>&copy; Copyright 2026 TEMS – All rights reserved. Use of this website signifies your agreement to the IEEE Terms and Conditions.</p>
                     <p class="mt-1">A public charity, IEEE is the world’s largest technical professional organization dedicated to advancing technology for the benefit of humanity.</p>
                     <p class="mt-1 font-semibold text-ieee-blue-light">Contact: <a href="mailto:temsmet2026@sithyd.siu.edu.in" class="hover:underline">temsmet2026@sithyd.siu.edu.in</a></p>
-                </div>
+                </div>-->
 
                 <!-- Social Links (Right) -->
                 <div class="flex space-x-4 text-xl self-end md:self-auto mb-4 md:mb-0">
@@ -1126,6 +1099,7 @@
                     );
                 }
             });
+            
 
             if (matchesFound > 0) {
                 searchMessage.textContent = `Found ${matchesFound} matches for "${searchTerm}".`;
@@ -1138,127 +1112,126 @@
         };
 
         document.addEventListener('DOMContentLoaded', () => {
-            const menuToggle = document.getElementById('menu-toggle');
-            const closeMenu = document.getElementById('close-menu');
-            const mobileMenuDrawer = document.getElementById('mobile-menu-drawer');
-            const mobileMenuBackdrop = document.getElementById('mobile-menu-backdrop');
-            const mobileSearchToggle = document.getElementById('search-toggle-mobile');
-            const mobileSearchBar = document.getElementById('mobile-search-bar');
-            const backToTop = document.getElementById('back-to-top');
-            const mobileAuthorToggle = document.getElementById('mobile-author-toggle');
-            const mobileAuthorMenu = document.getElementById('mobile-author-menu');
 
-            // --- Mobile Menu Logic ---
-            const toggleMenu = () => {
-                mobileMenuDrawer.classList.toggle('open');
-                mobileMenuBackdrop.classList.toggle('hidden');
-            };
+    const menuToggle = document.getElementById('menu-toggle');
+    const closeMenu = document.getElementById('close-menu');
+    const mobileMenuDrawer = document.getElementById('mobile-menu-drawer');
+    const mobileMenuBackdrop = document.getElementById('mobile-menu-backdrop');
+    const mobileSearchToggle = document.getElementById('search-toggle-mobile');
+    const mobileSearchBar = document.getElementById('mobile-search-bar');
+    const backToTop = document.getElementById('back-to-top');
+    const mobileAuthorToggle = document.getElementById('mobile-author-toggle');
+    const mobileAuthorMenu = document.getElementById('mobile-author-menu');
 
-            menuToggle.addEventListener('click', toggleMenu);
-            closeMenu.addEventListener('click', toggleMenu);
-            mobileMenuBackdrop.addEventListener('click', toggleMenu);
+    /* ---------------- Mobile Menu Logic ---------------- */
+    const toggleMenu = () => {
+        mobileMenuDrawer?.classList.toggle('open');
+        mobileMenuBackdrop?.classList.toggle('hidden');
+    };
 
-            // --- Mobile Search Toggle Logic ---
-            mobileSearchToggle.addEventListener('click', () => {
-                mobileSearchBar.classList.toggle('hidden');
-            });
+    if (menuToggle && closeMenu && mobileMenuBackdrop) {
+        menuToggle.addEventListener('click', toggleMenu);
+        closeMenu.addEventListener('click', toggleMenu);
+        mobileMenuBackdrop.addEventListener('click', toggleMenu);
+    }
 
-            // --- Mobile Author Dropdown Logic ---
-            const authorToggleState = localStorage.getItem('mobileAuthorMenuOpen') === 'true';
-            if (authorToggleState) {
-                mobileAuthorMenu.classList.remove('hidden');
-            }
-
-            mobileAuthorToggle.addEventListener('click', () => {
-                const isHidden = mobileAuthorMenu.classList.toggle('hidden');
-                localStorage.setItem('mobileAuthorMenuOpen', !isHidden);
-            });
-
-
-            // --- Back to Top Logic ---
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > 300) {
-                    backToTop.classList.remove('hidden');
-                } else {
-                    backToTop.classList.add('hidden');
-                }
-            });
-
-            // --- Hero Slider Logic ---
-            const slides = document.querySelectorAll('.slide');
-            const dotsContainer = document.getElementById('slider-dots');
-            let currentSlide = 0;
-            let slideInterval;
-
-            // Function to show a specific slide
-            const showSlide = (n) => {
-                // Wrap around logic
-                if (n >= slides.length) {
-                    currentSlide = 0;
-                } else if (n < 0) {
-                    currentSlide = slides.length - 1;
-                } else {
-                    currentSlide = n;
-                }
-
-                // Update slides opacity
-                slides.forEach((slide, index) => {
-                    slide.classList.remove('active');
-                    if (index === currentSlide) {
-                        slide.classList.add('active');
-                    }
-                });
-
-                // Update dots
-                const dots = dotsContainer.querySelectorAll('.dot');
-                dots.forEach((dot, index) => {
-                    dot.classList.remove('active');
-                    if (index === currentSlide) {
-                        dot.classList.add('active');
-                    }
-                });
-            };
-
-            // Function to generate and initialize dots
-            const initializeDots = () => {
-                slides.forEach((_, index) => {
-                    const dot = document.createElement('div');
-                    dot.classList.add('dot');
-                    dot.setAttribute('data-index', index);
-                    dot.addEventListener('click', () => {
-                        showSlide(index);
-                        resetInterval();
-                    });
-                    dotsContainer.appendChild(dot);
-                });
-                // Show the first slide and activate the first dot
-                showSlide(0);
-            };
-
-            // Auto-advance function
-            const nextSlide = () => {
-                showSlide(currentSlide + 1);
-            };
-
-            // Start and reset the auto-advance interval
-            const startInterval = () => {
-                slideInterval = setInterval(nextSlide, 5000); // Change slide every 5 seconds
-            };
-
-            const resetInterval = () => {
-                clearInterval(slideInterval);
-                startInterval();
-            };
-
-            // Initialize the slider when the DOM is ready
-            initializeDots();
-            startInterval();
-
-            // Set up search event listeners after DOM is ready
-            document.getElementById('desktop-search-form').addEventListener('submit', (e) => handleSearch(e, 'desktop-search-input'));
-            document.getElementById('mobile-search-form').addEventListener('submit', (e) => handleSearch(e, 'mobile-search-input'));
-
+    /* ---------------- Mobile Search Toggle ---------------- */
+    if (mobileSearchToggle && mobileSearchBar) {
+        mobileSearchToggle.addEventListener('click', () => {
+            mobileSearchBar.classList.toggle('hidden');
         });
+    }
+
+    /* ---------------- Mobile Author Dropdown ---------------- */
+    if (mobileAuthorToggle && mobileAuthorMenu) {
+        const authorToggleState = localStorage.getItem('mobileAuthorMenuOpen') === 'true';
+        if (authorToggleState) {
+            mobileAuthorMenu.classList.remove('hidden');
+        }
+
+        mobileAuthorToggle.addEventListener('click', () => {
+            const isHidden = mobileAuthorMenu.classList.toggle('hidden');
+            localStorage.setItem('mobileAuthorMenuOpen', !isHidden);
+        });
+    }
+
+    /* ---------------- Back to Top ---------------- */
+    if (backToTop) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTop.classList.remove('hidden');
+            } else {
+                backToTop.classList.add('hidden');
+            }
+        });
+    }
+
+    /* ---------------- Hero Slider Logic ---------------- */
+    const slides = document.querySelectorAll('.slide');
+    const dotsContainer = document.getElementById('slider-dots');
+    let currentSlide = 0;
+    let slideInterval;
+
+    if (slides.length > 0 && dotsContainer) {
+
+        const showSlide = (n) => {
+            currentSlide = (n + slides.length) % slides.length;
+
+            slides.forEach((slide, index) => {
+                slide.classList.toggle('active', index === currentSlide);
+            });
+
+            const dots = dotsContainer.querySelectorAll('.dot');
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentSlide);
+            });
+        };
+
+        const initializeDots = () => {
+            dotsContainer.innerHTML = '';
+            slides.forEach((_, index) => {
+                const dot = document.createElement('div');
+                dot.classList.add('dot');
+                dot.addEventListener('click', () => {
+                    showSlide(index);
+                    resetInterval();
+                });
+                dotsContainer.appendChild(dot);
+            });
+            showSlide(0);
+        };
+
+        const nextSlide = () => showSlide(currentSlide + 1);
+
+        const startInterval = () => {
+            slideInterval = setInterval(nextSlide, 5000);
+        };
+
+        const resetInterval = () => {
+            clearInterval(slideInterval);
+            startInterval();
+        };
+
+        initializeDots();
+        startInterval();
+    }
+
+    /* ---------------- Search Forms (SAFE) ---------------- */
+    const desktopSearchForm = document.getElementById('desktop-search-form');
+    if (desktopSearchForm) {
+        desktopSearchForm.addEventListener('submit', (e) =>
+            handleSearch(e, 'desktop-search-input')
+        );
+    }
+
+    const mobileSearchForm = document.getElementById('mobile-search-form');
+    if (mobileSearchForm) {
+        mobileSearchForm.addEventListener('submit', (e) =>
+            handleSearch(e, 'mobile-search-input')
+        );
+    }
+
+});
     </script>
 </body>
 </html>
